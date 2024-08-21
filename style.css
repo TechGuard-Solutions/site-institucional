@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+.navbar{
+    width: 100%;
+    height: 80px;
+    border-bottom: #4ADC81 2px solid;
+    display: flex;
+    flex-direction: row;
+    gap: 91px;
+}
+
+.navbar-textos{
+    gap: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar-textos p{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    font-family: 'Goldman', sans-serif;
+    cursor: pointer;
+    color: #FFF;
+}
+.navbar-textos p:hover{
+    color: #4ADC81;
+}
+
+.texto-login{
+    margin-top: 29px;
+    margin-right: 72px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 47px;
+}
+
+.login p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    font-family: 'Roboto', sans-serif;
+    color: #FFF;
+}
+
+.pergunta-conta button{
+    background-color: transparent;
+    border: #4ADC7C 1.5px solid;
+    width: 170px;
+    height: 42px;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #4ADC7C;
+    align-items: center;
+    font-weight: 700;
+}
+.pergunta-conta button:hover{
+    background-color: #4ADC7C;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.pergunta-conta{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #AAF8AD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.antecipe-ataques{
+    font-family: 'Goldman';
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
+    text-align: left;
+    color: #FFF;
+    margin-top: 66px;
+    margin-left: 72px;
+}
