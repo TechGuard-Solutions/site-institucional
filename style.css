@@ -14,10 +14,36 @@ body {
 .navbar {
     width: 100%;
     height: 80px;
-    border-bottom: #4ADC81 2px solid;
+    /* border-bottom: #4ADC81 2px solid; */
     display: flex;
     flex-direction: row;
     gap: 91px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #117701, #4ADC81);
+    background-size: 200% 100%;
+    animation: color-change 4s linear infinite;
+}
+
+@keyframes color-change {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: -100% 50%; 
+    }
 }
 
 .navbar-textos {
@@ -100,12 +126,33 @@ body {
 .cards {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     margin-top: 17vh;
-    border: #4ADC7C 2px solid;
     color: #FFF;
+    gap: 70px;
+    align-items: center;
 }
 
-.cards .card-sobre {
+.fileira1-card {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.fileira2-card {
+    display: flex;
+    justify-content: start;
+    width: 95%;
+}
+
+/* 
+.fileira2-card img{
+    width: 30%;
+    height: 30%;
+} */
+
+.cards .cards-1F,
+.cards-2F {
     height: 513px;
     width: 416px;
     background-color: #151D26;
@@ -119,7 +166,15 @@ body {
     justify-content: space-around;
 }
 
-.sobre-titulo {
+.cards-1F:hover,
+.cards-2F:hover {
+    border: #fff 2px solid;
+    transform: scale(1.05);
+    transition: all 0.5s;
+}
+
+.titulo-1F,
+.titulo-2F {
     font-family: 'Goldman';
     font-weight: 400;
     font-size: 28px;
@@ -127,7 +182,8 @@ body {
     color: #fff;
 }
 
-.sobre-paragrafo {
+.paragrafo-1F,
+.paragrafo-2F {
     font-family: 'Roboto';
     font-weight: 400;
     font-size: 20px;
@@ -140,7 +196,7 @@ body {
     justify-content: space-between;
 }
 
-.botoes-sobre {
+.botoes-1F {
     height: 42px;
     width: 100%;
     max-width: 170px;
@@ -154,7 +210,7 @@ body {
     border-radius: 10px;
 }
 
-.botoes-sobre:hover {
+.botoes-1F:hover {
     background-color: #4ADC7C;
     color: #FFF;
     cursor: pointer;
