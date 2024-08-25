@@ -11,13 +11,25 @@
    background: rgb(48, 117, 131);
     background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
 }
-
+/*
 .navbar {
     width: 100%;
     height: 80px;
     display: flex;
     flex-direction: row;
     gap: 91px;
+    position: relative;
+    padding-bottom: 5px;
+} */
+
+.navbar {
+    margin-top: 2%;
+    object-fit: fill;
+    justify-content: center;
+    width: 100%;
+    height: 120px;
+    display: block;
+    flex-direction: row;
     position: relative;
     padding-bottom: 5px;
 }
@@ -47,15 +59,17 @@
 }
 
 .navbar-textos {
-    gap: 32px;
+    margin-top: 1%;
+    gap: 72px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 .navbar-textos p {
     font-weight: 400;
-    font-size: 18px;
+    font-size: 22px;
     line-height: 32px;
     font-family: 'Goldman', sans-serif;
     cursor: pointer;
@@ -70,29 +84,31 @@
     margin-top: 2.9vh;
     margin-right: 9.6vw;
     display: flex;
+    text-align: center;
     flex-direction: row;
     justify-content: end;
     gap: 47px;
 }
 
+
 .login p {
     font-weight: 400;
-    font-size: 18px;
-    line-height: 32px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 42px;
+    font-family: 'Goldman';
     color: #FFF;
 }
 
 .pergunta-conta button {
+    height: 52px;
+    width: 200px;
+    text-align: center;
     background-color: transparent;
-    border: #4ADC7C 1.5px solid;
-    width: 170px;
-    height: 42px;
-    border-radius: 8px;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    border: #4ADC7C 1.5px solid;
+    border-radius: 8px;
+    font-size: 25px;
     color: #4ADC7C;
-    align-items: center;
     font-weight: 700;
 }
 
@@ -105,7 +121,7 @@
 .pergunta-conta {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     color: #AAF8AD;
     display: flex;
     flex-direction: column;
@@ -126,7 +142,7 @@
 .cards {
     display: flex;
     justify-content: space-around;
-    margin-top: 17vh;
+    margin-top: 12vh;
     color: #FFF;
     gap: 70px;
     align-items: center;
@@ -145,7 +161,7 @@
 }
 
 .cards .cards-1F {
-    height: 513px;
+    height: 565px;
     width: 416px;
     background-color: #151D26;
     border-radius: 40px;
@@ -155,7 +171,7 @@
     padding-bottom: 26px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .cards-1F:hover{
@@ -219,7 +235,8 @@ footer{
 }
 
 /*Tablet */
-@media screen and (max-width: 768px) {
+ 
+@media screen and (max-width: 900px) {
 
     * {
         padding: 0;
@@ -233,9 +250,11 @@ footer{
 }
 
 .navbar {
+    margin-top: 2%;
+    object-fit: fill;
     justify-content: center;
     width: 100%;
-    height: 80px;
+    height: 120px;
     display: block;
     flex-direction: row;
     position: relative;
@@ -267,23 +286,12 @@ footer{
 }
 
 .navbar-textos {
-    gap: 32px;
-    display: none;
+    margin-top: 1%;
+    gap: 72px;
+    display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.navbar-textos p {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 32px;
-    font-family: 'Goldman', sans-serif;
-    cursor: pointer;
-    color: #FFF;
-}
-
-.navbar-textos p:hover {
-    color: #4ADC81;
+    justify-content: center;
 }
 
 .texto-login {
@@ -292,28 +300,28 @@ footer{
     display: flex;
     text-align: center;
     flex-direction: column;
-    justify-content: center;
     gap: 47px;
 }
 
 .login p {
     font-weight: 400;
-    font-size: 18px;
-    line-height: 32px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    line-height: 42px;
+    font-family: 'Goldman';
     color: #FFF;
 }
 
 .pergunta-conta button {
+    height: 52px;
+    width: 100%;
+    max-width: 170px;
+    text-align: center;
     background-color: transparent;
-    border: #4ADC7C 1.5px solid;
-    width: 170px;
-    height: 42px;
-    border-radius: 8px;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    border: #4ADC7C 1.5px solid;
+    border-radius: 8px;
+    font-size: 23px;
     color: #4ADC7C;
-    align-items: center;
     font-weight: 700;
 }
 
@@ -326,39 +334,37 @@ footer{
 .pergunta-conta {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     color: #AAF8AD;
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .antecipe-ataques {
+    object-fit: fill;
     font-family: 'Goldman';
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 400;
     line-height: 48px;
-    text-align: left;
+    text-align: center;
     color: #FFF;
-    margin-top: 8.25vh;
+    margin-top: 8%;
     margin-left: 9.6vw;
+    width: 80%;
 }
 
 .cards {
+    margin-top: 8%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 17vh;
     color: #FFF;
-    gap: 70px;
     align-items: center;
 }
 
 .cards .cards-1F {
-    height: 513px;
-    width: 300px;
-    background-color: #151D26;
-    background-color: red;
+    height: 450px;
+    width: 400px;
+    background-color: #151D26; 
     border-radius: 40px;
     padding-top: 35px;
     padding-left: 32px;
@@ -397,7 +403,7 @@ footer{
 }
 
 .botoes-1F {
-    height: 42px;
+    height: 52px;
     width: 100%;
     max-width: 170px;
     background-color: transparent;
@@ -429,7 +435,9 @@ footer{
     margin-top: 100px;
 }
 } 
- 
+
+/* CELULAR - MOBILE*/ 
+
 @media screen and (max-width: 600px) {
 
     * {
@@ -442,12 +450,24 @@ footer{
    background: rgb(48, 117, 131);
     background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
 }
-
+/*
 .navbar {
     object-fit: fill;
     justify-content: center;
     width: 100%;
     height: 80px;
+    display: block;
+    flex-direction: row;
+    position: relative;
+    padding-bottom: 5px;
+} */
+
+.navbar {
+    margin-top: 2%;
+    object-fit: fill;
+    justify-content: center;
+    width: 100%;
+    height: 125px;
     display: block;
     flex-direction: row;
     position: relative;
@@ -477,26 +497,22 @@ footer{
         background-position: -100% 50%; 
     }
 }
-
+/*
 .navbar-textos {
     gap: 32px;
     display: none;
     flex-direction: row;
     align-items: center;
-}
+} */
 
-.navbar-textos p {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 32px;
-    font-family: 'Goldman', sans-serif;
-    cursor: pointer;
-    color: #FFF;
-}
-
-.navbar-textos p:hover {
-    color: #4ADC81;
-}
+.navbar-textos {
+    margin-top: 1%;
+    gap: 27px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+} 
 
 .texto-login {
     margin-top: 2.9vh;
@@ -510,7 +526,7 @@ footer{
 
 .login p {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 25px;
     line-height: 32px;
     font-family: 'Goldman';
     color: #FFF;
