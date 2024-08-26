@@ -124,7 +124,6 @@ body {
 
 .cards {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     margin-top: 17vh;
     color: #FFF;
@@ -136,12 +135,6 @@ body {
     display: flex;
     justify-content: space-around;
     width: 100%;
-}
-
-.fileira2-card {
-    display: flex;
-    justify-content: start;
-    width: 95%;
 }
 
 .cards .cards-1F {
