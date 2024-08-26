@@ -154,12 +154,6 @@
     width: 100%;
 }
 
-.fileira2-card {
-    display: flex;
-    justify-content: start;
-    width: 95%;
-}
-
 .cards .cards-1F {
     height: 565px;
     width: 416px;
