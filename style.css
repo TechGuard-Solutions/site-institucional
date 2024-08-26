@@ -154,12 +154,6 @@
     width: 100%;
 }
 
-.fileira2-card {
-    display: flex;
-    justify-content: start;
-    width: 95%;
-}
-
 .cards .cards-1F {
     height: 565px;
     width: 416px;
@@ -450,24 +444,13 @@ footer{
    background: rgb(48, 117, 131);
     background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
 }
-/*
-.navbar {
-    object-fit: fill;
-    justify-content: center;
-    width: 100%;
-    height: 80px;
-    display: block;
-    flex-direction: row;
-    position: relative;
-    padding-bottom: 5px;
-} */
 
 .navbar {
     margin-top: 2%;
     object-fit: fill;
     justify-content: center;
     width: 100%;
-    height: 125px;
+    height: 115px;
     display: block;
     flex-direction: row;
     position: relative;
@@ -497,22 +480,28 @@ footer{
         background-position: -100% 50%; 
     }
 }
-/*
-.navbar-textos {
-    gap: 32px;
-    display: none;
-    flex-direction: row;
-    align-items: center;
-} */
 
 .navbar-textos {
     margin-top: 1%;
-    gap: 27px;
+    gap: 16px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 } 
+
+.navbar-textos p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    font-family: 'Goldman', sans-serif;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.navbar-textos p:hover {
+    color: #4ADC81;
+}
 
 .texto-login {
     margin-top: 2.9vh;
