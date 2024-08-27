@@ -288,6 +288,19 @@ footer{
     justify-content: center;
 }
 
+.navbar-textos p {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+    font-family: 'Goldman', sans-serif;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.navbar-textos p:hover {
+    color: #4ADC81;
+}
+
 .texto-login {
     margin-top: 2.9vh;
     margin-right: 9.6vw;
@@ -432,7 +445,7 @@ footer{
 
 /* CELULAR - MOBILE*/ 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 
     * {
         padding: 0;
@@ -444,24 +457,13 @@ footer{
    background: rgb(48, 117, 131);
     background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
 }
-/*
-.navbar {
-    object-fit: fill;
-    justify-content: center;
-    width: 100%;
-    height: 80px;
-    display: block;
-    flex-direction: row;
-    position: relative;
-    padding-bottom: 5px;
-} */
 
 .navbar {
     margin-top: 2%;
     object-fit: fill;
     justify-content: center;
     width: 100%;
-    height: 125px;
+    height: 112px;
     display: block;
     flex-direction: row;
     position: relative;
@@ -491,22 +493,28 @@ footer{
         background-position: -100% 50%; 
     }
 }
-/*
-.navbar-textos {
-    gap: 32px;
-    display: none;
-    flex-direction: row;
-    align-items: center;
-} */
 
 .navbar-textos {
     margin-top: 1%;
-    gap: 27px;
+    gap: 16px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 } 
+
+.navbar-textos p {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 30px;
+    font-family: 'Goldman', sans-serif;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.navbar-textos p:hover {
+    color: #4ADC81;
+}
 
 .texto-login {
     margin-top: 2.9vh;
