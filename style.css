@@ -530,6 +530,15 @@ footer {
         box-sizing: border-box;
     }
 
+    .circulo {
+        width: 180%;
+        z-index: -20;
+        animation: circulo 1s infinite;
+        position: absolute;
+        margin-top: -180%;
+        margin-left: -90%;
+    }
+
     body {
         background: rgb(48, 117, 131);
         background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
@@ -619,12 +628,6 @@ footer {
     }
 
     .navbar-textos {
-        /* margin-top: 1%;
-        gap: 27px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center; */
         display: none;
     }
 
@@ -637,11 +640,6 @@ footer {
     }
 
     .login p {
-        /* font-weight: 400;
-        font-size: 25px;
-        line-height: 32px;
-        font-family: 'Goldman';
-        color: #FFF; */
         display: none;
     }
 
@@ -770,7 +768,6 @@ footer {
         font-family: 'Goldman';
         font-weight: 400;
         font-size: 16px;
-        margin-top: -54px;
     }
 }
 
