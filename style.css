@@ -232,7 +232,8 @@ body {
     justify-content: space-evenly;
 }
 
-.cards-1F:hover {
+.cards-1F:hover,
+.cardsSemBotao:hover {
     border: #fff 2px solid;
     transform: scale(1.05);
     transition: all 0.5s;
@@ -498,166 +499,6 @@ footer {
 
 /* CELULAR - MOBILE*/
 
-<<<<<<< HEAD
-.navbar-textos p {
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 32px;
-    font-family: 'Goldman', sans-serif;
-    cursor: pointer;
-    color: #FFF;
-}
-
-.navbar-textos p:hover {
-    color: #4ADC81;
-}
-
-.texto-login {
-    margin-top: 2.9vh;
-    margin-right: 9.6vw;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    gap: 47px;
-}
-
-.login p {
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 42px;
-    font-family: 'Goldman';
-    color: #FFF;
-}
-
-.pergunta-conta button {
-    height: 52px;
-    width: 100%;
-    max-width: 170px;
-    text-align: center;
-    background-color: transparent;
-    font-family: 'Roboto', sans-serif;
-    border: #4ADC7C 1.5px solid;
-    border-radius: 8px;
-    font-size: 23px;
-    color: #4ADC7C;
-    font-weight: 700;
-}
-
-.pergunta-conta button:hover {
-    background-color: #4ADC7C;
-    color: #FFF;
-    cursor: pointer;
-}
-
-.pergunta-conta {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: #AAF8AD;
-    display: flex;
-}
-
-.antecipe-ataques {
-    object-fit: fill;
-    font-family: 'Goldman';
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 48px;
-    text-align: center;
-    color: #FFF;
-    margin-top: 8%;
-    margin-left: 9.6vw;
-    width: 80%;
-}
-
-.cards {
-    margin-top: 8%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #FFF;
-    align-items: center;
-}
-
-.cards .cards-1F {
-    height: 450px;
-    width: 400px;
-    background-color: #151D26; 
-    border-radius: 40px;
-    padding-top: 35px;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-bottom: 26px;
-    display: block;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.cards-1F:hover{
-    border: #fff 2px solid;
-    transform: scale(1.05);
-    transition: all 0.5s;
-}
-
-.titulo-1F{
-    font-family: 'Goldman';
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 24px;
-    color: #fff;
-}
-
-.paragrafo-1F{
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 32px;
-    color: #AAF8AD;
-}
-
-.botoes {
-    display: flex;
-    justify-content: space-between;
-}
-
-.botoes-1F {
-    height: 52px;
-    width: 100%;
-    max-width: 170px;
-    background-color: transparent;
-    border: #4ADC7C 1px solid;
-    font-family: 'Roboto';
-    font-size: 16px;
-    font-weight: 700;
-    align-items: center;
-    color: #4ADC7C;
-    border-radius: 10px;
-}
-
-.botoes-1F:hover {
-    background-color: #4ADC7C;
-    color: #FFF;
-    cursor: pointer;
-}
-
-footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    background-color: #14272B;
-    color: #FFF;
-    font-family: 'Goldman';
-    font-weight: 400;
-    font-size: 16px;
-    margin-top: 100px;
-}
-} 
-
-/* CELULAR - MOBILE*/ 
-
-=======
->>>>>>> 60b73cb6f3f33d804402dea29014a6a48a8feaac
 @media screen and (max-width: 700px) {
 
     * {
@@ -667,42 +508,8 @@ footer{
     }
 
     body {
-<<<<<<< HEAD
-   background: rgb(48, 117, 131);
-    background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
-}
-
-.navbar {
-    margin-top: 2%;
-    object-fit: fill;
-    justify-content: center;
-    width: 100%;
-    height: 112px;
-    display: block;
-    flex-direction: row;
-    position: relative;
-    padding-bottom: 5px;
-}
-
-.navbar::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, #117701, #4ADC81);
-    background-size: 200% 100%;
-    animation: color-change 4s linear infinite;
-}
-
-@keyframes color-change {
-    0% {
-        background-position: 0% 50%;
-=======
         background: rgb(48, 117, 131);
         background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
->>>>>>> 60b73cb6f3f33d804402dea29014a6a48a8feaac
     }
 
     .navbar {
@@ -726,20 +533,9 @@ footer{
             background-position: 0% 50%;
         }
 
-<<<<<<< HEAD
-.navbar-textos p {
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 30px;
-    font-family: 'Goldman', sans-serif;
-    cursor: pointer;
-    color: #FFF;
-}
-=======
         50% {
             background-position: 100% 50%;
         }
->>>>>>> 60b73cb6f3f33d804402dea29014a6a48a8feaac
 
         100% {
             background-position: -100% 50%;
