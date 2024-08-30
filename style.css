@@ -292,7 +292,28 @@ footer {
     font-weight: 400;
     font-size: 16px;
     margin-top: 100px;
-    z-index: 10;
+    z-index: 20;
+}
+
+.circulo {
+    width: 50%;
+    z-index: -20;
+    animation: circulo 1s infinite;
+    position: absolute;
+    margin-top: -50%;
+    margin-left: -20%;
+}
+
+@keyframes circulo {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /*Tablet */
@@ -753,20 +774,3 @@ footer {
     }
 }
 
-.circulo {
-    width: 430px;
-    z-index: -10;
-    animation: circulo 1s infinite;
-}
-
-@keyframes circulo {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
