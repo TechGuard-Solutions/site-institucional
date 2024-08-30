@@ -211,7 +211,7 @@ body {
 }
 
 .popup .fechar p {
-    transition: transform 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 .popup .fechar p:hover {
