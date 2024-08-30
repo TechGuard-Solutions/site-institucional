@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <div class="navbar">
    <center><img src="assets/Logo - TechGuard 1.png" alt=""> </center> 
         <div class="navbar-textos">
@@ -61,11 +62,98 @@
                     omnis
                     esse corrupti praesentium voluptas.</p>
             </div>
-    </div>
+=======
+    <div id="content">
+        <div class="navbar">
+            <center><img src="assets/Logo - TechGuard 1.png" alt=""> </center>
+            <div class="navbar-textos">
+                <p style="color: #4ADC7C;">início</p>
+                <p>tópicos</p>
+                <p>serviços</p>
+                <p>canais</p>
+                <p>contato</p>
+            </div>
+        </div>
+        <div class="texto-login">
+            <div class="login">
+                <p>Faça o seu login para acessar:</p>
+            </div>
+            <div class="pergunta-conta">
+                <button>login</button>
+                <p>Não tem uma conta?</p>
+            </div>
+        </div>
 
-    <footer>
-        <p>© 2024 TECHGUARD SOLUTIONS.</p>
-    </footer>
+        <p class="antecipe-ataques">ANTECIPE ATAQUES E MELHORE SUA DEFESA.</p>
+
+        <div class="cards">
+            <div class="cards-1F">
+                <p class="titulo-1F">SOBRE NÓS</p>
+                <p class="paragrafo-1F">Na TechGuard Solutions, nossa missão é ajudar a proteger sua empresa contra
+                    ataques
+                    cibernéticos. Utilizamos base de dados para analisar ataques cibernéticos passados. Com base nessas
+                    análises, fornecemos sugestões para prevenir que sua empresa seja alvo desses ataques no futuro.
+                </p>
+                <div class="botoes">
+                    <button class="botoes-1F" onclick="abrir()">saiba mais</button>
+                    <button class="botoes-1F">contato</button>
+                </div>
+            </div>
+
+            <div class="cardsSemBotao">
+                <p class="titulo-1F">SERVIÇOS</p>
+                <p class="paragrafo-1F">Na TechGuard Solutions, oferecemos serviços de cibersegurança que analisam dados
+                    históricos para identificar ameaças e fornecer recomendações personalizadas, ajudando a fortalecer a
+                    defesa digital da sua empresa contra futuros ataques.</p>
+            </div>
+            <div class="cardsSemBotao">
+                <p class="titulo-1F">COMO FUNCIONA</p>
+                <p class="paragrafo-1F">
+                    Na TechGuard Solutions, analisamos dados históricos de cibersegurança para identificar padrões de
+                    ameaças e vulnerabilidades. Com base nessa análise, oferecemos sugestões personalizadas para
+                    prevenir
+                    futuros ataques e fortalecer a defesa digital da sua empresa. </p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 TECHGUARD SOLUTIONS.</p>
+        </footer>
+
+    </div>
+    <div id="popup" class="popup" style="display: none;">
+        <div class="fechar">
+            <p onclick="fechar()">x</p>
+        </div>
+        <div class="texto-popup">
+            <p>Na TechGuard Solutions, <span style="color: #00ff59;">nossa missão é garantir a proteção da sua empresa
+                    contra ataques
+                    cibernéticos</span>. Utilizamos uma <span style="color: #00ff59;">base de dados</span> robusta e
+                abrangente para analisar detalhadamente os
+                ataques cibernéticos <span style="color: #00ff59;">ocorridos no passado</span>. A partir dessas
+                análises, identificamos <span style="color: #00ff59;">padrões e
+                    vulnerabilidades</span> que podem representar <span style="color: #00ff59;">riscos para sua
+                    empresa</span>. Com essas informações, <span style="color: #00ff59;">fornecemos
+                    sugestões estratégicas e personalizadas</span> para prevenir que sua empresa se torne alvo de
+                ataques
+                semelhantes no futuro, ajudando a fortalecer sua segurança digital de maneira proativa e eficaz.</p>
+        </div>
+>>>>>>> 60b73cb6f3f33d804402dea29014a6a48a8feaac
+    </div>
 </body>
 
 </html>
+<<<<<<< HEAD
+=======
+<script>
+    function abrir() {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('content').classList.add('blur-background'); 
+    }
+
+    function fechar() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('content').classList.remove('blur-background');
+    }
+</script>
+>>>>>>> 60b73cb6f3f33d804402dea29014a6a48a8feaac
