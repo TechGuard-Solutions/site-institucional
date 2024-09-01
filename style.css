@@ -186,22 +186,24 @@ body {
 }
 
 .popup .fechar {
-    font-size: 40px;
+    font-size: 35px;
     display: flex;
     justify-content: end;
     width: 100%;
     font-family: 'Nerko One';
-    color: red;
-
+    color: #4ADC7C;
+    height: 10%;
+    align-items: center;
 }
 
 .popup .fechar p {
-    transition: 0.5s ease-in-out;
+    transition: 0.2s;
 }
 
 .popup .fechar p:hover {
     cursor: pointer;
-    transform: rotate(360deg);
+    font-size: 40px;
+    color: red;
 }
 
 
@@ -561,22 +563,24 @@ footer {
     }
     
     .popup .fechar {
-        font-size: 40px;
+        font-size: 35px;
         display: flex;
         justify-content: end;
         width: 100%;
         font-family: 'Nerko One';
-        color: red;
-    
+        color: #4ADC7C;
+        height: 10%;
+        align-items: center;
     }
     
     .popup .fechar p {
-        transition: transform 0.5s ease-in-out;
+        transition: 0.2s;
     }
     
     .popup .fechar p:hover {
         cursor: pointer;
-        transform: rotate(360deg);
+        font-size: 40px;
+        color: red;
     }
 
     .navbar-textos {
@@ -688,8 +692,8 @@ footer {
 
     .paragrafo-1F {
         font-family: 'Roboto';
-        font-weight: 400;
-        font-size: 15px;
+        font-weight: 500;
+        font-size: 17px;
         line-height: 32px;
         color: #AAF8AD;
     }
