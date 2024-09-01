@@ -14,15 +14,15 @@ body {
 }
 
 .navbar {
-    margin-top: 2%;
+    margin-top: 1%;
+    padding-bottom: 1%;
     object-fit: fill;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
-    height: 120px;
-    display: block;
+    height: 100%;
+    display: flex;
     flex-direction: row;
-    position: relative;
-    padding-bottom: 5px;
+    position: relative
 }
 
 .navbar::after {
@@ -35,6 +35,13 @@ body {
     background: linear-gradient(to right, #117701, #4ADC81);
     background-size: 200% 100%;
     animation: color-change 4s linear infinite;
+}
+
+.navbar img {
+    width: 40px;
+    height: 40px;
+    margin-left: 3.6vw;
+    margin-top: 0.3%;
 }
 
 @keyframes color-change {
@@ -51,31 +58,9 @@ body {
     }
 }
 
-.navbar-textos {
-    margin-top: 1%;
-    gap: 72px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.navbar-textos p {
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 32px;
-    font-family: 'Goldman', sans-serif;
-    cursor: pointer;
-    color: #FFF;
-}
-
-.navbar-textos p:hover {
-    color: #4ADC81;
-}
-
 .texto-login {
-    margin-top: 2.9vh;
-    margin-right: 9.6vw;
+    /* margin-top: 2.9vh; */
+    margin-right: 4.0vw;
     display: flex;
     text-align: center;
     flex-direction: row;
@@ -85,30 +70,36 @@ body {
 
 
 .login p {
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 42px;
+    font-size: 16px;
+    line-height: 50px;
     font-family: 'Goldman';
     color: #FFF;
 }
 
-.pergunta-conta button {
-    height: 52px;
-    width: 200px;
-    text-align: center;
+
+.pergunta-conta button{
     background-color: transparent;
-    font-family: 'Roboto', sans-serif;
-    border: #4ADC7C 1.5px solid;
-    border-radius: 8px;
-    font-size: 25px;
+    border: 2px solid #4ADC7C;
     color: #4ADC7C;
-    font-weight: 700;
+    border-radius: 5px;
+    height: 44.8px;
+    width: 130px;
+    cursor: pointer;
+    font-family: "Goldman";
+    margin-bottom: 10px;
+    transition: 0.4s;
 }
 
-.pergunta-conta button:hover {
+.pergunta-conta button:hover{
     background-color: #4ADC7C;
-    color: #FFF;
+    transition: 0.4s;
+    color: #151D26;
     cursor: pointer;
+}
+
+.pergunta-conta a {
+    text-decoration: none;
+    color: #4ADC7C;
 }
 
 .pergunta-conta {
@@ -123,13 +114,12 @@ body {
 
 .antecipe-ataques {
     font-family: 'Goldman';
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 48px;
+    font-size: 32px;
+    line-height: 50px;
     text-align: left;
     color: #FFF;
     margin-top: 8.25vh;
-    margin-left: 9.6vw;
+    margin-left: 3.6vw;
 }
 
 .cards {
@@ -141,15 +131,9 @@ body {
     align-items: center;
 }
 
-.fileira1-card {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
 .cards .cards-1F {
-    height: 565px;
-    width: 416px;
+    height: 500px;
+    width: 350px;
     background-color: #151D26;
     border-radius: 40px;
     padding-top: 35px;
@@ -159,7 +143,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    z-index: 5;
+    transition: 0.5s;
 }
 
 .blur-background {
@@ -202,39 +186,28 @@ body {
 }
 
 .popup .fechar {
-    font-size: 40px;
+    font-size: 35px;
     display: flex;
     justify-content: end;
     width: 100%;
     font-family: 'Nerko One';
-    color: red;
-
+    color: #4ADC7C;
+    height: 10%;
+    align-items: center;
 }
 
 .popup .fechar p {
-    transition: 0.5s ease-in-out;
+    transition: 0.2s;
 }
 
 .popup .fechar p:hover {
     cursor: pointer;
-    transform: rotate(360deg);
+    font-size: 40px;
+    color: red;
 }
 
-.cards .cardsSemBotao {
-    height: 565px;
-    width: 416px;
-    background-color: #151D26;
-    border-radius: 40px;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-bottom: 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
 
-.cards-1F:hover,
-.cardsSemBotao:hover {
+.cards-1F:hover {
     border: #fff 2px solid;
     transform: scale(1.05);
     transition: all 0.5s;
@@ -250,15 +223,17 @@ body {
 
 .paragrafo-1F {
     font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 32px;
     color: #AAF8AD;
+    height: 100%;
+    margin-top: 10%;
 }
 
 .botoes {
     display: flex;
     justify-content: space-between;
+    gap:6%;
 }
 
 .botoes-1F {
@@ -272,12 +247,13 @@ body {
     font-weight: 700;
     align-items: center;
     color: #4ADC7C;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .botoes-1F:hover {
     background-color: #4ADC7C;
-    color: #FFF;
+    color: #151D26;
+    transition: 0.4s;
     cursor: pointer;
 }
 
@@ -318,7 +294,7 @@ footer {
 
 /*Tablet */
 
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
 
     * {
         padding: 0;
@@ -518,7 +494,7 @@ footer {
         font-size: 16px;
         margin-top: 100px;
     }
-}
+} */
 
 /* CELULAR - MOBILE*/
 
@@ -545,7 +521,16 @@ footer {
     }
 
     .navbar {
+        padding-bottom: 1%;
+        margin-top: 0px;
+        object-fit: fill;
+        justify-content: space-between;
+        width: 100%;
         height: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        align-items: center;
     }
 
     .navbar::after {
@@ -609,22 +594,24 @@ footer {
     }
 
     .popup .fechar {
-        font-size: 40px;
+        font-size: 35px;
         display: flex;
         justify-content: end;
         width: 100%;
         font-family: 'Nerko One';
-        color: red;
-
+        color: #4ADC7C;
+        height: 10%;
+        align-items: center;
     }
 
     .popup .fechar p {
-        transition: transform 0.5s ease-in-out;
+        transition: 0.2s;
     }
 
     .popup .fechar p:hover {
         cursor: pointer;
-        transform: rotate(360deg);
+        font-size: 40px;
+        color: red;
     }
 
     .navbar-textos {
@@ -632,11 +619,12 @@ footer {
     }
 
     .texto-login {
+        margin-top: 2%;
+        margin-right: 4.0vw;
         display: flex;
-        align-items: end;
-        width: 100%;
-        margin-top: -20px;
-        padding-right: 10px;
+        text-align: center;
+        flex-direction: row;
+        justify-content: center;
     }
 
     .login p {
@@ -656,20 +644,17 @@ footer {
         font-weight: 700;
     }
 
-    .pergunta-conta button:hover {
-        background-color: #4ADC7C;
-        color: #FFF;
+    .pergunta-conta button{
+        background-color: transparent;
+        border: 2px solid #4ADC7C;
+        color: #4ADC7C;
+        border-radius: 5px;
+        height: 44.8px;
+        width: 130px;
         cursor: pointer;
-    }
-
-    .pergunta-conta {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 400;
-        font-size: 12px;
-        color: #AAF8AD;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        font-family: "Goldman";
+        margin-bottom: 10px;
+        transition: 0.4s;
     }
 
     .antecipe-ataques {
@@ -727,8 +712,8 @@ footer {
 
     .paragrafo-1F {
         font-family: 'Roboto';
-        font-weight: 400;
-        font-size: 15px;
+        font-weight: 500;
+        font-size: 17px;
         line-height: 32px;
         color: #AAF8AD;
     }
