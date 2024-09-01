@@ -26,7 +26,7 @@
                 <p>Faça o seu login para acessar:</p>
             </div>
             <div class="pergunta-conta">
-                <button>login</button>
+                <button onclick="login()">login</button>
                 <p>Não tem uma conta?</p>
             </div>
         </div>
@@ -63,6 +63,10 @@
             </div>
         </div>
 
+        <div>
+            <img src="assets/circulo.png" alt="Circulo pulsante" class="circulo">
+        </div>
+
         <footer>
             <p>© 2024 TECHGUARD SOLUTIONS.</p>
         </footer>
@@ -92,11 +96,15 @@
 <script>
     function abrir() {
         document.getElementById('popup').style.display = 'block';
-        document.getElementById('content').classList.add('blur-background'); 
+        document.getElementById('content').classList.add('blur-background');
     }
 
     function fechar() {
         document.getElementById('popup').style.display = 'none';
         document.getElementById('content').classList.remove('blur-background');
+    }
+
+    function login() {
+        window.location.href = "login.html";
     }
 </script>

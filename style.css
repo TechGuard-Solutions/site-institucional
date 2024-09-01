@@ -159,6 +159,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    z-index: 5;
 }
 
 .blur-background {
@@ -291,6 +292,28 @@ footer {
     font-weight: 400;
     font-size: 16px;
     margin-top: 100px;
+    z-index: 20;
+}
+
+.circulo {
+    width: 50%;
+    z-index: -20;
+    animation: circulo 1s infinite;
+    position: absolute;
+    margin-top: -50%;
+    margin-left: -20%;
+}
+
+@keyframes circulo {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /*Tablet */
@@ -507,6 +530,15 @@ footer {
         box-sizing: border-box;
     }
 
+    .circulo {
+        width: 180%;
+        z-index: -20;
+        animation: circulo 1s infinite;
+        position: absolute;
+        margin-top: -180%;
+        margin-left: -90%;
+    }
+
     body {
         background: rgb(48, 117, 131);
         background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
@@ -564,7 +596,7 @@ footer {
         -moz-box-shadow: 7px 4px 12px 2px rgba(74, 220, 124, 1);
         box-shadow: 7px 4px 12px 2px rgba(74, 220, 124, 1);
     }
-    
+
     .popup .texto-popup {
         font-size: 18px;
         color: #fff;
@@ -575,7 +607,7 @@ footer {
         flex-direction: column;
         justify-content: center;
     }
-    
+
     .popup .fechar {
         font-size: 40px;
         display: flex;
@@ -583,25 +615,19 @@ footer {
         width: 100%;
         font-family: 'Nerko One';
         color: red;
-    
+
     }
-    
+
     .popup .fechar p {
         transition: transform 0.5s ease-in-out;
     }
-    
+
     .popup .fechar p:hover {
         cursor: pointer;
         transform: rotate(360deg);
     }
 
     .navbar-textos {
-        /* margin-top: 1%;
-        gap: 27px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center; */
         display: none;
     }
 
@@ -614,11 +640,6 @@ footer {
     }
 
     .login p {
-        /* font-weight: 400;
-        font-size: 25px;
-        line-height: 32px;
-        font-family: 'Goldman';
-        color: #FFF; */
         display: none;
     }
 
@@ -747,6 +768,6 @@ footer {
         font-family: 'Goldman';
         font-weight: 400;
         font-size: 16px;
-        margin-top: 100px;
     }
 }
+
