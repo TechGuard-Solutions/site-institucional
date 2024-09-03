@@ -34,8 +34,8 @@
                     análises, fornecemos sugestões para prevenir que sua empresa seja alvo desses ataques no futuro.
                 </p>
                 <div class="botoes">
-                    <button class="botoes-1F" onclick="abrir()">saiba mais</button>
-                    <button class="botoes-1F">contato</button>
+                    <button class="botoes-1F" onclick="abrir()">Saiba mais</button>
+                    <button class="botoes-1F" onclick="abrirContato()">Contato</button>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
                     históricos para identificar ameaças e fornecer recomendações personalizadas, ajudando a fortalecer a
                     defesa digital da sua empresa contra futuros ataques.</p>
                     <div class="botoes">
-                        <button class="botoes-1F" onclick="abrir()">saiba mais</button>
+                        <button class="botoes-1F" onclick="abrir()">Saiba mais</button>
                     </div>
             </div>
             <div class="cards-1F">
@@ -56,11 +56,21 @@
                     prevenir
                     futuros ataques e fortalecer a defesa digital da sua empresa.</p>
                     <div class="botoes">
-                        <button class="botoes-1F" onclick="abrir()">saiba mais</button>
+                        <button class="botoes-1F" onclick="abrir()">Saiba mais</button>
                     </div>
             </div>
         </div>
-
+        <section id="contato" style="display: none;">
+            <h1>CONTATO</h1>
+            <form action="https://api.staticforms.xyz/submit" method="post">
+                <input type="text" name="name" placeholder="Nome" class="inputForm">
+                <input type="text" name="email" placeholder="Email" class="inputForm"/>
+                <textarea name="message" class="inputTextArea" placeholder="Mensagem"></textarea>
+                <input type="text" name="honeypot" style="display:none">
+                <input type="hidden" name="accessKey" value="982d06b1-f682-4a60-b757-75b3c052bfdb" style="display: none;">
+                <input type="submit" value="ENVIAR" class="botoes-1F"/>
+            </form>
+        </section>
         <div>
             <img src="assets/circulo.png" alt="Circulo pulsante" class="circulo">
         </div>
@@ -112,5 +122,10 @@
 
     function login() {
         window.location.href = "login.html";
+    }
+
+    function abrirContato() {
+        contato.style.display = 'flex';
+        // window.location.href = 'localhost:5500/index.html#contato';
     }
 </script>

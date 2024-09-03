@@ -303,6 +303,62 @@ footer {
     }
 }
 
+#contato {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 5%;
+}
+
+#contato h1 {
+    display: flex;
+    justify-content: center;
+    color: #FFF;
+    font-family: "Goldman";
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.inputForm{
+    height: 50px;
+    width: 250px;
+    margin-bottom: 20px;
+    background: none;
+    border: none;
+    border-bottom: #4ADC7C solid;
+    color: #AAF8AD;
+
+    padding: 15px;
+    font-family: "Roboto";
+    font-size: 16px;
+    outline: none;
+}
+
+.inputTextArea{
+    height: 200px;
+    width: 500px;
+    margin-top: 20px;
+    background: none;
+    border: none;
+    border: #4ADC7C solid;
+    color: #AAF8AD;
+
+    padding: 15px;
+    font-family: "Roboto";
+    font-size: 16px;
+    outline: none;
+}
+
+form .botoes-1F {
+    margin-top: 3%;
+}
 /*Tablet */
 
 /* @media screen and (max-width: 900px) {
@@ -522,7 +578,7 @@ footer {
         z-index: -20;
         animation: circulo 1s infinite;
         position: absolute;
-        margin-top: -180%;
+        margin-top: -300%;
         margin-left: -90%;
     }
 
@@ -773,5 +829,61 @@ footer {
         font-weight: 400;
         font-size: 16px;
     }
-}
 
+    #contato {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 5%;
+    }
+    
+    #contato h1 {
+        display: flex;
+        justify-content: center;
+        color: #FFF;
+        font-family: "Goldman";
+    }
+    
+    form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2%;
+    }
+    
+    .inputForm{
+        height: 50px;
+        width: 250px;
+        margin-bottom: 20px;
+        background: none;
+        border: none;
+        border-bottom: #4ADC7C solid;
+        color: #AAF8AD;
+    
+        padding: 15px;
+        font-family: "Roboto";
+        font-size: 16px;
+        outline: none;
+    }
+    
+    .inputTextArea{
+        height: 200px;
+        width: 300px;
+        margin-top: 20px;
+        background: none;
+        border: none;
+        border: #4ADC7C solid;
+        color: #AAF8AD;
+    
+        padding: 15px;
+        font-family: "Roboto";
+        font-size: 16px;
+        outline: none;
+    }
+    
+    form .botoes-1F {
+        margin-top: 3%;
+    }
+}
