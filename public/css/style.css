@@ -248,7 +248,8 @@ body {
     gap:6%;
 }
 
-.botoes-1F {
+.botoes-1F,
+.titulo-direcionar-plano button {
     height: 42px;
     width: 100%;
     max-width: 170px;
@@ -262,11 +263,29 @@ body {
     border-radius: 5px;
 }
 
-.botoes-1F:hover {
+.botoes-1F:hover,
+.titulo-direcionar-plano button:hover {
     background-color: #4ADC7C;
     color: #151D26;
     transition: 0.4s;
     cursor: pointer;
+}
+
+.titulo-direcionar-plano {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 5%;
+    margin-top: 100px;
+}
+
+.titulo-direcionar-plano p {
+    font-family: 'Goldman';
+    font-size: 32px;
+    line-height: 50px;
+    text-align: center;
+    color: #FFF;
 }
 
 footer {

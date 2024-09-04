@@ -60,6 +60,12 @@
                     </div>
             </div>
         </div>
+
+        <div class="titulo-direcionar-plano">
+            <p>SAIBA MAIS SOBRE NOSSOS PLANOS:</p>
+            <button onclick="direcionarPlanos()">Nossos planos</button>
+        </div>
+
         <section id="contato" style="display: none;">
             <h1>CONTATO</h1>
             <form action="https://api.staticforms.xyz/submit" method="post">
@@ -122,6 +128,10 @@
 
     function login() {
         window.location.href = "login.html";
+    }
+
+    function direcionarPlanos() {
+        window.location.href = "planos.html"
     }
 
     function abrirContato() {

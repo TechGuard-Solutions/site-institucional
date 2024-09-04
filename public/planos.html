@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechGuard Solutions - Planos</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="css/planos.css">
+    <link rel="stylesheet" href="./css/planos.css">
     <link rel="icon" href="assets/Logo - TechGuard 1.png">
 </head>
 <body>
@@ -33,7 +33,7 @@
                         <li>Prompts pré-programados</li>
                         <li>Base de dados fornecida pela TechGuard Solutions</li>
                     </ul>
-                    <button>Comprar</button>
+                    <button onclick="abrirContato()">Comprar</button>
                 </div>
             </div>
             <div class="card-plano">
@@ -48,10 +48,21 @@
                         <li>Você faz uploads de bases de dados do seu interesse</li>
                         <li>Você faz uploads de bases de dados próprias</li>
                     </ul>
-                    <button>Comprar</button>
+                    <button onclick="abrirContato()">Comprar</button>
                 </div>
             </div>
         </div>
+        <section id="contato" style="display: none;">
+            <h1>CONTATO</h1>
+            <form action="https://api.staticforms.xyz/submit" method="post">
+                <input type="text" name="name" placeholder="Nome" class="inputForm">
+                <input type="text" name="email" placeholder="Email" class="inputForm"/>
+                <textarea name="message" class="inputTextArea" placeholder="Mensagem"></textarea>
+                <input type="text" name="honeypot" style="display:none">
+                <input type="hidden" name="accessKey" value="982d06b1-f682-4a60-b757-75b3c052bfdb" style="display: none;">
+                <input type="submit" value="ENVIAR" class="botoes-1F"/>
+            </form>
+        </section>
     </div>
 
     <footer>
@@ -63,5 +74,11 @@
 <script>
     function voltarIndex() {
         window.location.href = "index.html"
+    }
+
+    function abrirContato() {
+        contato.style.display = 'flex';
+        window.location.href = '#contato';
+        // window.location.replace('localhost:5500//index.html/#contato');
     }
 </script>
