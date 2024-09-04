@@ -60,7 +60,7 @@ body {
 
 .cadastro {
     width: 400px;
-    height: 620px;
+    height: 650px;
     background-color: #151D26;
     color: #4ADC7C;
     font-family: "Goldman";
@@ -82,12 +82,13 @@ body {
 
 .cadastro-fields {
     width: 100%;
+    /* height: 100%; */
     margin-bottom: 20px;
 }
 
 .field-group {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,10 +109,28 @@ body {
 
 .field-group p{
     margin-right: 55%;
+    margin-bottom: -3%;
+    align-items: center;
+}
+
+#labelCpf {
+    margin-left: -3%;
+}
+
+#labelNome {
+    margin-left: -1%;
+}
+
+#labelEmail {
+    margin-left: -1%;
+}
+
+#labelSenha {
+    margin-left: 3%;
 }
 
 .passwd-confirm{
-    margin-left: 85%;
+    margin-left: 87%;
     width: 100%;
 }
 
