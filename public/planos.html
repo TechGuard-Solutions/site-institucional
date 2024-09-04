@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechGuard Solutions - Planos</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/planos.css">
+    <link rel="icon" href="assets/Logo - TechGuard 1.png">
+</head>
+<body>
+    <div class="navbar">
+        <img src="assets/Logo - TechGuard 1.png" alt="">
+            <div class="texto-login">
+                <div class="login">
+                    <p>Faça o seu login para acessar:</p>
+                </div>
+                <div class="pergunta-conta">
+                    <button onclick="login()">Entrar</button></a>
+                </div>
+            </div>
+    </div>
+    <div id="content">
+        <span onclick="voltarIndex()" class="voltar-index">Voltar</span>
+        <h1 class="titulo-planos">Contrate nossos planos:</h1>
+
+        <div class="cards">
+            <div class="card-plano">
+                <div class="card-content">
+                    <h2>Plano <br> Tech</h2>
+                    <ul>
+                        <li>Dashboard para análises</li>
+                        <li>Prompts pré-programados</li>
+                        <li>Base de dados fornecida pela TechGuard Solutions</li>
+                    </ul>
+                    <button>Comprar</button>
+                </div>
+            </div>
+            <div class="card-plano">
+                <div class="card-content">
+                    <div class="card-titulo-guard">
+                        <img src="./assets/escudo-planoGuard.png" alt="">
+                        <h2 style="color: #d9b70f">Plano <br> Guard</h2>
+                    </div>
+                    <ul>
+                        <li>Dashboard para análises</li>
+                        <li>Você cria seus próprios prompts</li>
+                        <li>Você faz uploads de bases de dados do seu interesse</li>
+                        <li>Você faz uploads de bases de dados próprias</li>
+                    </ul>
+                    <button>Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 TECHGUARD SOLUTIONS.</p>
+    </footer>
+</body>
+</html>
+
+<script>
+    function voltarIndex() {
+        window.location.href = "index.html"
+    }
+</script>

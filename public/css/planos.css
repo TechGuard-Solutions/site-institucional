@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Matemasie&family=Nerko+One&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Desktop */
+body {
+    background: rgb(48, 117, 131);
+    background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
+}
+
+.navbar {
+    margin-top: 1%;
+    padding-bottom: 1%;
+    object-fit: fill;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative
+}
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #117701, #4ADC81);
+    background-size: 200% 100%;
+    animation: color-change 4s linear infinite;
+}
+
+.navbar img {
+    width: 40px;
+    height: 40px;
+    margin-left: 3.6vw;
+    margin-top: 0.3%;
+}
+
+@keyframes color-change {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: -100% 50%;
+    }
+}
+
+.texto-login {
+    /* margin-top: 2.9vh; */
+    margin-right: 4.0vw;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: end;
+    gap: 47px;
+}
+
+
+.login p {
+    font-size: 16px;
+    line-height: 50px;
+    font-family: 'Goldman';
+    color: #FFF;
+}
+
+.pergunta-conta button, 
+.card-content button{
+    background-color: transparent;
+    border: 2px solid #4ADC7C;
+    color: #4ADC7C;
+    border-radius: 5px;
+    height: 44.8px;
+    width: 130px;
+    cursor: pointer;
+    font-family: "Goldman";
+    margin-bottom: 10px;
+    transition: 0.4s;
+}
+
+.pergunta-conta button:hover,
+.card-content button:hover{
+    background-color: #4ADC7C;
+    transition: 0.7s;
+    color: #151D26;
+    cursor: pointer;
+}
+
+.pergunta-conta a {
+    text-decoration: none;
+    color: #4ADC7C;
+}
+
+.pergunta-conta {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #AAF8AD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-planos {
+    margin-top: 30px;
+    font-family: 'Goldman';
+    font-weight: 400;
+    font-size: 34px;
+    letter-spacing: 5px;
+    line-height: 24px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.voltar-index {
+    position: absolute;
+    top: 15px;
+    right: 4.0vw;
+    font-size: 20px;
+    line-height: 50px;
+    font-family: 'Goldman';
+    color: #FFF;
+    transition: 0.3s;
+}
+
+.voltar-index:hover {
+    color: #4ADC7C;
+    cursor: pointer;
+    scale: (1.02);
+    transition: 0.4s;
+}
+
+.cards {
+    width: 70%;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    margin: 70px 0;
+}
+
+.card-plano {
+    width: 46%;
+    border: #ffffff49 1px solid ;
+    border-radius: 22px;
+    background-color: #151D26;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.7s;
+}
+
+.card-plano:hover {
+    border: #fff 2px solid;
+    transform: scale(1.05);
+    transition: all 0.5s;
+}
+
+.card-titulo-guard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-content h2 {
+    display: flex;
+    font-family: 'Goldman';
+    font-weight: 400;
+    font-size: 38px;
+    letter-spacing: 5px;
+    line-height: 75%;
+    color: #AAF8AD;
+    text-align: center;
+}
+
+.card-titulo-guard img {
+    height: 50px;
+    width: 50px;
+    margin-right: -10px;
+}
+
+.card-content {
+    width: 90%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-content ul {
+    padding-left: 13px;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style-image:url(./assets/lista-simbolo_ok.png);
+}
+
+.card-content ul li {
+    font-family: 'Goldman';
+    color: #fff;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.card-content button {
+    background-color: transparent;
+    border: 2px solid #4ADC7C;
+    color: #4ADC7C;
+    border-radius: 5px;
+    height: 44.8px;
+    width: 130px;
+    cursor: pointer;
+    font-family: "Goldman";
+    margin-bottom: 10px;
+    transition: 0.4s;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background-color: #14272B;
+    color: #FFF;
+    font-family: 'Goldman';
+    font-weight: 400;
+    font-size: 16px;
+    z-index: 20;
+}
+
+/* CELULAR - MOBILE*/
+
+@media screen and (max-width: 700px) {
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: rgb(48, 117, 131);
+        background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
+    }
+
+    .navbar {
+        padding-bottom: 1%;
+        margin-top: 0px;
+        object-fit: fill;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        align-items: center;
+    }
+
+    .navbar::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, #117701, #4ADC81);
+        background-size: 200% 100%;
+        animation: color-change 4s linear infinite;
+    }
+
+    @keyframes color-change {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: -100% 50%;
+        }
+    }
+
+    .navbar-textos {
+        display: none;
+    }
+
+    .texto-login {
+        margin-top: 2%;
+        margin-right: 4.0vw;
+        display: flex;
+        text-align: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .login p {
+        display: none;
+    }
+
+    .pergunta-conta button {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .voltar-index {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: 4.0vw;
+    }
+
+    .titulo-planos {
+        padding: 1%;
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 1200px;
+        width: 95%;
+        margin: 50px 0px;
+    }
+
+    .card-plano {
+        width: 80%;
+        padding: 0 7%;
+        border-radius: 40px;
+    }
+
+    .card-plano h2 {
+        font-size: 1.7em;
+    }
+
+    .card-titulo-guard img {
+        right: 96%;
+        height: 2.8em;
+        width: 2.8em;
+    }
+
+    .card-plano ul li {
+        font-size: 1.2em;
+    }
+
+    .card-content button {
+        border-radius: 10px;
+    }
+
+    footer {
+        display: flex;
+        align-items: center;
+        height: 80px;
+        background-color: #14272B;
+        color: #FFF;
+        font-family: 'Goldman';
+        font-weight: 400;
+        font-size: 16px;
+    }
+}
