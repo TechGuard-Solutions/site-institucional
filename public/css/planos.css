@@ -328,6 +328,23 @@ footer {
     z-index: 20;
 }
 
+.material-symbols-outlined {
+    background: none;
+    color: #4ADC7C;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    padding-left: 30px;
+    padding-top: 30px;
+    transition: 0.4s;
+}
+
+.material-symbols-outlined:hover{
+    transition: 0.4s;
+    color: aliceblue;
+}
+
 /* CELULAR - MOBILE*/
 
 @media screen and (max-width: 700px) {
@@ -335,6 +352,23 @@ footer {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+    }
+
+    .material-symbols-outlined {
+        background: none;
+        color: #4ADC7C;
+        border: none;
+        cursor: pointer;
+        height: 50px;
+        width: 50px;
+        padding-left: 30px;
+        padding-top: 30px;
+        transition: 0.4s;
+    }
+    
+    .material-symbols-outlined:hover{
+        transition: 0.4s;
+        color: aliceblue;
     }
 
     body {
