@@ -7,7 +7,6 @@
     <title>TechGuard Solutions</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/Logo - TechGuard 1.png">
-    <script src="/public/js/index.js"></script>
 </head>
 
 <body>
@@ -35,8 +34,8 @@
                     análises, fornecemos sugestões para prevenir que sua empresa seja alvo desses ataques no futuro.
                 </p>
                 <div class="botoes">
-                    <button class="botoes-1F" onclick="abrir()">Saiba mais</button>
-                    <button class="botoes-1F" onclick="abrirContato()">Contato</button>
+                    <button class="botoes-1F" onclick="abrir()">saiba mais</button>
+                    <button class="botoes-1F">contato</button>
                 </div>
             </div>
 
@@ -46,7 +45,7 @@
                     históricos para identificar ameaças e fornecer recomendações personalizadas, ajudando a fortalecer a
                     defesa digital da sua empresa contra futuros ataques.</p>
                     <div class="botoes">
-                        <button class="botoes-1F" onclick="abrir()">Saiba mais</button>
+                        <button class="botoes-1F" onclick="abrir()">saiba mais</button>
                     </div>
             </div>
             <div class="cards-1F">
@@ -57,27 +56,11 @@
                     prevenir
                     futuros ataques e fortalecer a defesa digital da sua empresa.</p>
                     <div class="botoes">
-                        <button class="botoes-1F" onclick="abrir()">Saiba mais</button>
+                        <button class="botoes-1F" onclick="abrir()">saiba mais</button>
                     </div>
             </div>
         </div>
 
-        <div class="titulo-direcionar-plano">
-            <p>SAIBA MAIS SOBRE NOSSOS PLANOS:</p>
-            <button onclick="direcionarPlanos()">Nossos planos</button>
-        </div>
-
-        <section id="contato" style="display: none;">
-            <h1>CONTATO</h1>
-            <form action="https://api.staticforms.xyz/submit" method="post">
-                <input type="text" name="name" placeholder="Nome" class="inputForm" autocomplete="off">
-                <input type="text" name="email" placeholder="Email" class="inputForm"/ autocomplete="off">
-                <textarea name="message" class="inputTextArea" placeholder="Mensagem" autocomplete="off"></textarea>
-                <input type="text" name="honeypot" style="display:none">
-                <input type="hidden" name="accessKey" value="982d06b1-f682-4a60-b757-75b3c052bfdb" style="display: none;">
-                <input type="submit" value="ENVIAR" class="botoes-1F"/>
-            </form>
-        </section>
         <div>
             <img src="assets/circulo.png" alt="Circulo pulsante" class="circulo">
         </div>
@@ -108,3 +91,26 @@
 </body>
 
 </html>
+<script>
+    function abrir() {
+        const popup = document.getElementById('popup');
+        popup.style.display = 'block';
+        setTimeout(() => {
+            popup.classList.add('show');
+        }, 10);
+        document.getElementById('content').classList.add('blur-background');
+    }
+
+    function fechar() {
+        const popup = document.getElementById('popup');
+        popup.classList.remove('show');
+        setTimeout(() => {
+            popup.style.display = 'none';
+            document.getElementById('content').classList.remove('blur-background');
+        }, 500); // Tempo deve coincidir com o tempo de transição no CSS
+    }
+
+    function login() {
+        window.location.href = "login.html";
+    }
+</script>
