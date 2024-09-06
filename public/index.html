@@ -84,34 +84,39 @@
         <footer>
             <p>© 2024 TECHGUARD SOLUTIONS.</p>
         </footer>
-
     </div>
     
     <div id="popup" class="popup" style="display: none;">
-        <div class="fechar">
-            <p onclick="fechar()">x</p>
+        <div class="popup-superior">
+            <p class="titulo-1F">SOBRE NÓS</p>
+            <div class="fechar">
+                <p onclick="fechar()">x</p>
+            </div>
         </div>
-        <p class="titulo-1F">SOBRE NÓS</p>
         <div class="texto-popup">
             <p>Na <span style= "color: #4ADC7C">TechGuard Solutions</span>, temos como principal missão <span style= "color: #4ADC7C">proteger sua empresa</span> contra ameaças e <span style= "color: #4ADC7C">ataques cibernéticos</span>. Para isso, utilizamos uma <span style= "color: #4ADC7C">base de dados</span> ampla e robusta que nos permite analisar minuciosamente incidentes passados. Ao estudar esses ataques em profundidade, conseguimos identificar <span style= "color: #4ADC7C">padrões de comportamento</span> e vulnerabilidades específicas que podem expor sua empresa a riscos potenciais. Com essas informações detalhadas, desenvolvemos <span style= "color: #4ADC7C">recomendações estratégicas</span> e personalizadas para aumentar suas defesas e evitar que sua empresa se torne alvo de ameaças semelhantes no futuro.</p>
         </div>
         
     </div>
     <div id="popupServicos" class="popup" style="display: none;">
-        <div class="fechar">
-            <p onclick="fecharServicos()">x</p>
+        <div class="popup-superior">
+            <p class="titulo-1F">SERVIÇOS</p>
+            <div class="fechar">
+                <p onclick="fecharServicos()">x</p>
+            </div>
         </div>
-        <p class="titulo-1F">SERVIÇOS</p>
         <div class="texto-popup">
             <p>Na <span style= "color: #4ADC7C">TechGuard Solutions</span>, nossos serviços de <span style= "color: #4ADC7C">cibersegurança</span> são projetados para proteger sua empresa de <span style= "color: #4ADC7C">ameaças cibernéticas</span> de forma eficaz e personalizada. Analisamos <span style= "color: #4ADC7C">dados históricos</span> de ataques para <span style= "color: #4ADC7C">identificar padrões, vulnerabilidades e possíveis riscos</span> específicos para o seu negócio. A partir dessa análise detalhada, desenvolvemos <span style= "color: #4ADC7C">recomendações</span> sob medida que ajudam a fortalecer suas defesas digitais. Nosso foco é garantir que sua empresa esteja preparada para <span style= "color: #4ADC7C">prevenir e mitigar futuros ataques</span>, oferecendo uma <span style= "color: #4ADC7C">proteção contínua</span> e adaptada às suas necessidades, sempre com uma abordagem proativa e eficaz.</p>
         </div>
         
     </div>
     <div id="popupComoFunciona" class="popup" style="display: none;">
-        <div class="fechar">
-            <p onclick="fecharComoFunciona()">x</p>
+        <div class="popup-superior">
+            <p class="titulo-1F">COMO FUNCIONA</p>
+            <div class="fechar">
+                <p onclick="fecharComoFunciona()">x</p>
+            </div>
         </div>
-        <p class="titulo-1F">COMO FUNCIONA</p>
         <div class="texto-popup">
             <p>Na <span style= "color: #4ADC7C">TechGuard Solutions</span>, nossa abordagem de <span style= "color: #4ADC7C">cibersegurança</span> começa com uma <span style= "color: #4ADC7C">análise aprofundada</span> de dados históricos de ataques e ameaças digitais. Executamos uma <span style= "color: #4ADC7C"></span>análise desses incidentes</span> para identificar <span style= "color: #4ADC7C">padrões de comportamento e vulnerabilidades</span> que possam representar <span style= "color: #4ADC7C">riscos específicos</span> para sua empresa. A partir dessa <span style= "color: #4ADC7C">análise criteriosa</span>, desenvolvemos <span style= "color: #4ADC7C">recomendações personalizadas</span> que vão além de soluções genéricas, visando <span style= "color: #4ADC7C">prevenir futuros ataques</span> de forma proativa. Nosso objetivo é <span style= "color: #4ADC7C">fortalecer sua defesa</span> digital, garantindo uma <span style= "color: #4ADC7C">proteção contínua</span> e adaptada às necessidades e ao perfil da sua organização.
             </p>
@@ -124,7 +129,7 @@
 <script>
     function abrir() {
         const popup = document.getElementById('popup');
-        popup.style.display = 'block';
+        popup.style.display = 'flex';
         setTimeout(() => {
             popup.classList.add('show');
         }, 10);
@@ -133,7 +138,7 @@
 
     function abrirServicos() {
         const popup = document.getElementById('popupServicos');
-        popup.style.display = 'block';
+        popup.style.display = 'flex';
         setTimeout(() => {
             popup.classList.add('show');
         }, 10);
@@ -142,7 +147,7 @@
 
     function abrirComoFunciona() {
         const popup = document.getElementById('popupComoFunciona');
-        popup.style.display = 'block';
+        popup.style.display = 'flex';
         setTimeout(() => {
             popup.classList.add('show');
         }, 10);
