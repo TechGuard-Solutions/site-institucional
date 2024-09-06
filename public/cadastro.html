@@ -19,9 +19,10 @@
 
     <section class="section-cadastro">
         <div class="cadastro">
-            <p class="principal-cadastro">CADASTRO</p>
+            <p class="principal-cadastro" id="texto-cadastro">CADASTRO</p>
 
-            <div class="cadastro-fields">
+            <!-- Campos de cadastro padrão -->
+            <div class="cadastro-fields" id="cadastro-teste">
                 <div class="field-group">
                     <p id="labelNome">Nome:</p>
                     <input type="text" id="nome" required autocomplete="off">
@@ -48,8 +49,36 @@
                 </div>
             </div>
 
+            <!-- Campos de cadastro para empresa -->
+            <div class="cadastro-empresa-fields" id="cadastro-empresa" style="display: none;">
+                <div class="field-group">
+                    <p id="labelNomeEmpresa">Nome da empresa:</p>
+                    <input type="text" id="nome-empresa" required autocomplete="off">
+                </div>
+
+                <div class="field-group">
+                    <p id="labelEmailEmpresa">Email corporativo:</p>
+                    <input type="email" id="email-corporativa" required autocomplete="off">
+                </div>
+
+                <div class="field-group">
+                    <p id="labelCep">CEP:</p>
+                    <input type="text" id="cep" required autocomplete="off">
+                </div>
+
+                <div class="field-group">
+                    <p id="labelTelefone">Telefone de contato:</p>
+                    <input type="text" id="telefone" required autocomplete="off">
+                </div>
+
+                <div class="field-group">
+                    <p id="labelCnpj">CNPJ:</p>
+                    <input type="text" id="cnpj" required autocomplete="off">
+                </div>
+            </div>
+
             <div class="buttons-field">
-                <button>Cadastrar</button>
+                <button onclick="changeRegister()" id="botao_registro">Proximo</button>
                 <a href="login.html">Já tem uma conta? Faça login</a>
             </div>
         </div>
@@ -62,3 +91,26 @@
 
 </body>
 </html>
+
+<script>
+    var p_cadastro = document.getElementById("texto-cadastro")
+    var cadastroEmpresa = document.getElementById("cadastro-empresa");
+    var cadastroTeste = document.getElementById("cadastro-teste");
+    var botao_mudar = document.getElementById("botao_registro")
+
+    function changeRegister() {
+        p_cadastro.innerHTML = "CADASTRO EMPRESA"
+        p_cadastro.style.marginLeft = "50px"
+        botao_mudar.innerHTML = "Cadastrar empresa"
+        cadastroTeste.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
+        cadastroEmpresa.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
+
+        cadastroTeste.style.opacity = "0";
+        cadastroTeste.style.visibility = "hidden";
+        cadastroTeste.style.display = "none"
+
+        cadastroEmpresa.style.display = "flex"
+        cadastroEmpresa.style.opacity = "1";
+        cadastroEmpresa.style.visibility = "visible";
+    }
+</script>
