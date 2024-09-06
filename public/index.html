@@ -45,7 +45,7 @@
                     históricos para identificar ameaças e fornecer recomendações personalizadas, ajudando a fortalecer a
                     defesa digital da sua empresa contra futuros ataques.</p>
                     <div class="botoes">
-                        <button class="botoes-1F" onclick="abrir()">Saiba mais</button>
+                        <button class="botoes-1F" onclick="abrirServicos()">Saiba mais</button>
                     </div>
             </div>
             <div class="cards-1F">
@@ -56,7 +56,7 @@
                     prevenir
                     futuros ataques e fortalecer a defesa digital da sua empresa.</p>
                     <div class="botoes">
-                        <button class="botoes-1F" onclick="abrir()">Saiba mais</button>
+                        <button class="botoes-1F" onclick="abrirComoFunciona()">Saiba mais</button>
                     </div>
             </div>
         </div>
@@ -86,23 +86,37 @@
         </footer>
 
     </div>
+    
     <div id="popup" class="popup" style="display: none;">
         <div class="fechar">
             <p onclick="fechar()">x</p>
         </div>
+        <p class="titulo-1F">SOBRE NÓS</p>
         <div class="texto-popup">
-            <p>Na TechGuard Solutions, <span style="color: #00ff59;">nossa missão é garantir a proteção da sua empresa
-                    contra ataques
-                    cibernéticos</span>. Utilizamos uma <span style="color: #00ff59;">base de dados</span> robusta e
-                abrangente para analisar detalhadamente os
-                ataques cibernéticos <span style="color: #00ff59;">ocorridos no passado</span>. A partir dessas
-                análises, identificamos <span style="color: #00ff59;">padrões e
-                    vulnerabilidades</span> que podem representar <span style="color: #00ff59;">riscos para sua
-                    empresa</span>. Com essas informações, <span style="color: #00ff59;">fornecemos
-                    sugestões estratégicas e personalizadas</span> para prevenir que sua empresa se torne alvo de
-                ataques
-                semelhantes no futuro, ajudando a fortalecer sua segurança digital de maneira proativa e eficaz.</p>
+            <p>Na <span style= "color: #4ADC7C">TechGuard Solutions</span>, temos como principal missão <span style= "color: #4ADC7C">proteger sua empresa</span> contra ameaças e <span style= "color: #4ADC7C">ataques cibernéticos</span>. Para isso, utilizamos uma <span style= "color: #4ADC7C">base de dados</span> ampla e robusta que nos permite analisar minuciosamente incidentes passados. Ao estudar esses ataques em profundidade, conseguimos identificar <span style= "color: #4ADC7C">padrões de comportamento</span> e vulnerabilidades específicas que podem expor sua empresa a riscos potenciais. Com essas informações detalhadas, desenvolvemos <span style= "color: #4ADC7C">recomendações estratégicas</span> e personalizadas para aumentar suas defesas e evitar que sua empresa se torne alvo de ameaças semelhantes no futuro.</p>
         </div>
+        
+    </div>
+    <div id="popupServicos" class="popup" style="display: none;">
+        <div class="fechar">
+            <p onclick="fecharServicos()">x</p>
+        </div>
+        <p class="titulo-1F">SERVIÇOS</p>
+        <div class="texto-popup">
+            <p>Na <span style= "color: #4ADC7C">TechGuard Solutions</span>, nossos serviços de <span style= "color: #4ADC7C">cibersegurança</span> são projetados para proteger sua empresa de <span style= "color: #4ADC7C">ameaças cibernéticas</span> de forma eficaz e personalizada. Analisamos <span style= "color: #4ADC7C">dados históricos</span> de ataques para <span style= "color: #4ADC7C">identificar padrões, vulnerabilidades e possíveis riscos</span> específicos para o seu negócio. A partir dessa análise detalhada, desenvolvemos <span style= "color: #4ADC7C">recomendações</span> sob medida que ajudam a fortalecer suas defesas digitais. Nosso foco é garantir que sua empresa esteja preparada para <span style= "color: #4ADC7C">prevenir e mitigar futuros ataques</span>, oferecendo uma <span style= "color: #4ADC7C">proteção contínua</span> e adaptada às suas necessidades, sempre com uma abordagem proativa e eficaz.</p>
+        </div>
+        
+    </div>
+    <div id="popupComoFunciona" class="popup" style="display: none;">
+        <div class="fechar">
+            <p onclick="fecharComoFunciona()">x</p>
+        </div>
+        <p class="titulo-1F">COMO FUNCIONA</p>
+        <div class="texto-popup">
+            <p>Na <span style= "color: #4ADC7C">TechGuard Solutions</span>, nossa abordagem de <span style= "color: #4ADC7C">cibersegurança</span> começa com uma <span style= "color: #4ADC7C">análise aprofundada</span> de dados históricos de ataques e ameaças digitais. Executamos uma <span style= "color: #4ADC7C"></span>análise desses incidentes</span> para identificar <span style= "color: #4ADC7C">padrões de comportamento e vulnerabilidades</span> que possam representar <span style= "color: #4ADC7C">riscos específicos</span> para sua empresa. A partir dessa <span style= "color: #4ADC7C">análise criteriosa</span>, desenvolvemos <span style= "color: #4ADC7C">recomendações personalizadas</span> que vão além de soluções genéricas, visando <span style= "color: #4ADC7C">prevenir futuros ataques</span> de forma proativa. Nosso objetivo é <span style= "color: #4ADC7C">fortalecer sua defesa</span> digital, garantindo uma <span style= "color: #4ADC7C">proteção contínua</span> e adaptada às necessidades e ao perfil da sua organização.
+            </p>
+        </div>
+        
     </div>
 </body>
 
@@ -117,8 +131,44 @@
         document.getElementById('content').classList.add('blur-background');
     }
 
+    function abrirServicos() {
+        const popup = document.getElementById('popupServicos');
+        popup.style.display = 'block';
+        setTimeout(() => {
+            popup.classList.add('show');
+        }, 10);
+        document.getElementById('content').classList.add('blur-background');
+    }
+
+    function abrirComoFunciona() {
+        const popup = document.getElementById('popupComoFunciona');
+        popup.style.display = 'block';
+        setTimeout(() => {
+            popup.classList.add('show');
+        }, 10);
+        document.getElementById('content').classList.add('blur-background');
+    }
+
     function fechar() {
         const popup = document.getElementById('popup');
+        popup.classList.remove('show');
+        setTimeout(() => {
+            popup.style.display = 'none';
+            document.getElementById('content').classList.remove('blur-background');
+        }, 500); // Tempo deve coincidir com o tempo de transição no CSS
+    }
+
+    function fecharServicos() {
+        const popup = document.getElementById('popupServicos');
+        popup.classList.remove('show');
+        setTimeout(() => {
+            popup.style.display = 'none';
+            document.getElementById('content').classList.remove('blur-background');
+        }, 500); // Tempo deve coincidir com o tempo de transição no CSS
+    }
+
+    function fecharComoFunciona() {
+        const popup = document.getElementById('popupComoFunciona');
         popup.classList.remove('show');
         setTimeout(() => {
             popup.style.display = 'none';

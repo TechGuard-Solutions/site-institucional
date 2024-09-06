@@ -189,7 +189,7 @@ body {
 .popup .texto-popup {
     font-size: 23px;
     color: #fff;
-    font-family: 'Goldman';
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     height: 80%;
     display: flex;
@@ -216,6 +216,12 @@ body {
     cursor: pointer;
     font-size: 40px;
     color: red;
+}
+
+#popup-sobrenos,
+#popup-servicos,
+#popup-comofunciona {
+    display: none;
 }
 
 
