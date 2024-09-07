@@ -216,7 +216,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    list-style-image:url(../assets/lista-simbolo_ok.png);
+}
+
+.card-content .list-tech {
+    list-style-image: url(../assets/lista-simbolo-ok_Tech.png);
+}
+
+.card-content .list-guard {
+    list-style-image: url(../assets/lista-simbolo-ok_Guard.png);
 }
 
 .card-content ul li {
@@ -338,6 +345,7 @@ footer {
     padding-left: 30px;
     padding-top: 30px;
     transition: 0.4s;
+    margin-right: auto;
 }
 
 .material-symbols-outlined:hover{
@@ -530,5 +538,9 @@ footer {
         color: #151D26;
         transition: 0.4s;
         cursor: pointer;
+    }
+
+    .material-symbols-outlined {
+        margin-bottom: 5%;
     }
 }
