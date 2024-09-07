@@ -126,7 +126,7 @@ body {
     margin-top: 30px;
     font-family: 'Goldman';
     font-weight: 400;
-    font-size: 34px;
+    font-size: 44px;
     letter-spacing: 5px;
     line-height: 24px;
     color: #fff;
@@ -374,6 +374,217 @@ footer {
     color: aliceblue;
 }
 
+/* TABLET */
+
+@media screen and (max-width: 900px) {
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .material-symbols-outlined {
+        background: none;
+        color: #4ADC7C;
+        border: none;
+        cursor: pointer;
+        height: 50px;
+        width: 50px;
+        padding-left: 30px;
+        padding-top: 30px;
+        transition: 0.4s;
+    }
+    
+    .material-symbols-outlined:hover{
+        transition: 0.4s;
+        color: aliceblue;
+    }
+
+    body {
+        background: rgb(48, 117, 131);
+        background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
+    }
+
+    .navbar {
+        padding-bottom: 1%;
+        margin-top: 0px;
+        object-fit: fill;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        align-items: center;
+    }
+
+    .navbar::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, #117701, #4ADC81);
+        background-size: 200% 100%;
+        animation: color-change 4s linear infinite;
+    }
+
+    @keyframes color-change {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: -100% 50%;
+        }
+    }
+
+    .navbar-textos {
+        display: none;
+    }
+
+    .texto-login {
+        margin-top: 2%;
+        margin-right: 4.0vw;
+        display: flex;
+        text-align: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .login p {
+        display: none;
+    }
+
+    .pergunta-conta button {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .voltar-index {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: 4.0vw;
+    }
+
+    .titulo-planos {
+        padding: 1%;
+    }
+
+    .titulo-planos {
+        margin-top: 30px;
+        font-family: 'Goldman';
+        font-weight: 400;
+        font-size: 35px;
+        letter-spacing: 5px;
+        line-height: 24px;
+        color: #fff;
+        text-align: center;
+        position: relative;
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 1200px;
+        width: 95%;
+        margin: 0px 0px;
+    }
+
+    .card-plano {
+        width: 60%;
+        padding: 0 7%;
+        border-radius: 40px;
+    }
+
+    .card-plano h2 {
+        font-size: 1.7em;
+    }
+
+    .card-titulo-guard img {
+        right: 96%;
+        height: 2.8em;
+        width: 2.8em;
+    }
+
+    .card-content h2 {
+        display: flex;
+        font-family: 'Goldman';
+        font-weight: 400;
+        font-size: 40px;
+        letter-spacing: 5px;
+        line-height: 75%;
+        color: #AAF8AD;
+        text-align: center;
+    }
+    
+    .card-plano ul li {
+        font-size: 1.2em;
+    }
+
+    .card-content button {
+        border-radius: 10px;
+    }
+
+    footer {
+        display: flex;
+        align-items: center;
+        height: 80px;
+        background-color: #14272B;
+        color: #FFF;
+        font-family: 'Goldman';
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+    .inputTextArea{
+        height: 200px;
+        width: 300px;
+        margin-top: 20px;
+        background: none;
+        border: none;
+        border: #4ADC7C solid;
+        color: #AAF8AD;
+    
+        padding: 15px;
+        font-family: "Roboto";
+        font-size: 16px;
+        outline: none;
+    }
+    
+    form .botoes-1F {
+        height: 42px;
+        width: 100%;
+        max-width: 170px;
+        background-color: transparent;
+        border: #4ADC7C 1px solid;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-weight: 700;
+        align-items: center;
+        color: #4ADC7C;
+        border-radius: 5px;
+        margin-top: 3%;
+        margin-bottom: 100px;
+    }
+    
+    form .botoes-1F:hover {
+        background-color: #4ADC7C;
+        color: #151D26;
+        transition: 0.4s;
+        cursor: pointer;
+    }
+}
+
 /* CELULAR - MOBILE*/
 
 @media screen and (max-width: 700px) {
@@ -494,7 +705,7 @@ footer {
         justify-content: space-evenly;
         height: 1200px;
         width: 95%;
-        margin: 50px 0px;
+        margin: 0px 0px;
     }
 
     .card-plano {
