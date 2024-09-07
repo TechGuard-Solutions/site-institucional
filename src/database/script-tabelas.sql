@@ -26,7 +26,9 @@ CREATE TABLE tipoUsuario (
 
 CREATE TABLE baseDeDados (
 	idBase INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nomeBase VARCHAR(45),
+	nomeBase VARCHAR(250),
+	arquivoBase LONGBLOB,
+	dataEnvio DATETIME,
 	fkEmpresa INT NOT NULL,
 	CONSTRAINT fkEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
 );
