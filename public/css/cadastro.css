@@ -73,15 +73,27 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.principal-cadastro {
+#texto-cadastro {
+    display: flex;
     font-size: 30px;
     letter-spacing: 10px;
     margin-bottom: 30px;
     font-weight: 400;
+    justify-content: center;
+    margin-left: 3%;
 }
 
 .cadastro-fields {
     width: 100%;
+    /* height: 100%; */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cadastro-fields p {
+    display: flex;
+    align-items: start;
+    /* width: 100%; */
     /* height: 100%; */
     margin-bottom: 20px;
     position: relative;
@@ -127,7 +139,7 @@ body {
 }
 
 #labelSenha {
-    margin-left: 3%;
+    margin-left: 2%;
 }
 
 .passwd-confirm {
@@ -152,7 +164,7 @@ body {
 
 .buttons-field button {
     width: 70%;
-    margin-left: 55px;
+    margin-left: 15%;
     padding: 15px;
     background-color: #151D26;
     border: 2px solid #4ADC7C;
@@ -215,6 +227,7 @@ body {
     flex-direction: column;
 }
 
+
 #labelNomeEmpresa {
     margin-left: 115px;
     width: 170px;
@@ -263,7 +276,7 @@ body {
     }
 
     .cadastro {
-        width: 800px;
+        width: 100%;
         height: 570px;
         background-color: #151D26;
         color: #4ADC7C;
@@ -310,7 +323,7 @@ body {
     }
 
     .field-groupE input {
-        width: 90%;
+        width: 95%;
         padding: 15px;
         background: none;
         border: none;
@@ -322,9 +335,8 @@ body {
     }
 
     .field-groupE p {
-        margin-right: 55%;
-        margin-bottom: -3%;
-        align-items: center;
+        display: flex;
+        align-items: start;
     }
 
     .field-groupE label {
@@ -365,4 +377,24 @@ body {
         margin-right: 0px;
     }
 
+    #labelNome {
+        margin-left: 3%;
+    }
+    
+    #labelEmail {
+        margin-left: 3%;
+    }
+    
+    #labelSenha {
+        margin-left: 10%;
+    }
+    
+    .passwd-confirm {
+        margin-left: 86%;
+        width: 100%;
+    }
+
+    #labelCpf {
+        margin-left: 0%;
+    }
 }

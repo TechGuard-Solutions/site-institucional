@@ -120,7 +120,7 @@ body {
     text-align: left;
     color: #FFF;
     margin-top: 8.25vh;
-    margin-left: 3.6vw;
+    margin-left: 5vw;
 }
 
 .cards {
@@ -200,6 +200,7 @@ body {
 
 .popup-superior {
     width: 100%;
+    height: 8%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -235,6 +236,12 @@ body {
 #popup-servicos,
 #popup-comofunciona {
     display: none;
+}
+
+#texto-popup-servicos, #texto-popup-comoFunciona {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 30%;
 }
 
 
@@ -280,6 +287,10 @@ body {
     align-items: center;
     color: #4ADC7C;
     border-radius: 5px;
+}
+
+.titulo-direcionar-plano button {
+    margin-top: 3%;
 }
 
 .botoes-1F:hover,
@@ -730,6 +741,16 @@ form .botoes-1F {
         color: red;
     }
 
+    #texto-popup-servicos, #texto-popup-comoFunciona {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 30%;
+    }
+
+    #popupServicos, #popupComoFunciona {
+        height: 80%;
+    }
+
     .navbar-textos {
         display: none;
     }
@@ -822,7 +843,7 @@ form .botoes-1F {
         font-family: 'Goldman';
         font-weight: 400;
         font-size: 22px;
-        line-height: 24px;
+        line-height: 20px;
         color: #fff;
     }
 
