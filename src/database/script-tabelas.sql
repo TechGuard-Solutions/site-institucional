@@ -1,62 +1,65 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+-- Active: 1713288107577@@127.0.0.1@3306@techguard
+CREATE DATABASE techguard;
 
-/*
-comandos para mysql server
-*/
+USE techguard;
 
-CREATE DATABASE aquatech;
-
-USE aquatech;
+CREATE TABLE plano (
+	idPlano INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	nomePlano VARCHAR(45)
+);
 
 CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
+	idEmpresa INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	nomeEmpresa VARCHAR(45),
+	cep CHAR(9),
+	cnpj CHAR(18),
+	email VARCHAR(45),
+	tel CHAR(8),
+	fkPlano INT NOT NULL,
+	CONSTRAINT fkPlano FOREIGN KEY (fkPlano) REFERENCES plano (idPlano)
+);
+
+CREATE TABLE tipoUsuario (
+	idTipoUsuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	tipo VARCHAR(45)
+);
+
+CREATE TABLE baseDeDados (
+	idBase INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	nomeBase VARCHAR(45),
+	fkEmpresa INT NOT NULL,
+	CONSTRAINT fkEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
 );
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	idUsuario INT NOT NULL AUTO_INCREMENT,
+	nomeUsuario VARCHAR(45),
+	cpf CHAR(11),
+	email VARCHAR(45),
+	tel CHAR(11),
+	fkEmpresa INT NOT NULL,
+	CONSTRAINT pkUsuarioEmpresa PRIMARY KEY (idUsuario, fkEmpresa),
+	CONSTRAINT fkUsuarioEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa),
+	fkTipoUsuario INT NOT NULL,
+	CONSTRAINT fkTipoUsuario FOREIGN KEY (fkTipoUsuario) REFERENCES tipoUsuario (idTipoUsuario)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
+INSERT INTO plano (nomePlano) VALUES
+	("tech"),
+	("guard");
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+	INSERT INTO tipoUsuario (tipo) VALUES
+	('Normal'),
+	('Admin');
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+	INSERT INTO empresa (nomeEmpresa, cep, cnpj, email, tel, fkPlano) VALUES
+	('TechGuard Solutions', '01414-001', "40.028.922/0001-00", 'techguardsolutions.suporte@gmail.com', "40028922", 2)
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+INSERT INTO usuario (nomeUsuario, cpf, email, tel, fkEmpresa, fkTipoUsuario) VALUES
+	('Gustavo Gil', '46464642233', 'gustavo.gil@techguard.com', '11940672967', 1, 2);
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+	SELECT * FROM usuario;
+	SELECT * FROM empresa;
+	SELECT * FROM plano;
+	SELECT * FROM tipousuario;
+	SELECT * FROM basededados;
