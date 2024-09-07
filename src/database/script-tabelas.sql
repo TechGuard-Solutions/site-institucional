@@ -34,6 +34,7 @@ CREATE TABLE baseDeDados (
 CREATE TABLE usuario (
 	idUsuario INT NOT NULL AUTO_INCREMENT,
 	nomeUsuario VARCHAR(45),
+	senhaUsuario VARCHAR(45),
 	cpf CHAR(11),
 	email VARCHAR(45),
 	tel CHAR(11),
