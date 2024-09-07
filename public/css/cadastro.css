@@ -108,7 +108,7 @@ body {
     outline: none;
 }
 
-.field-group p{
+.field-group p {
     margin-right: 55%;
     margin-bottom: -3%;
     align-items: center;
@@ -130,7 +130,7 @@ body {
     margin-left: 3%;
 }
 
-.passwd-confirm{
+.passwd-confirm {
     margin-left: 87%;
     width: 100%;
 }
@@ -197,38 +197,172 @@ body {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }
+
     100% {
         transform: scale(1);
     }
 }
 
-.cadastro-empresa-fields{
+.cadastro-empresa-fields {
     width: 100%;
-    /* height: 100%; */
     margin-bottom: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-#labelNomeEmpresa{
+#labelNomeEmpresa {
     margin-left: 115px;
     width: 170px;
 }
 
-#labelEmailEmpresa{
+#labelEmailEmpresa {
     margin-left: 115px;
     width: 170px;
 }
 
-#labelTelefone{
+#labelTelefone {
     margin-left: 115px;
     width: 170px;
 }
 
-#labelCep{
+#labelCep {
     margin-right: 209px;
+}
+
+@media screen and (max-width: 700px) {
+
+    .section-initial-texts h1 {
+        color: white;
+        font-size: 40px;
+        font-family: "Goldman";
+        margin-top: 10px;
+        font-weight: 100;
+    }
+
+    .section-initial-texts p {
+        padding-left: 40px;
+        color: #AAF8AD;
+        letter-spacing: 15px;
+        font-size: 15px;
+        font-weight: 100;
+        font-family: "Goldman";
+    }
+
+    .circulo {
+        width: 180%;
+        z-index: -20;
+        animation: circulo 1s infinite;
+        position: absolute;
+        margin-top: -120%;
+        margin-left: -190%;
+    }
+
+    .cadastro {
+        width: 800px;
+        height: 570px;
+        background-color: #151D26;
+        color: #4ADC7C;
+        font-family: "Goldman";
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        padding: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        /* margin-bottom: 100px; */
+    }
+
+    .buttons-field button:hover {
+        background-color: #151D26;
+        border: 2px solid #4ADC7C;
+        color: #4ADC7C;
+    }
+
+    .section-cadastro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 200px);
+        margin: 20px;
+    }
+
+    .principal-cadastro {
+        font-size: 30px;
+        letter-spacing: 10px;
+        margin-bottom: 30px;
+        font-weight: 400;
+    }
+
+
+    .field-groupE {
+        position: relative;
+        display: flex;
+        margin-bottom: 5%;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+
+    .field-groupE input {
+        width: 90%;
+        padding: 15px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid #4ADC7C;
+        color: #AAF8AD;
+        font-family: "Roboto";
+        font-size: 16px;
+        outline: none;
+    }
+
+    .field-groupE p {
+        margin-right: 55%;
+        margin-bottom: -3%;
+        align-items: center;
+    }
+
+    .field-groupE label {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        color: #4ADC7C;
+        font-family: "Roboto";
+        font-size: 16px;
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+
+    .cadastro-empresa-fields {
+        margin-left: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #labelNomeEmpresa {
+        margin-left: 0px;
+        width: 170px;
+    }
+
+    #labelEmailEmpresa {
+        margin-left: 0px;
+        width: 170px;
+    }
+
+    #labelTelefone {
+        margin-left: 0px;
+        width: 170px;
+    }
+
+    #labelCep {
+        margin-right: 0px;
+    }
+
 }

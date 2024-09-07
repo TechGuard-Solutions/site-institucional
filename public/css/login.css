@@ -210,6 +210,6 @@ body {
         animation: circulo 1s infinite;
         position: absolute;
         margin-top: -150%;
-        margin-left: -30%;
+        margin-left: -150%;
     }
 }

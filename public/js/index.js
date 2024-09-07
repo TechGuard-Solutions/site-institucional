@@ -17,16 +17,16 @@ function fechar() {
 }
 
 function login() {
-  window.location.href = "http://localhost:3333/login.html";
+  window.location.href = "login.html";
 }
 
 function direcionarPlanos() {
-  window.location.href = "http://localhost:3333/planos.html"
+  window.location.href = "planos.html"
 }
 
 function abrirContato() {
   contato.style.display = 'flex';
-  window.location.href = 'http://localhost:3333#contato';
+  window.location.href = 'index.html#contato';
   // window.location.replace('localhost:5500//index.html/#contato');
 }
 
