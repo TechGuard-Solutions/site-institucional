@@ -718,7 +718,7 @@ form .botoes-1F {
         justify-content: center;
         object-fit: fill;
         /* padding-bottom: 30%; */
-        text-align: justify;
+        /* text-align: justify; */
     }
 
     .popup .fechar {
