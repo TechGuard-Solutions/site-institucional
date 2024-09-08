@@ -411,21 +411,12 @@ form .botoes-1F {
 }
 /*Tablet */
 
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
 
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-    }
-
-    .circulo {
-        width: 70%;
-        z-index: -20;
-        animation: circulo 1s infinite;
-        position: absolute;
-        margin-top: -180%;
-        margin-left: -35%;
     }
 
     body {
@@ -434,16 +425,15 @@ form .botoes-1F {
     }
 
     .navbar {
-        padding-bottom: 1%;
-        margin-top: 0px;
+        margin-top: 2%;
         object-fit: fill;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
-        height: 100%;
-        display: flex;
+        height: 120px;
+        display: block;
         flex-direction: row;
         position: relative;
-        align-items: center;
+        padding-bottom: 5px;
     }
 
     .navbar::after {
@@ -472,121 +462,67 @@ form .botoes-1F {
         }
     }
 
-    .popup {
-        opacity: 0;
-        transform: translateY(-50px);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) translateY(-50px);
-        margin: auto;
-        width: 85%;
-        height: 460px;
-        padding: 25px;
-        border: solid 2px #4ADC7C;
-        border-radius: 30px;
-        background: #151D26;
-        display: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        -webkit-box-shadow: 32px 24px 42px 6px rgba(74, 220, 124, 1);
-        -moz-box-shadow: 32px 24px 42px 6px rgba(74, 220, 124, 1);
-        box-shadow: 32px 24px 42px 6px rgba(74, 220, 124, 1);
-    }
-    
-    .popup.show {
-        opacity: 1;
-        transform: translate(-50%, -50%) translateY(0);
-    }
-
-    .popup .texto-popup {
-        font-size: 22px;
-        color: #fff;
-        font-family: 'Goldman';
-        font-weight: 400;
-        height: 100%;
-        width: 90%;
-        margin-top: 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        object-fit: fill;
-        padding-bottom: 30%;
-    }
-
-    .popup .fechar {
-        font-size: 35px;
-        display: flex;
-        width: 100%;
-        font-family: 'Nerko One';
-        color: #4ADC7C;
-        height: 10%;
-        align-items: center;
-    }
-
-    .popup .fechar p {
-        transition: 0.2s;
-    }
-
-    .popup .fechar p:hover {
-        cursor: pointer;
-        font-size: 40px;
-        color: red;
-    }
-
     .navbar-textos {
-        display: none;
+        margin-top: 1%;
+        gap: 72px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
 
     .texto-login {
-        margin-top: 2%;
-        margin-right: 4.0vw;
+        margin-top: 2.9vh;
+        margin-right: 9.6vw;
         display: flex;
         text-align: center;
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column;
+        gap: 47px;
     }
 
     .login p {
-        display: none;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 42px;
+        font-family: 'Goldman';
+        color: #FFF;
     }
 
     .pergunta-conta button {
+        height: 52px;
+        width: 100%;
+        max-width: 170px;
+        text-align: center;
         background-color: transparent;
         font-family: 'Roboto', sans-serif;
         border: #4ADC7C 1.5px solid;
-        width: 170px;
-        height: 42px;
         border-radius: 8px;
-        font-size: 16px;
+        font-size: 23px;
         color: #4ADC7C;
-        align-items: center;
         font-weight: 700;
     }
 
-    .pergunta-conta button{
-        background-color: transparent;
-        border: 2px solid #4ADC7C;
-        color: #4ADC7C;
-        border-radius: 5px;
-        height: 44.8px;
-        width: 130px;
+    .pergunta-conta button:hover {
+        background-color: #4ADC7C;
+        color: #FFF;
         cursor: pointer;
-        font-family: "Goldman";
-        margin-bottom: 10px;
-        transition: 0.4s;
+    }
+
+    .pergunta-conta {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: #AAF8AD;
+        display: flex;
     }
 
     .antecipe-ataques {
         object-fit: fill;
         font-family: 'Goldman';
-        font-size: 26px;
+        font-size: 30px;
         font-weight: 400;
         line-height: 48px;
-        text-align: start;
+        text-align: center;
         color: #FFF;
         margin-top: 8%;
         margin-left: 9.6vw;
@@ -594,7 +530,7 @@ form .botoes-1F {
     }
 
     .cards {
-        margin-top: 9%;
+        margin-top: 8%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -602,24 +538,21 @@ form .botoes-1F {
         align-items: center;
     }
 
-    .cards .cards-1F,
-    .cards .cardsSemBotao {
-        height: 480px;
-        width: 450px;
+    .cards .cards-1F {
+        height: 450px;
+        width: 400px;
         background-color: #151D26;
         border-radius: 40px;
-        padding-top: 25px;
-        padding-left: 22px;
-        padding-right: 22px;
-        padding-bottom: 16px;
-        display: flex;
+        padding-top: 35px;
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-bottom: 26px;
+        display: block;
         flex-direction: column;
         justify-content: center;
-        justify-content: space-evenly;
     }
 
-    .cards-1F:hover,
-    .cardsSemBotao:hover {
+    .cards-1F:hover {
         border: #fff 2px solid;
         transform: scale(1.05);
         transition: all 0.5s;
@@ -628,28 +561,28 @@ form .botoes-1F {
     .titulo-1F {
         font-family: 'Goldman';
         font-weight: 400;
-        font-size: 30px;
+        font-size: 28px;
         line-height: 24px;
         color: #fff;
     }
 
     .paragrafo-1F {
         font-family: 'Roboto';
-        font-weight: 500;
-        font-size: 22px;
+        font-weight: 400;
+        font-size: 20px;
         line-height: 32px;
         color: #AAF8AD;
     }
 
     .botoes {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
     .botoes-1F {
-        height: 42px;
+        height: 52px;
         width: 100%;
-        max-width: 100px;
+        max-width: 170px;
         background-color: transparent;
         border: #4ADC7C 1px solid;
         font-family: 'Roboto';
@@ -668,6 +601,7 @@ form .botoes-1F {
 
     footer {
         display: flex;
+        justify-content: center;
         align-items: center;
         height: 80px;
         background-color: #14272B;
@@ -675,65 +609,9 @@ form .botoes-1F {
         font-family: 'Goldman';
         font-weight: 400;
         font-size: 16px;
+        margin-top: 100px;
     }
-
-    #contato {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-        padding-top: 5%;
-    }
-    
-    #contato h1 {
-        display: flex;
-        justify-content: center;
-        color: #FFF;
-        font-family: "Goldman";
-    }
-    
-    form {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 2%;
-    }
-    
-    .inputForm{
-        height: 50px;
-        width: 250px;
-        margin-bottom: 20px;
-        background: none;
-        border: none;
-        border-bottom: #4ADC7C solid;
-        color: #AAF8AD;
-    
-        padding: 15px;
-        font-family: "Roboto";
-        font-size: 16px;
-        outline: none;
-    }
-    
-    .inputTextArea{
-        height: 200px;
-        width: 300px;
-        margin-top: 20px;
-        background: none;
-        border: none;
-        border: #4ADC7C solid;
-        color: #AAF8AD;
-    
-        padding: 15px;
-        font-family: "Roboto";
-        font-size: 16px;
-        outline: none;
-    }
-    
-    form .botoes-1F {
-        margin-top: 3%;
-    }
-}
+} */
 
 /* CELULAR - MOBILE*/
 
@@ -746,12 +624,12 @@ form .botoes-1F {
     }
 
     .circulo {
-        width: 90%;
+        width: 180%;
         z-index: -20;
         animation: circulo 1s infinite;
         position: absolute;
-        margin-top: -190%;
-        margin-left: -35%;
+        margin-top: -300%;
+        margin-left: -90%;
     }
 
     body {
@@ -829,7 +707,7 @@ form .botoes-1F {
     }
 
     .popup .texto-popup {
-        font-size: 20px;
+        font-size: 17px;
         color: #fff;
         font-family: 'Goldman';
         font-weight: 400;
