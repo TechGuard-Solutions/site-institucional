@@ -7,17 +7,14 @@ function changeRegister() {
 
     botao_mudar.innerHTML = "Cadastrar empresa";
 
-    // Remover o display de cadastroTeste e iniciar a transição
     cadastroTeste.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
     cadastroTeste.style.opacity = "0";
     cadastroTeste.style.visibility = "hidden";
 
-    // Esperar 500ms para alterar o display após a transição de opacidade
     setTimeout(function () {
         cadastroTeste.style.display = "none";
         cadastroEmpresa.style.display = "flex";
 
-        // Iniciar a transição de opacidade e visibilidade do cadastroEmpresa
         setTimeout(function () {
             cadastroEmpresa.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
             cadastroEmpresa.style.opacity = "1";
