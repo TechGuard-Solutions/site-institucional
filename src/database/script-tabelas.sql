@@ -71,6 +71,6 @@ INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, f
 	SELECT * FROM usuario;
 	SELECT * FROM empresa;
 	SELECT * FROM plano;
-	SELECT * FROM tipousuario;
+	SELECT * FROM tipoUsuario;
 	SELECT * FROM basededados;
 	SELECT * FROM contato;
