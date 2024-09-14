@@ -71,15 +71,6 @@ function cadastrarEmpresa(req, res) {
             .then(function (resultado) {
                 res.json(resultado);
                 console.log(resultado);
-                identificarEmpresa(cnpj)
-                    .then(function(resultadoEmpresa) {
-                        console.log("Empresa identificada:", resultadoEmpresa);
-                        // Aqui você pode fazer algo com o resultado
-                    })
-                    .catch(function (erro) {
-                        console.log("Erro ao identificar empresa:", erro);
-                    });
-                // cadastrarUsuario();
             })
             .catch(function (erro) {
                 console.log(erro);
@@ -131,7 +122,7 @@ function cadastrarUsuario(req, res) {
 }
 
 function identificarEmpresa(req, res) {
-    var cnpj = req.body.cnpj; // Ou outra forma de obter o cnpj de req
+    var cnpj = req.body.cnpj;
 
     usuarioModel.identificarEmpresa(cnpj)
         .then(function (resultado) {
