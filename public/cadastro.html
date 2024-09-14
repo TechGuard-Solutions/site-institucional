@@ -25,27 +25,37 @@
             <div class="cadastro-fields" id="cadastro-teste">
                 <div class="field-group">
                     <p id="labelNome">Nome:</p>
-                    <input type="text" id="nome" required autocomplete="off">
+                    <input type="text" id="nomeUsuario" required autocomplete="off">
                 </div>
 
                 <div class="field-group">
                     <p id="labelEmail">Email:</p>
-                    <input type="email" id="email" required autocomplete="off">
+                    <input type="email" id="emailUsuario" required autocomplete="off">
                 </div>
 
                 <div class="field-group">
                     <p id="labelCpf">CPF:</p>
-                    <input type="text" id="cpf" required autocomplete="off">
+                    <input type="text" id="cpfUsuario" required autocomplete="off">
+                </div>
+
+                <div class="field-group">
+                    <p id="labelTelUsuario">Tel:</p>
+                    <input type="tel" id="telUsuario" required autocomplete="off">
                 </div>
 
                 <div class="field-group">
                     <p id="labelSenha">Senha:</p>
-                    <input type="password" id="senha" required autocomplete="off">
+                    <input type="password" id="senhaUsuario" required autocomplete="off">
                 </div>
 
                 <div class="field-group">
                     <p class="passwd-confirm">Confirme a Senha:</p>
-                    <input type="password" id="confirma-senha" required autocomplete="off">
+                    <input type="password" id="confirmarSenhaUsuario" required autocomplete="off">
+                </div>
+
+                <div class="buttons-field">
+                    <button onclick="changeRegister()" id="botao_registro">Proximo</button>
+                    <a href="login.html">Já tem uma conta? Faça login</a>
                 </div>
             </div>
 
@@ -75,12 +85,17 @@
                     <p id="labelCnpj">CNPJ:</p>
                     <input type="text" id="cnpj" required autocomplete="off">
                 </div>
+
+                <div class="buttons-field">
+                    <button onclick="cadastrarEmpresa()" id="botao_registro">Cadastrar</button>
+                    <a href="login.html">Já tem uma conta? Faça login</a>
+                </div>
             </div>
 
-            <div class="buttons-field">
+            <!-- <div class="buttons-field">
                 <button onclick="changeRegister(), cadastrarEmpresa()" id="botao_registro">Proximo</button>
                 <a href="login.html">Já tem uma conta? Faça login</a>
-            </div>
+            </div> -->
         </div>
 
         <div>

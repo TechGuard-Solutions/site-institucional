@@ -71,6 +71,15 @@ function cadastrarEmpresa(req, res) {
             .then(function (resultado) {
                 res.json(resultado);
                 console.log(resultado);
+                identificarEmpresa(cnpj)
+                    .then(function(resultadoEmpresa) {
+                        console.log("Empresa identificada:", resultadoEmpresa);
+                        // Aqui você pode fazer algo com o resultado
+                    })
+                    .catch(function (erro) {
+                        console.log("Erro ao identificar empresa:", erro);
+                    });
+                // cadastrarUsuario();
             })
             .catch(function (erro) {
                 console.log(erro);
@@ -87,7 +96,7 @@ function cadastrarUsuario(req, res) {
     var senhaUsuario = req.body.senhaUsuarioServer;
     var cpf = req.body.cpfServer;
     var telUsuario = req.body.telUsuarioServer;
-    var fkEmpresa = req.body.fkEmpresaServer;
+    var fkEmpresa = sessionStorage.fkEmpresa;
 
 
     if (nomeUsuario == undefined) {
@@ -121,8 +130,26 @@ function cadastrarUsuario(req, res) {
     }
 }
 
+function identificarEmpresa(req, res) {
+    var cnpj = req.body.cnpj; // Ou outra forma de obter o cnpj de req
+
+    usuarioModel.identificarEmpresa(cnpj)
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao identificar o CNPJ da empresa! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json({ error: erro.sqlMessage });
+        });
+}
+
 module.exports = {
     autenticar,
     cadastrarEmpresa,
-    cadastrarUsuario
+    cadastrarUsuario,
+    identificarEmpresa
 }
