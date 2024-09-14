@@ -10,10 +10,10 @@ function cadastrarEmpresa(nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa) 
 }
 
 function cadastrarUsuario(nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario) {
-    console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", nomeUsuario,senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario);
+    console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario);
     
     var instrucaoSql = `
-        INSERT INTO usuario (nomeUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario) VALUES ('${nomeUsuario}', '${cpf}', '${senhaUsuario}' '${emailUsuario}', '${telUsuario}', '${fkEmpresa}', '${fkTipoUsuario}');
+        INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf,  emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario) VALUES ('${nomeUsuario}', '${senhaUsuario}', '${cpf}', '${emailUsuario}', '${telUsuario}', '${fkEmpresa}', '${fkTipoUsuario}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

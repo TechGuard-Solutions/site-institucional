@@ -24,8 +24,10 @@ function changeRegister() {
 }
 
 function mandarParaTela() {
-    window.location.href = "login.html";
+    setTimeout(window.location.href = "login.html", 2000);
 }
+
+//Funções de cadastro
 
 function cadastrarUsuario() {
     var nome_usuario = nomeUsuario.value;
@@ -34,36 +36,59 @@ function cadastrarUsuario() {
     var tel_usuario = telUsuario.value
     var senha_usuario = senhaUsuario.value;
     var confirmarsenha_usuario = confirmarSenhaUsuario.value;
+    var tipo_usuario = 2;
+    var fk_empresa = sessionStorage.idEmpresa;
+    console.log("🚀 ~ cadastrarUsuario ~ fk_empresa:", fk_empresa)
 
-    fetch("/usuarios/cadastrarUsuario", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            nomeUsuarioServer: nome_usuario,
-            emailUsuarioServer: email_usuario,
-            cpfServer: cpf_usuario,
-            telUsuarioServer: tel_usuario,
-            senhaServer: senha_usuario,
-            confirmarSenhaServer: confirmarsenha_usuario
-        }),
-    })
-        .then(function (resposta) {
-            console.log("resposta: ", resposta);
+    var arroba = email_usuario.indexOf('@');
+    var ponto = email_usuario.indexOf('.');
 
-            if (resposta.ok) {
-                alert('Usuario Cadastrado');
-                mandarParaTela();
-            } else {
-                throw "Houve um erro ao tentar realizar o cadastro!";
-            }
+    if (nome_usuario.length < 2) {
+        alert("Nome muito curto!");
+    } else if (arroba == -1 || ponto == -1) {
+        alert("Email Inválido");
+    } else if (cpf_usuario.length < 11) {
+        alert("CPF inválido");
+    } else if (tel_usuario.length < 11) {
+        alert("Número de celular inválido");
+    } else if (senha_usuario.length < 8) {
+        alert("Senha muito fraca!");
+    } else if (!(/[.*@#]/.test(senha_usuario))) {
+        alert("Senha deve conter pelo menos um dos seguintes caracteres especiais: . * @ #");
+    } else if (confirmarsenha_usuario != senha_usuario) {
+        alert("Senhas não correspondem!");
+    } else {
+        fetch("/usuarios/cadastrarUsuario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeUsuarioServer: nome_usuario,
+                emailUsuarioServer: email_usuario,
+                cpfServer: cpf_usuario,
+                telUsuarioServer: tel_usuario,
+                senhaUsuarioServer: senha_usuario,
+                tipoUsuarioServer: tipo_usuario,
+                fkEmpresaServer: fk_empresa
+            }),
         })
-        .catch(function (erro) {
-            console.log(`#ERRO: ${erro}`);
-        });
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
 
-    return false;
+                if (resposta.ok) {
+                    alert('Usuario Cadastrado');
+                    mandarParaTela();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (erro) {
+                console.log(`#ERRO: ${erro}`);
+            });
+        return false;
+
+    }
 
 }
 
@@ -112,8 +137,6 @@ function cadastrarEmpresa() {
                     alert('Empresa Cadastrada');
                     console.log("cnpj fetch empresa: " + cnpj_empresa)
                     identificarEmpresa(cnpj_empresa);
-                    // mandarParaTela();
-
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro da empresa!";
                 }
@@ -142,6 +165,7 @@ function identificarEmpresa(cnpj) {
                 resposta.json().then(json => {
                     console.log(json[0].idEmpresa);
                     sessionStorage.idEmpresa = json[0].idEmpresa;
+                    cadastrarUsuario();
                 });
             }
         })
