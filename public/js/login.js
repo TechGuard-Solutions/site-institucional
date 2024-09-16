@@ -1,8 +1,6 @@
 function autenticar() {
     let email = campoEmail.value;
-    console.log("🚀 ~ autenticar ~ email:", email)
     let senha = campoSenha.value;
-    console.log("🚀 ~ autenticar ~ senha:", senha)
 
     if (email == undefined || senha == undefined) {
         alert("Campos preenchidos incorretamente!");
