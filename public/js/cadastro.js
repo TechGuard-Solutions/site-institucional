@@ -38,7 +38,6 @@ function cadastrarUsuario() {
     var confirmarsenha_usuario = confirmarSenhaUsuario.value;
     var tipo_usuario = 2;
     var fk_empresa = sessionStorage.idEmpresa;
-    console.log("🚀 ~ cadastrarUsuario ~ fk_empresa:", fk_empresa)
 
     var arroba = email_usuario.indexOf('@');
     var ponto = email_usuario.indexOf('.');

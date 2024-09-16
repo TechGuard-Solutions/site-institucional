@@ -4,49 +4,34 @@ function autenticar(req, res) {
     var emailUsuario = req.body.emailUsuarioServer;
     var senhaUsuario = req.body.senhaUsuarioServer;
 
+    console.log("Email recebido:", emailUsuario);  // Log do email recebido
+    console.log("Senha recebida:", senhaUsuario);  // Log da senha recebida
+
     if (emailUsuario == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senhaUsuario == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-
         usuarioModel.autenticar(emailUsuario, senhaUsuario)
-            .then(
-                function (resultadoAutenticar) {
-                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-
-                    if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
-
-                        usuarioModel.autenticar(resultadoAutenticar[0].idEmpresa)
-                            .then((resultadoUsuario) => {
-                                if (resultadoUsuario.length > 0) {
-                                    res.json({
-                                        idUsuario: resultadoAutenticar[0].idUsuario,
-                                        emailUsuario: resultadoAutenticar[0].emailUsuario,
-                                        nomeUsuario: resultadoAutenticar[0].nomeUsuario,
-                                        senhaUsuario: resultadoAutenticar[0].senhaUsuario
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
-                    } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
-                    } else {
-                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
-                    }
+            .then(function (resultadoAutenticar) {
+                if (resultadoAutenticar.length == 1) {
+                    res.json({
+                        idUsuario: resultadoAutenticar[0].idUsuario,
+                        nomeUsuario: resultadoAutenticar[0].nomeUsuario,
+                        emailUsuario: resultadoAutenticar[0].emailUsuario,
+                        fkEmpresa: resultadoAutenticar[0].fkEmpresa
+                    });
+                } else if (resultadoAutenticar.length == 0) {
+                    res.status(403).send("Email e/ou senha inválido(s)");
+                } else {
+                    res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                 }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+            })
+            .catch(function (erro) {
+                console.log("Erro no login:", erro);
+                res.status(500).json(erro.sqlMessage);
+            });
     }
-
 }
 
 function cadastrarEmpresa(req, res) {

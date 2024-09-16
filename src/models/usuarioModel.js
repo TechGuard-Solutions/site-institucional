@@ -19,7 +19,7 @@ function cadastrarUsuario(nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuar
     return database.executar(instrucaoSql);
 }
 
-function autenticar(email, senha) {
+function autenticar(emailUsuario, senhaUsuario) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", emailUsuario, senhaUsuario)
     var instrucaoSql = `
         SELECT idUsuario, nomeUsuario, emailUsuario, fkEmpresa FROM usuario WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = '${senhaUsuario}';
