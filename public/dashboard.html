@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <title>Dashboard</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="assets/Logo - TechGuard 1.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body onload="nomes()">
+    <div class="todo-fundo">
+        <div class="menu-lateral">
+            <span class="material-symbols-outlined">
+                menu
+            </span>
+            <span class="material-symbols-outlined">
+                bar_chart
+            </span>
+            <span class="material-symbols-outlined">
+                mark_chat_unread
+            </span>
+            <span class="material-symbols-outlined">
+                upload_file
+            </span>
+            <span class="material-symbols-outlined">
+                notifications_active
+            </span>
+            <span class="material-symbols-outlined">
+                help
+            </span>
+        </div>
+        <div class="fundo-infos">
+            <div class="infos-nome">
+                <p>NOME DA EMPRESA</p>
+                <p>NOME DO USUARIO</p>
+            </div>
+            <div class="kpis">
+                <div class="kpi kpi-cinza">Taxa de Risco</div>
+                <div class="kpi">Ataques bem sucedidos</div>
+                <div class="kpi">Ataques mal sucedidos</div>
+            </div>
+            <div class="graficos">
+
+                <canvas id="myChart"></canvas>
+
+                <canvas id="myChart2"></canvas>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // function nomes(){
+    //     var empresa = sessionStorage.getItem('empresa');
+    //     var usuario = sessionStorage.getItem('usuario');
+    //     document.querySelector('.infos-nome p:nth-child(1)').innerHTML = empresa;
+    //     document.querySelector('.infos-nome p:nth-child(2)').innerHTML = usuario;
+    // }
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

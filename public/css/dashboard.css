@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(48, 117, 131);
+    background: radial-gradient(circle at 80% center, rgba(46, 91, 101, 1) 0%, rgba(13, 20, 28, 1) 62%);
+    font-family: "Roboto", sans-serif;
+    color: #ffffff;
+}
+
+.todo-fundo {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.menu-lateral {
+    background-color: rgb(21, 32, 46);
+    width: 5vw;
+    border-right: #117701 4px solid;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
+    justify-content: space-around;
+    position: relative; /* Add position relative to the parent element */
+}
+
+.menu-lateral>span {
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.infos-nome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: -60px;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-bottom: 2px solid #117701;
+    font-size: 32px;
+    font-family: "Goldman";
+}
+
+.kpis {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+
+}
+
+.kpi {
+    width: 20%;
+    background-color: #ffffff;
+    border-radius: 30px;
+    height: 25vh;
+    display: flex;
+    padding: 20px;
+    text-align: start;
+    color: black;
+    font-family: "Goldman";
+    font-size: large;
+
+}
+
+.kpi-cinza {
+    color: #ffffff;
+    background-color: #2D2D2D;
+}
+
+.graficos {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#myChart,
+#myChart2 {
+    width: 45% !important;
+    height: 50vh !important;
+    margin-top: 40px;
+}
