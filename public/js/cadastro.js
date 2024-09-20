@@ -2,7 +2,31 @@ function changeRegister() {
     var cadastroEmpresa = document.getElementById("cadastro-empresa");
     var cadastroTeste = document.getElementById("cadastro-teste");
 
-    cadastroTeste.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
+    var nome_usuario = nomeUsuario.value;
+    var email_usuario = emailUsuario.value;
+    var cpf_usuario = cpfUsuario.value;
+    var tel_usuario = telUsuario.value
+    var senha_usuario = senhaUsuario.value;
+    var confirmarsenha_usuario = confirmarSenhaUsuario.value;
+    var arroba = email_usuario.indexOf('@');
+    var ponto = email_usuario.indexOf('.');
+
+    if (nome_usuario.length < 2) {
+        alert("Nome muito curto!");
+    } else if (arroba == -1 || ponto == -1) {
+        alert("Email Inválido");
+    } else if (cpf_usuario.length < 11) {
+        alert("CPF inválido");
+    } else if (tel_usuario.length < 11) {
+        alert("Número de celular inválido");
+    } else if (senha_usuario.length < 8) {
+        alert("Senha muito fraca!");
+    } else if (!(/[.*@#]/.test(senha_usuario))) {
+        alert("Senha deve conter pelo menos um dos seguintes caracteres especiais: . * @ #");
+    } else if (confirmarsenha_usuario != senha_usuario) {
+        alert("Senhas não correspondem!");
+    } else {
+        cadastroTeste.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
     cadastroTeste.style.opacity = "0";
     cadastroTeste.style.visibility = "hidden";
 
@@ -21,6 +45,7 @@ function changeRegister() {
             cadastroTeste.style.visibility = "visible";
         }, 10);
     }, 500);
+    }
 }
 
 function mandarParaTela() {
