@@ -20,7 +20,7 @@ CREATE TABLE empresa (
 	cep CHAR(9),
 	cnpj CHAR(18),
 	emailCorporativo VARCHAR(45),
-	telEmpresa CHAR(8),
+	telEmpresa CHAR(9),
 	fkPlano INT,
 	CONSTRAINT fkPlano FOREIGN KEY (fkPlano) REFERENCES plano (idPlano)
 );
@@ -28,16 +28,6 @@ CREATE TABLE empresa (
 CREATE TABLE tipoUsuario (
 	idTipoUsuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	tipo VARCHAR(45)
-);
-
-CREATE TABLE baseDeDados (
-	idBase INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nomeBase VARCHAR(250),
-	arquivoBase LONGBLOB,
-	dataEnvio DATETIME,
-	ativo BOOLEAN,
-	fkEmpresa INT NOT NULL,
-	CONSTRAINT fkEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
 );
 
 CREATE TABLE usuario (
