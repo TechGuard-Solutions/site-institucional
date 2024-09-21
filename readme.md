@@ -3,6 +3,7 @@
 
 ## Baixar script de verificação
 (Caso Windows): Instalar "Git Bash".
+
 (Caso Linux): Somente executar.
 
 O script atualiza, o sistema linux (Caso Linux), e instala o Java e Node.
