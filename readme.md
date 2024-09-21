@@ -1,4 +1,5 @@
 # TechGuard Solutions
+Ao clonar o repositório execute o arquivo "iniciar.sh"
 
 
 ## Baixar script de verificação
