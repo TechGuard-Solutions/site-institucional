@@ -21,7 +21,7 @@ else
   echo -e "${YELLOW}Gostaria de instalar o Java? [s/n]${NC}"
   read get
   if [ "$get" == "s" ]; then
-    sudo apt install openjdk-23-jre -y
+    sudo apt install openjdk-21-jre -y
   fi
 fi
 
