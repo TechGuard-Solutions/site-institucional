@@ -92,3 +92,15 @@ body {
     height: 50vh !important;
     margin-top: 40px;
 }
+
+.material-symbols-outlined{
+    width: 100%;
+    text-align: center;
+}
+
+.dashboard-logo{
+    background-color: #117701;
+    border-top:  2px solid #ffffff;
+    border-left:  2px solid #ffffff;
+    border-bottom:  2px solid #ffffff;
+}

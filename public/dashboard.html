@@ -13,25 +13,25 @@
 
 </head>
 
-<body onload="nomes()">
+<body>
     <div class="todo-fundo">
-        <div class="menu-lateral">
-            <span class="material-symbols-outlined">
+        <div class="menu-lateral" id="menu-lateral">
+            <span class="material-symbols-outlined" onclick="abrir()" id="menu">
                 menu
             </span>
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined dashboard-logo" id="dashboard-logo">
                 bar_chart
             </span>
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined" id="mark_chat_unread">
                 mark_chat_unread
             </span>
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined" id="upload_file">
                 upload_file
             </span>
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined" id="notifications_active">
                 notifications_active
             </span>
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined" id="help">
                 help
             </span>
         </div>
@@ -58,6 +58,32 @@
 
 </html>
 <script>
+
+    var i = 0;
+
+    function abrir() {
+
+        var menuLateral = document.getElementById('menu-lateral');
+        var dashboardLogo = document.getElementsByClassName('material-symbols-outlined');
+        var menu = document.getElementById('menu');
+        var infosNome = document.getElementById('dashboard-logo');
+        var mark_chat_unread = document.getElementById('mark_chat_unread');
+        var upload_file = document.getElementById('upload_file');
+        var notifications_active = document.getElementById('notifications_active');
+        var help = document.getElementById('help');
+
+
+        menuLateral.style.width = '250px';
+        menuLateral.zIndex = '1';
+        
+
+        for (var i = 0; i < dashboardLogo.length; i++) {
+            dashboardLogo[i].style.textAlign = 'start';
+            dashboardLogo[i].style.paddingLeft = '15px';
+        }
+
+    }
+
     // function nomes(){
     //     var empresa = sessionStorage.getItem('empresa');
     //     var usuario = sessionStorage.getItem('usuario');
@@ -68,7 +94,7 @@
     const ctx = document.getElementById('myChart');
 
     new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             datasets: [{
