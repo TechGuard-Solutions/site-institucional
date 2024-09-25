@@ -57,10 +57,3 @@ INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa, fkPla
 
 INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario) VALUES
 	('Admin', '12345678.', '464.646.422-33', 'admin@techguard.com', '(11)94002-8922', 1, 2);
-
-	SELECT * FROM usuario;
-	SELECT * FROM empresa;
-	SELECT * FROM plano;
-	SELECT * FROM tipoUsuario;
-	SELECT * FROM basededados;
-	SELECT * FROM contato;
