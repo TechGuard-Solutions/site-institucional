@@ -20,7 +20,7 @@ CREATE TABLE empresa (
 	cep CHAR(9),
 	cnpj CHAR(18),
 	emailCorporativo VARCHAR(45),
-	telEmpresa CHAR(8),
+	telEmpresa CHAR(9),
 	fkPlano INT,
 	CONSTRAINT fkPlano FOREIGN KEY (fkPlano) REFERENCES plano (idPlano)
 );
@@ -30,23 +30,13 @@ CREATE TABLE tipoUsuario (
 	tipo VARCHAR(45)
 );
 
-CREATE TABLE baseDeDados (
-	idBase INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nomeBase VARCHAR(250),
-	arquivoBase LONGBLOB,
-	dataEnvio DATETIME,
-	ativo BOOLEAN,
-	fkEmpresa INT NOT NULL,
-	CONSTRAINT fkEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
-);
-
 CREATE TABLE usuario (
 	idUsuario INT NOT NULL AUTO_INCREMENT,
 	nomeUsuario VARCHAR(45),
 	senhaUsuario VARCHAR(45),
-	cpf CHAR(11),
+	cpf CHAR(14),
 	emailUsuario VARCHAR(45),
-	telUsuario CHAR(11),
+	telUsuario CHAR(14),
 	fkEmpresa INT NOT NULL,
 	CONSTRAINT pkUsuarioEmpresa PRIMARY KEY (idUsuario, fkEmpresa),
 	CONSTRAINT fkUsuarioEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa),
@@ -63,10 +53,10 @@ INSERT INTO tipoUsuario (tipo) VALUES
 	('Admin');
 
 INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa, fkPlano) VALUES
-	('TechGuard Solutions', '01414-001', "40.028.922/0001-00", 'techguardsolutions.suporte@gmail.com', "40028922", 2);
+	('TechGuard Solutions', '01414-001', "40.028.922/0001-00", 'techguardsolutions.suporte@gmail.com', "4002-8922", 2);
 
 INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario) VALUES
-	('Gustavo Gil', '123456', '46464642233', 'gustavo.gil@techguard.com', '11940672967', 1, 2);
+	('Admin', '12345678.', '464.646.422-33', 'admin@techguard.com', '(11)94002-8922', 1, 2);
 
 	SELECT * FROM usuario;
 	SELECT * FROM empresa;

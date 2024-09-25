@@ -147,6 +147,10 @@ body {
     width: 100%;
 }
 
+#labelTelUsuario {
+    margin-right: 60% ;
+}
+
 .field-group label {
     position: absolute;
     top: 15px;
