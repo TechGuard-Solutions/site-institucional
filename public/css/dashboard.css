@@ -30,7 +30,7 @@ body {
     align-items: center;
     font-size: large;
     justify-content: space-around;
-    position: relative; /* Add position relative to the parent element */
+    position: relative; 
 }
 
 .menu-lateral>span {
