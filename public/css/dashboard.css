@@ -21,7 +21,7 @@ body {
 }
 
 .menu-lateral {
-    background-color: rgb(21, 32, 46);
+    background-color: #15202e;
     width: 5vw;
     border-right: #117701 4px solid;
     height: 100vh;
@@ -30,7 +30,9 @@ body {
     align-items: center;
     font-size: large;
     justify-content: space-around;
-    position: relative; 
+    position: relative;
+
+
 }
 
 .menu-lateral>span {
@@ -93,14 +95,16 @@ body {
     margin-top: 40px;
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
     width: 100%;
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.dashboard-logo{
+.dashboard-logo {
     background-color: #117701;
-    border-top:  2px solid #ffffff;
-    border-left:  2px solid #ffffff;
-    border-bottom:  2px solid #ffffff;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
 }

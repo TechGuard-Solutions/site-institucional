@@ -19,22 +19,22 @@
 <body>
     <div class="todo-fundo">
         <div class="menu-lateral" id="menu-lateral">
-            <span class="material-symbols-outlined" onclick="abrir()" id="menu">
+            <span class="material-symbols-outlined" onclick="abrir()" onmouseenter="hover()" id="menu">
                 menu
             </span>
-            <span class="material-symbols-outlined dashboard-logo" id="dashboard-logo">
+            <span class="material-symbols-outlined dashboard-logo" onmouseenter="hover()" id="dashboard-logo">
                 bar_chart
             </span>
-            <span class="material-symbols-outlined" id="mark_chat_unread">
+            <span class="material-symbols-outlined" onmouseenter="hover()" id="mark_chat_unread">
                 mark_chat_unread
             </span>
-            <span class="material-symbols-outlined" id="upload_file">
+            <span class="material-symbols-outlined" onmouseenter="hover()" id="upload_file">
                 upload_file
             </span>
-            <span class="material-symbols-outlined" id="notifications_active">
+            <span class="material-symbols-outlined" onmouseenter="hover()" id="notifications_active">
                 notifications_active
             </span>
-            <span class="material-symbols-outlined" id="help">
+            <span class="material-symbols-outlined" onmouseenter="hover()" id="help">
                 help
             </span>
         </div>
@@ -65,6 +65,7 @@
     var i = 0;
 
     function abrir() {
+
         var menuLateral = document.getElementById('menu-lateral');
         var dashboardLogo = document.getElementsByClassName('material-symbols-outlined');
         var menu = document.getElementById('menu');
@@ -73,20 +74,24 @@
         var uploadFile = document.getElementById('upload_file');
         var notificationsActive = document.getElementById('notifications_active');
         var help = document.getElementById('help');
-
+        var fundoInfos = document.querySelector('.fundo-infos');
         var isOpen = menuLateral.style.width === '450px';
         menuLateral.style.width = isOpen ? '5vw' : '450px';
+        menuLateral.style.position = isOpen ? 'relative' : 'absolute'; // Ensure the menu stays on top
+        fundoInfos.style.filter = isOpen ? 'none' : 'blur(5px)';
+        fundoInfos.style.zIndex = isOpen ? '0' : '-100';
+        fundoInfos.style.marginLeft = isOpen ? '0px' : '5vw';
 
         for (var i = 0; i < dashboardLogo.length; i++) {
             dashboardLogo[i].style.textAlign = isOpen ? 'center' : 'start';
             dashboardLogo[i].style.paddingLeft = isOpen ? '0' : '15px';
             dashboardLogo[i].style.display = isOpen ? '' : 'flex';
-            // dashboardLogo[i].style.justifyContent = isOpen ? '' : 'space-around';
             dashboardLogo[i].style.alignItems = isOpen ? '' : 'center';
             dashboardLogo[i].style.gap = isOpen ? '' : '30px';
         }
 
         if (!isOpen) {
+
             var fechar = document.createElement('span');
             var dashText = document.createElement('span');
             var markChatUnreadText = document.createElement('span');
@@ -101,12 +106,12 @@
             notificationsActiveText.innerText = 'Notificações';
             helpText.innerText = 'Ajuda';
 
-            fechar.style.fontFamily = 'Godoto'
-            dashText.style.fontFamily = 'Godoto'
-            markChatUnreadText.style.fontFamily = 'Godoto'
-            uploadFileText.style.fontFamily = 'Godoto'
-            notificationsActiveText.style.fontFamily = 'Godoto'
-            helpText.style.fontFamily = 'Godoto'
+            fechar.style.fontFamily = 'Godoto';
+            dashText.style.fontFamily = 'Godoto';
+            markChatUnreadText.style.fontFamily = 'Godoto';
+            uploadFileText.style.fontFamily = 'Godoto';
+            notificationsActiveText.style.fontFamily = 'Godoto';
+            helpText.style.fontFamily = 'Godoto';
 
             fechar.style.fontSize = '25px';
             dashText.style.fontSize = '25px';
@@ -142,6 +147,10 @@
             notificationsActive.innerHTML = 'notifications_active ' + notificationsActiveText.outerHTML;
             help.innerHTML = 'help ' + helpText.outerHTML;
 
+            menuLateral.style.backgroundColor = '#15202e';
+
+
+
         } else {
             menu.innerHTML = 'menu';
             dash.innerHTML = 'bar_chart';
@@ -151,6 +160,7 @@
             help.innerHTML = 'help';
         }
     }
+
 
 
     // function nomes(){
@@ -179,6 +189,8 @@
                 }
             }
         }
+
+
     });
 
     const ctx2 = document.getElementById('myChart2');
