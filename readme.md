@@ -1,7 +1,5 @@
 # TechGuard Solutions
-Ao clonar o repositório execute o arquivo "iniciar.sh"
-
-
+Caso ache necessário, poderá executar os scripts dentro da pasta ShellScripts.
 ## Baixar script de verificação
 (Caso Windows): Instalar "Git Bash".
 
