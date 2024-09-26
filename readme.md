@@ -4,6 +4,7 @@ Ao clonar o repositório execute o arquivo "iniciar.sh"
 
 ## Baixar script de verificação
 (Caso Windows): Instalar "Git Bash".
+Link Git: https://git-scm.com/downloads/win
 
 (Caso Linux): Somente executar.
 
