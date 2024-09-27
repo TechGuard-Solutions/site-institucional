@@ -77,7 +77,7 @@
         var fundoInfos = document.querySelector('.fundo-infos');
         var isOpen = menuLateral.style.width === '450px';
         menuLateral.style.width = isOpen ? '5vw' : '450px';
-        menuLateral.style.position = isOpen ? 'relative' : 'absolute'; // Ensure the menu stays on top
+        menuLateral.style.position = isOpen ? 'relative' : 'absolute';
         fundoInfos.style.filter = isOpen ? 'none' : 'blur(5px)';
         fundoInfos.style.zIndex = isOpen ? '0' : '-100';
         fundoInfos.style.marginLeft = isOpen ? '0px' : '5vw';
@@ -179,15 +179,57 @@
             datasets: [{
                 label: '# of Votes',
                 data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
+                borderWidth: 1,
+                fill: true,
+                borderColor: 'white',
+                backgroundColor: 'blue',
+                borderWidth: 5,
+                tension: 0.1,
             }]
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#FFF',
+                        font: {
+                            size: 15
+                        }
+                    },
+                    grid: {
+                        color: '#FFF'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#FFF',
+                        font: {
+                            size: 15
+                        }
+                    },
+                    grid: {
+                        color: '#FFF'
+                    }
                 }
-            }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    font: {
+                        size: 20
+                    },
+                    color: '#FFF',
+                },
+                legend: {
+                    labels: {
+                        color: '#ffffff',
+                        font: {
+                            size: 20
+                        }
+                    }
+                }
+            },
         }
 
 
@@ -202,15 +244,56 @@
             datasets: [{
                 label: '# of Votes',
                 data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
+                borderWidth: 1,
+                fill: true,
+                borderColor: 'white',
+                borderWidth: 5,
+                tension: 0.1,
             }]
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#FFF',
+                        font: {
+                            size: 15
+                        }
+                    },
+                    grid: {
+                        color: '#FFF'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#FFF',
+                        font: {
+                            size: 15
+                        }
+                    },
+                    grid: {
+                        color: '#FFF'
+                    }
                 }
-            }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    font: {
+                        size: 20
+                    },
+                    color: '#FFF',
+                },
+                legend: {
+                    labels: {
+                        color: '#ffffff',
+                        font: {
+                            size: 20
+                        }
+                    }
+                }
+            },
         }
     });
 </script>
