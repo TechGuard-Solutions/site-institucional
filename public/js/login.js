@@ -26,6 +26,9 @@ function autenticar() {
                             sessionStorage.emailUsuario = json.emailUsuario;
                             sessionStorage.fkEmpresa = json.fkEmpresa;
                             alert("Usuário autenticado!");
+                            setTimeout(() => {
+                                window.location.href = "../dashboard.html";
+                            }, 1000);
                     });
                 } else {
                     throw "Houve um erro ao tentar realizar a autenticação!";
