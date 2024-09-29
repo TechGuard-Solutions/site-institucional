@@ -33,7 +33,7 @@ CREATE TABLE tipoUsuario (
 CREATE TABLE usuario (
 	idUsuario INT NOT NULL AUTO_INCREMENT,
 	nomeUsuario VARCHAR(45),
-	senhaUsuario VARCHAR(45),
+	senhaUsuario VARCHAR(255),
 	cpf CHAR(14),
 	emailUsuario VARCHAR(45),
 	telUsuario CHAR(14),
