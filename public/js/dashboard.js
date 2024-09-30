@@ -11,8 +11,8 @@ function abrir() {
     var notificationsActive = document.getElementById('notifications_active');
     var help = document.getElementById('help');
     var fundoInfos = document.querySelector('.fundo-infos');
-    var isOpen = menuLateral.style.width === '450px';
-    menuLateral.style.width = isOpen ? '5vw' : '450px';
+    var isOpen = menuLateral.style.width === '270px';
+    menuLateral.style.width = isOpen ? '5vw' : '270px';
     menuLateral.style.position = isOpen ? 'relative' : 'absolute';
     fundoInfos.style.filter = isOpen ? 'none' : 'blur(5px)';
     fundoInfos.style.zIndex = isOpen ? '0' : '-100';
@@ -42,19 +42,19 @@ function abrir() {
         notificationsActiveText.innerText = 'Notificações';
         helpText.innerText = 'Ajuda';
 
-        fechar.style.fontFamily = 'Godoto';
-        dashText.style.fontFamily = 'Godoto';
-        markChatUnreadText.style.fontFamily = 'Godoto';
-        uploadFileText.style.fontFamily = 'Godoto';
-        notificationsActiveText.style.fontFamily = 'Godoto';
-        helpText.style.fontFamily = 'Godoto';
+        fechar.style.fontFamily = '"Roboto", sans-serif';
+        dashText.style.fontFamily = '"Roboto", sans-serif';
+        markChatUnreadText.style.fontFamily = '"Roboto", sans-serif';
+        uploadFileText.style.fontFamily = '"Roboto", sans-serif';
+        notificationsActiveText.style.fontFamily = '"Roboto", sans-serif';
+        helpText.style.fontFamily = '"Roboto", sans-serif';
 
-        fechar.style.fontSize = '25px';
-        dashText.style.fontSize = '25px';
-        markChatUnreadText.style.fontSize = '25px';
-        uploadFileText.style.fontSize = '25px';
-        notificationsActiveText.style.fontSize = '25px';
-        helpText.style.fontSize = '25px';
+        fechar.style.fontSize = '20px';
+        dashText.style.fontSize = '20px';
+        markChatUnreadText.style.fontSize = '20px';
+        uploadFileText.style.fontSize = '20px';
+        notificationsActiveText.style.fontSize = '20px';
+        helpText.style.fontSize = '20px';
 
         dashText.style.display = 'flex';
         fechar.style.display = 'flex';

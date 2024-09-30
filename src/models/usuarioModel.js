@@ -22,7 +22,7 @@ function cadastrarUsuario(nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuar
 function autenticar(emailUsuario, senhaUsuario) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", emailUsuario, senhaUsuario)
     var instrucaoSql = `
-        SELECT idUsuario, nomeUsuario, emailUsuario, fkEmpresa FROM usuario WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = '${senhaUsuario}';
+        SELECT idUsuario, nomeUsuario, emailUsuario, fkEmpresa, empresa.nomeEmpresa FROM usuario JOIN empresa on fkEmpresa = idEmpresa WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = '${senhaUsuario}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

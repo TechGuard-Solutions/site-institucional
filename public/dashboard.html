@@ -40,8 +40,8 @@
         </div>
         <div class="fundo-infos">
             <div class="infos-nome">
-                <p id="nomeEm">NOME DA EMPRESA</p>
-                <p>NOME DO USUARIO</p>
+                <p id="nomeEmpresa">NOME DA EMPRESA</p>
+                <p id="nomeUsuario">NOME DO USUARIO</p>
             </div>
             <div class="kpis">
                 <div class="kpi kpi-cinza">Taxa de Risco</div>
@@ -62,6 +62,9 @@
 </html>
 
 <script>
+    nomeEmpresa.innerHTML = `${sessionStorage.nomeEmpresa}`
+    nomeUsuario.innerHTML = `${sessionStorage.nomeUsuario}`
+
     const ctx = document.getElementById('myChart');
 
     new Chart(ctx, {

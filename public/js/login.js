@@ -25,7 +25,8 @@ function autenticar() {
                             sessionStorage.nomeUsuario = json.nomeUsuario;
                             sessionStorage.emailUsuario = json.emailUsuario;
                             sessionStorage.fkEmpresa = json.fkEmpresa;
-                            sessionStorage.fkEmpresa = json.fkEmpresa;
+                            sessionStorage.nomeEmpresa = json.nomeEmpresa;
+
                             alert("Usuário autenticado!");
                             setTimeout(() => {
                                 window.location.href = "../dashboard.html";
