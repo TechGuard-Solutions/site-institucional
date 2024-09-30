@@ -83,11 +83,12 @@
                     'rgba(75, 192, 192)',  // Cor da quarta barra
                     'rgba(153, 102, 255)', // Cor da quinta barra
                     'rgba(255, 159, 64)'  // Cor da sexta barra    
-                ], borderWidth: 5,
+                ], borderWidth: 2,
                 tension: 0.1,
             }]
         },
         options: {
+            indexAxis: 'y',
             scales: {
                 y: {
                     beginAtZero: true,
@@ -98,6 +99,7 @@
                         }
                     },
                     grid: {
+                        display: false,
                         color: '#FFF'
                     }
                 },
@@ -109,6 +111,7 @@
                         }
                     },
                     grid: {
+                        drawOnChart: true,
                         color: '#FFF'
                     }
                 }
@@ -116,13 +119,16 @@
             plugins: {
                 title: {
                     display: true,
+                    text: 'Seis maiores ataques no ultimo mês',
                     font: {
-                        size: 20
+                        size: 20,
                     },
                     color: '#FFF',
                 },
                 legend: {
+                    display: false,
                     labels: {
+                        hidden: true,
                         color: '#ffffff',
                         font: {
                             size: 20
@@ -237,6 +243,7 @@
                         }
                     },
                     grid: {
+                        display: false,
                         color: '#FFF',
                     }
                 },
