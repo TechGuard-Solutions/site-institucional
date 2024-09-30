@@ -12,39 +12,60 @@ function changeRegister() {
     var ponto = email_usuario.indexOf('.');
 
     if (nome_usuario.length < 2) {
-        alert("Nome muito curto!");
+        Swal.fire("Nome muito curto!");
     } else if (arroba == -1 || ponto == -1) {
-        alert("Email Inválido");
+        Swal.fire("Email Inválido");
     } else if (cpf_usuario.length < 11) {
-        alert("CPF inválido");
+        Swal.fire("CPF inválido");
     } else if (tel_usuario.length < 11) {
-        alert("Número de celular inválido");
+        Swal.fire("Número de celular inválido");
     } else if (senha_usuario.length < 8) {
-        alert("Senha muito fraca!");
+        Swal.fire("Senha muito fraca!");
     } else if (!(/[.*@#]/.test(senha_usuario))) {
-        alert("Senha deve conter pelo menos um dos seguintes caracteres especiais: . * @ #");
+        Swal.fire("Senha deve conter pelo menos um dos seguintes caracteres especiais: '.', '*', '@', '#'");
     } else if (confirmarsenha_usuario != senha_usuario) {
-        alert("Senhas não correspondem!");
+        Swal.fire("Senhas não correspondem!");
     } else {
+        Swal.fire({
+            title: "Agora cadastre a empresa!",
+            html: "Redirecionando...",
+            timer: 1500,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+        });
+        
         cadastroTeste.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
-    cadastroTeste.style.opacity = "0";
-    cadastroTeste.style.visibility = "hidden";
-
-    setTimeout(function () {
-        cadastroTeste.style.display = "none";
-        cadastroEmpresa.style.display = "flex";
+        cadastroTeste.style.opacity = "0";
+        cadastroTeste.style.visibility = "hidden";
 
         setTimeout(function () {
-            cadastroEmpresa.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
-            cadastroEmpresa.style.opacity = "1";
-            cadastroEmpresa.style.visibility = "visible";
-        }, 10);
-        setTimeout(function () {
-            cadastroTeste.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
-            cadastroTeste.style.opacity = "1";
-            cadastroTeste.style.visibility = "visible";
-        }, 10);
-    }, 500);
+            cadastroTeste.style.display = "none";
+            cadastroEmpresa.style.display = "flex";
+
+            setTimeout(function () {
+                cadastroEmpresa.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
+                cadastroEmpresa.style.opacity = "1";
+                cadastroEmpresa.style.visibility = "visible";
+            }, 10);
+            setTimeout(function () {
+                cadastroTeste.style.transition = "opacity 0.5s ease, visibility 0.5s ease";
+                cadastroTeste.style.opacity = "1";
+                cadastroTeste.style.visibility = "visible";
+            }, 10);
+        }, 500);
     }
 }
 
@@ -68,19 +89,19 @@ function cadastrarUsuario() {
     var ponto = email_usuario.indexOf('.');
 
     if (nome_usuario.length < 2) {
-        alert("Nome muito curto!");
+        Swal.fire("Nome muito curto!");
     } else if (arroba == -1 || ponto == -1) {
-        alert("Email Inválido");
+        Swal.fire("Email Inválido");
     } else if (cpf_usuario.length < 11) {
-        alert("CPF inválido");
+        Swal.fire("CPF inválido");
     } else if (tel_usuario.length < 11) {
-        alert("Número de celular inválido");
+        Swal.fire("Número de celular inválido");
     } else if (senha_usuario.length < 8) {
-        alert("Senha muito fraca!");
+        Swal.fire("Senha muito fraca!");
     } else if (!(/[.*@#]/.test(senha_usuario))) {
-        alert("Senha deve conter pelo menos um dos seguintes caracteres especiais: . * @ #");
+        Swal.fire("Senha deve conter pelo menos um dos seguintes caracteres especiais: '.', '*', '@', '#'");
     } else if (confirmarsenha_usuario != senha_usuario) {
-        alert("Senhas não correspondem!");
+        Swal.fire("Senhas não correspondem!");
     } else {
         fetch("/usuarios/cadastrarUsuario", {
             method: "POST",
@@ -101,7 +122,23 @@ function cadastrarUsuario() {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    alert('Usuario Cadastrado');
+                    let timerInterval;
+                    Swal.fire({
+                        title: "Usuário cadastrado!",
+                        html: "Redirecionando...",
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading();
+                            const timer = Swal.getPopup().querySelector("b");
+                            timerInterval = setInterval(() => {
+                                timer.textContent = `${Swal.getTimerLeft()}`;
+                            }, 100);
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval);
+                        }
+                    })
                     mandarParaTela();
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
