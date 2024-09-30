@@ -66,7 +66,7 @@ body {
 .kpi {
     width: 20%;
     background-color: #ffffff;
-    border-radius: 15px;
+    border-radius: 30px;
     height: 25vh;
     display: flex;
     padding: 20px;
@@ -74,13 +74,10 @@ body {
     color: black;
     font-family: "Goldman";
     font-size: large;
-    border: #adf9a3 3px solid;
-    box-shadow: 3px 4px 20px #adf9a372;
+
 }
 
 .kpi-cinza {
-    box-shadow: 1px 2px 20px #ffffff45;
-    border: #ffffffae 1px solid;
     color: #ffffff;
     background-color: #2D2D2D;
 }
