@@ -88,8 +88,8 @@ body {
     align-items: center;
 }
 
-#myChart,
-#myChart2 {
+    #myChart,
+    #myChart2 {
     width: 45% !important;
     height: 50vh !important;
     margin-top: 40px;

@@ -51,8 +51,23 @@
             <div class="graficos">
 
                 <canvas id="myChart"></canvas>
-
-                <canvas id="myChart2" onchange="mudarHidden()"></canvas>
+                <div class="botoes">
+                    <div class="fileira1">
+                        <div class="botao"></div>
+                        <div class="botao"></div>
+                        <div class="botao"></div>
+                    </div>
+                    <div class="fileira2">
+                        <div class="botao"></div>
+                        <div class="botao"></div>
+                        <div class="botao"></div>
+                    </div>
+                </div>
+                <canvas id="myChart3" style="display: none;"></canvas>
+                <canvas id="myChart4" style="display: none;"></canvas>
+                <canvas id="myChart5" style="display: none;"></canvas>
+                <canvas id="myChart6" style="display: none;"></canvas>
+                <canvas id="myChart7" style="display: none;"></canvas>
 
             </div>
         </div>
@@ -69,8 +84,8 @@
         data: {
             labels: ['Scam', 'Roubo de Dados', 'Phishing', 'Ataques DDoS', 'Software malicioso', 'Sites Fraudulentos'],
             datasets: [{
-                label: 'Seis maiores ataques',
-                data: [12, 19, 15, 5, 2, 3],
+                label: 'Seis maiores ataques no ultimo mês',
+                data: [19, 15, 12, 5, 3, 2],
                 borderWidth: 1,
                 fill: true,
                 borderColor: 'white',
@@ -143,6 +158,7 @@
     const nValues6 = [];
 
 
+
     for (let index = 0; index < 5; index++) {
         nValues1.push(Math.floor(Math.random() * 20));
         nValues2.push(Math.floor(Math.random() * 20));
@@ -153,12 +169,12 @@
     }
 
     // Adiciona um valor fixo ou um novo valor aleatório ao último índice
-    nValues1.push(12);
-    nValues2.push(19);
-    nValues3.push(15);
+    nValues1.push(19);
+    nValues2.push(15);
+    nValues3.push(12);
     nValues4.push(5);
-    nValues5.push(2);
-    nValues6.push(3);
+    nValues5.push(3);
+    nValues6.push(2);
 
     const myChart = new Chart(ctx2, {
 
