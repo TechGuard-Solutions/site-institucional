@@ -40,7 +40,7 @@
         </div>
         <div class="fundo-infos">
             <div class="infos-nome">
-                <p id="nomeEm">NOME DA EMPRESA</p>
+                <p>NOME DA EMPRESA</p>
                 <p>NOME DO USUARIO</p>
             </div>
             <div class="kpis">
@@ -51,23 +51,7 @@
             <div class="graficos">
 
                 <canvas id="myChart"></canvas>
-                <div class="botoes">
-                    <div class="fileira1">
-                        <div class="botao"></div>
-                        <div class="botao"></div>
-                        <div class="botao"></div>
-                    </div>
-                    <div class="fileira2">
-                        <div class="botao"></div>
-                        <div class="botao"></div>
-                        <div class="botao"></div>
-                    </div>
-                </div>
-                <canvas id="myChart3" style="display: none;"></canvas>
-                <canvas id="myChart4" style="display: none;"></canvas>
-                <canvas id="myChart5" style="display: none;"></canvas>
-                <canvas id="myChart6" style="display: none;"></canvas>
-                <canvas id="myChart7" style="display: none;"></canvas>
+                <canvas id="myChart2"></canvas>
 
             </div>
         </div>
@@ -250,7 +234,6 @@
                         }
                     },
                     grid: {
-                        display: false,
                         color: '#FFF',
                     }
                 },
@@ -269,6 +252,7 @@
             plugins: {
                 title: {
                     display: true,
+                    text: 'Linha do tempo de cada ataque ao longo dos ultimos meses',
                     font: {
                         size: 20,
                     },
