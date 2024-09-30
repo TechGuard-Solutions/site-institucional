@@ -175,15 +175,21 @@
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Scam', 'Roubo de Dados', 'Phishing', 'Ataques DDoS', 'Software malicioso', 'Sites Fraudulentos'],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Seis maiores ataques',
+                data: [12, 19, 15, 5, 2, 3],
                 borderWidth: 1,
                 fill: true,
                 borderColor: 'white',
-                backgroundColor: 'blue',
-                borderWidth: 5,
+                backgroundColor: [
+                    'rgb(255, 99, 132)', // Cor da primeira barra
+                    'rgba(54, 162, 235)', // Cor da segunda barra
+                    'rgba(255, 206, 86)', // Cor da terceira barra
+                    'rgba(75, 192, 192)',  // Cor da quarta barra
+                    'rgba(153, 102, 255)', // Cor da quinta barra
+                    'rgba(255, 159, 64)'  // Cor da sexta barra    
+                ], borderWidth: 5,
                 tension: 0.1,
             }]
         },
@@ -235,22 +241,90 @@
 
     });
 
-    const ctx2 = document.getElementById('myChart2');
+    const ctx2 = document.getElementById('myChart2').getContext('2d');
 
-    new Chart(ctx2, {
+    const nValues1 = [];
+    const nValues2 = [];
+    const nValues3 = [];
+    const nValues4 = [];
+    const nValues5 = [];
+    const nValues6 = [];
+
+    for (let index = 0; index < 5; index++) {
+        nValues1.push(Math.floor(Math.random() * 20));
+        nValues2.push(Math.floor(Math.random() * 20));
+        nValues3.push(Math.floor(Math.random() * 20));
+        nValues4.push(Math.floor(Math.random() * 20));
+        nValues5.push(Math.floor(Math.random() * 20));
+        nValues6.push(Math.floor(Math.random() * 20));
+    }
+
+    // Adiciona um valor fixo ou um novo valor aleatório ao último índice
+    nValues1.push(12);
+    nValues2.push(19);
+    nValues3.push(15);
+    nValues4.push(5);
+    nValues5.push(2);
+    nValues6.push(3);
+
+    let lastClickedLabel = null; // Variável para armazenar a última label clicada
+
+    const myChart = new Chart(ctx2, {
         type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1,
-                fill: true,
-                borderColor: 'white',
-                borderWidth: 5,
-                tension: 0.1,
-            }]
+            labels: ['04/24', '05/24', '06/24', '07/24', '08/24', '09/24'],
+            datasets: [
+                {
+                    label: 'Scam',
+                    data: nValues1,
+                    fill: false,
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderWidth: 5,
+                },
+                {
+                    label: 'Roubo de Dados',
+                    data: nValues2,
+                    fill: false,
+                    borderColor: 'rgba(54, 162, 235)',
+                    backgroundColor: 'rgba(54, 162, 235)',
+                    borderWidth: 5
+                },
+                {
+                    label: 'Phishing',
+                    data: nValues3,
+                    fill: false,
+                    borderColor: 'rgba(255, 206, 86)',
+                    backgroundColor: 'rgba(255, 206, 86)',
+                    borderWidth: 5
+                },
+                {
+                    label: 'Ataques DDoS',
+                    data: nValues4,
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192)',
+                    backgroundColor: 'rgba(75, 192, 192)',
+                    borderWidth: 5
+                },
+                {
+                    label: 'Software malicioso',
+                    data: nValues5,
+                    fill: false,
+                    borderColor: 'rgba(153, 102, 255)',
+                    backgroundColor: 'rgba(153, 102, 255)',
+                    borderWidth: 5
+                },
+                {
+                    label: 'Sites Fraudulentos',
+                    data: nValues6,
+                    fill: false,
+                    borderColor: 'rgba(255, 159, 64)',
+                    backgroundColor: 'rgba(255, 159, 64)',
+                    borderWidth: 5
+                }
+            ],
         },
+
         options: {
             scales: {
                 y: {
@@ -258,22 +332,22 @@
                     ticks: {
                         color: '#FFF',
                         font: {
-                            size: 15
+                            size: 15,
                         }
                     },
                     grid: {
-                        color: '#FFF'
+                        color: '#FFF',
                     }
                 },
                 x: {
                     ticks: {
                         color: '#FFF',
                         font: {
-                            size: 15
+                            size: 15,
                         }
                     },
                     grid: {
-                        color: '#FFF'
+                        color: '#FFF',
                     }
                 }
             },
@@ -281,7 +355,7 @@
                 title: {
                     display: true,
                     font: {
-                        size: 20
+                        size: 20,
                     },
                     color: '#FFF',
                 },
@@ -289,11 +363,12 @@
                     labels: {
                         color: '#ffffff',
                         font: {
-                            size: 20
+                            size: 20,
                         }
                     }
                 }
             },
         }
     });
+
 </script>
