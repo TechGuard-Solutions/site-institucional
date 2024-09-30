@@ -12,8 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-
-
 </head>
 
 <body>
@@ -40,7 +38,7 @@
         </div>
         <div class="fundo-infos">
             <div class="infos-nome">
-                <p>NOME DA EMPRESA</p>
+                <p id="nomeEm">NOME DA EMPRESA</p>
                 <p>NOME DO USUARIO</p>
             </div>
             <div class="kpis">
@@ -61,6 +59,9 @@
 
 </html>
 <script>
+
+    
+    nomeEm.innerHTML = `${sessionStorage.nomeEmpresa}`;
 
     var i = 0;
 
@@ -336,6 +337,7 @@
                         }
                     },
                     grid: {
+                        display: false,
                         color: '#FFF',
                     }
                 },
