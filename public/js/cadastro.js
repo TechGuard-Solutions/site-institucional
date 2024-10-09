@@ -122,6 +122,7 @@ function cadastrarUsuario() {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
+                    console.log("Usuário cadastrado com sucesso!")
                     let timerInterval;
                     Swal.fire({
                         title: "Usuário cadastrado!",
@@ -195,6 +196,7 @@ function cadastrarEmpresa() {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
+                    console.log("Empresa cadastrada com sucesso!")
                     alert('Empresa Cadastrada');
                     console.log("cnpj fetch empresa: " + cnpj_empresa)
                     identificarEmpresa(cnpj_empresa);
@@ -223,6 +225,7 @@ function identificarEmpresa(cnpj) {
             console.log("empresa identificada: ", resposta);
 
             if (resposta.ok) {
+                console.log("Empresa identificada com sucesso")
                 resposta.json().then(json => {
                     console.log(json[0].idEmpresa);
                     sessionStorage.idEmpresa = json[0].idEmpresa;
