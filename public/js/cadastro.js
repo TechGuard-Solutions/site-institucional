@@ -164,7 +164,7 @@ function cadastrarEmpresa() {
     var arroba = email_empresa.indexOf('@');
     var ponto = email_empresa.indexOf('.');
 
-    if (nome_empresa < 3) {
+    if (nome_empresa.length < 3) {
         alert("Nome da empresa muito curto!");
         console.log(nome_empresa);
     } else if (arroba == -1 || ponto == -1) {
@@ -173,44 +173,49 @@ function cadastrarEmpresa() {
     } else if (cep_empresa.length < 9) {
         alert("CEP Inválido! Por favor verifique novamente");
         console.log(cep_empresa);
-    } else if (tel_empresa < 8) {
+    } else if (tel_empresa.length < 8) {
         alert("Telefone Inválido");
     } else if (cnpj_empresa.length < 18) {
         alert("CNPJ Inválido!");
         console.log(cnpj_empresa);
     } else {
-        fetch("/usuarios/cadastrarEmpresa", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                nomeEmpresaServer: nome_empresa,
-                emailCorporativoServer: email_empresa,
-                cepServer: cep_empresa,
-                cnpjServer: cnpj_empresa,
-                telEmpresaServer: tel_empresa
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
+        // Chama a função de validação do CNPJ
+        validarCNPJ(cnpj_empresa).then(isValid => {
+            if (isValid) {
+                // Se o CNPJ for válido, continua com o cadastro
+                fetch("/usuarios/cadastrarEmpresa", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        nomeEmpresaServer: nome_empresa,
+                        emailCorporativoServer: email_empresa,
+                        cepServer: cep_empresa,
+                        cnpjServer: cnpj_empresa,
+                        telEmpresaServer: tel_empresa
+                    }),
+                })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
 
-                if (resposta.ok) {
-                    console.log("Empresa cadastrada com sucesso!")
-                    alert('Empresa Cadastrada');
-                    console.log("cnpj fetch empresa: " + cnpj_empresa)
-                    identificarEmpresa(cnpj_empresa);
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro da empresa!";
-                }
-            })
-            .catch(function (erro) {
-                console.log(`#ERRO: ${erro}`);
-            });
-
-        return false;
+                    if (resposta.ok) {
+                        console.log("Empresa cadastrada com sucesso!")
+                        alert('Empresa Cadastrada');
+                        console.log("cnpj fetch empresa: " + cnpj_empresa)
+                        identificarEmpresa(cnpj_empresa);
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro da empresa!";
+                    }
+                })
+                .catch(function (erro) {
+                    console.log(`#ERRO: ${erro}`);
+                });
+            } else {
+                alert("CNPJ inválido! Por favor, verifique os dados.");
+            }
+        });
     }
-
 }
 
 function identificarEmpresa(cnpj) {
@@ -238,4 +243,32 @@ function identificarEmpresa(cnpj) {
         });
 
     return false;
+}
+
+function validarCNPJ(cnpj_empresa) {
+    var cnpj_tratado = cnpj_empresa.replaceAll('.', '').replaceAll('/', '').replaceAll('-', '');
+    
+    return fetch(`https://open.cnpja.com/office/${cnpj_tratado}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            // Se a API exigir um token de autenticação, adicione-o aqui
+            // "Authorization": "Bearer SEU_TOKEN_AQUI"
+        }
+    })
+    .then(function (resposta) {
+        if (resposta.ok) {
+            return resposta.json().then(json => {
+                console.log("CNPJ validado com sucesso", json);
+                return true; // CNPJ válido
+            });
+        } else {
+            console.log("CNPJ inválido ou não encontrado");
+            return false; // CNPJ inválido
+        }
+    })
+    .catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+        return false; // Em caso de erro, retorna inválido
+    });
 }
