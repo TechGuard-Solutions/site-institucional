@@ -12,36 +12,36 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-
+    <script src="js/dashboard.js"></script>
 
 </head>
 
 <body>
     <div class="todo-fundo">
         <div class="menu-lateral" id="menu-lateral">
-            <span class="material-symbols-outlined" onclick="abrir()" onmouseenter="hover()" id="menu">
+            <span class="material-symbols-outlined" onclick="abrir()" id="menu">
                 menu
             </span>
-            <span class="material-symbols-outlined dashboard-logo" onmouseenter="hover()" id="dashboard-logo">
+            <span class="material-symbols-outlined dashboard-logo" id="dashboard-logo">
                 bar_chart
             </span>
-            <span class="material-symbols-outlined" onmouseenter="hover()" id="mark_chat_unread">
+            <span class="material-symbols-outlined" id="mark_chat_unread">
                 mark_chat_unread
             </span>
-            <span class="material-symbols-outlined" onmouseenter="hover()" id="upload_file">
+            <span class="material-symbols-outlined" id="upload_file">
                 upload_file
             </span>
-            <span class="material-symbols-outlined" onmouseenter="hover()" id="notifications_active">
+            <span class="material-symbols-outlined" id="notifications_active">
                 notifications_active
             </span>
-            <span class="material-symbols-outlined" onmouseenter="hover()" id="help">
+            <span class="material-symbols-outlined" id="help">
                 help
             </span>
         </div>
         <div class="fundo-infos">
             <div class="infos-nome">
-                <p>NOME DA EMPRESA</p>
-                <p>NOME DO USUARIO</p>
+                <p id="nomeEmpresa">NOME DA EMPRESA</p>
+                <p id="nomeUsuario">NOME DO USUARIO</p>
             </div>
             <div class="kpis">
                 <div class="kpi kpi-cinza">Taxa de Risco</div>
@@ -51,7 +51,6 @@
             <div class="graficos">
 
                 <canvas id="myChart"></canvas>
-
                 <canvas id="myChart2"></canvas>
 
             </div>
@@ -60,134 +59,36 @@
 </body>
 
 </html>
+
 <script>
-
-    var i = 0;
-
-    function abrir() {
-
-        var menuLateral = document.getElementById('menu-lateral');
-        var dashboardLogo = document.getElementsByClassName('material-symbols-outlined');
-        var menu = document.getElementById('menu');
-        var dash = document.getElementById('dashboard-logo');
-        var markChatUnread = document.getElementById('mark_chat_unread');
-        var uploadFile = document.getElementById('upload_file');
-        var notificationsActive = document.getElementById('notifications_active');
-        var help = document.getElementById('help');
-        var fundoInfos = document.querySelector('.fundo-infos');
-        var isOpen = menuLateral.style.width === '450px';
-        menuLateral.style.width = isOpen ? '5vw' : '450px';
-        menuLateral.style.position = isOpen ? 'relative' : 'absolute';
-        fundoInfos.style.filter = isOpen ? 'none' : 'blur(5px)';
-        fundoInfos.style.zIndex = isOpen ? '0' : '-100';
-        fundoInfos.style.marginLeft = isOpen ? '0px' : '5vw';
-
-        for (var i = 0; i < dashboardLogo.length; i++) {
-            dashboardLogo[i].style.textAlign = isOpen ? 'center' : 'start';
-            dashboardLogo[i].style.paddingLeft = isOpen ? '0' : '15px';
-            dashboardLogo[i].style.display = isOpen ? '' : 'flex';
-            dashboardLogo[i].style.alignItems = isOpen ? '' : 'center';
-            dashboardLogo[i].style.gap = isOpen ? '' : '30px';
-        }
-
-        if (!isOpen) {
-
-            var fechar = document.createElement('span');
-            var dashText = document.createElement('span');
-            var markChatUnreadText = document.createElement('span');
-            var uploadFileText = document.createElement('span');
-            var notificationsActiveText = document.createElement('span');
-            var helpText = document.createElement('span');
-
-            fechar.innerText = 'Fechar';
-            dashText.innerText = 'Gráficos';
-            markChatUnreadText.innerText = 'Chat';
-            uploadFileText.innerText = "Upload de BD's";
-            notificationsActiveText.innerText = 'Notificações';
-            helpText.innerText = 'Ajuda';
-
-            fechar.style.fontFamily = 'Godoto';
-            dashText.style.fontFamily = 'Godoto';
-            markChatUnreadText.style.fontFamily = 'Godoto';
-            uploadFileText.style.fontFamily = 'Godoto';
-            notificationsActiveText.style.fontFamily = 'Godoto';
-            helpText.style.fontFamily = 'Godoto';
-
-            fechar.style.fontSize = '25px';
-            dashText.style.fontSize = '25px';
-            markChatUnreadText.style.fontSize = '25px';
-            uploadFileText.style.fontSize = '25px';
-            notificationsActiveText.style.fontSize = '25px';
-            helpText.style.fontSize = '25px';
-
-            dashText.style.display = 'flex';
-            fechar.style.display = 'flex';
-            markChatUnreadText.style.display = 'flex';
-            uploadFileText.style.display = 'flex';
-            notificationsActiveText.style.display = 'flex';
-            helpText.style.display = 'flex';
-
-            fechar.style.justifyContent = 'center';
-            fechar.style.alignItems = 'center';
-            dashText.style.justifyContent = 'center';
-            dashText.style.alignItems = 'center';
-            markChatUnreadText.style.justifyContent = 'center';
-            markChatUnreadText.style.alignItems = 'center';
-            uploadFileText.style.justifyContent = 'center';
-            uploadFileText.style.alignItems = 'center';
-            notificationsActiveText.style.justifyContent = 'center';
-            notificationsActiveText.style.alignItems = 'center';
-            helpText.style.justifyContent = 'center';
-            helpText.style.alignItems = 'center';
-
-            menu.innerHTML = 'menu ' + fechar.outerHTML;
-            dash.innerHTML = 'bar_chart ' + dashText.outerHTML;
-            markChatUnread.innerHTML = 'mark_chat_unread ' + markChatUnreadText.outerHTML;
-            uploadFile.innerHTML = 'upload_file ' + uploadFileText.outerHTML;
-            notificationsActive.innerHTML = 'notifications_active ' + notificationsActiveText.outerHTML;
-            help.innerHTML = 'help ' + helpText.outerHTML;
-
-            menuLateral.style.backgroundColor = '#15202e';
-
-
-
-        } else {
-            menu.innerHTML = 'menu';
-            dash.innerHTML = 'bar_chart';
-            markChatUnread.innerHTML = 'mark_chat_unread';
-            uploadFile.innerHTML = 'upload_file';
-            notificationsActive.innerHTML = 'notifications_active';
-            help.innerHTML = 'help';
-        }
-    }
-
-
-
-    // function nomes(){
-    //     var empresa = sessionStorage.getItem('empresa');
-    //     var usuario = sessionStorage.getItem('usuario');
-    //     document.querySelector('.infos-nome p:nth-child(1)').innerHTML = empresa;
-    //     document.querySelector('.infos-nome p:nth-child(2)').innerHTML = usuario;
-    // }
+    nomeEmpresa.innerHTML = `${sessionStorage.nomeEmpresa}`
+    nomeUsuario.innerHTML = `${sessionStorage.nomeUsuario}`
 
     const ctx = document.getElementById('myChart');
 
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Scam', 'Roubo de Dados', 'Phishing', 'Ataques DDoS', 'Software malicioso', 'Sites Fraudulentos'],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Seis maiores ataques no ultimo mês',
+                data: [19, 15, 12, 5, 3, 2],
                 borderWidth: 1,
                 fill: true,
                 borderColor: 'white',
-                backgroundColor: 'blue',
-                borderWidth: 5,
+                backgroundColor: [
+                    'rgb(255, 99, 132)', // Cor da primeira barra
+                    'rgba(54, 162, 235)', // Cor da segunda barra
+                    'rgba(255, 206, 86)', // Cor da terceira barra
+                    'rgba(75, 192, 192)',  // Cor da quarta barra
+                    'rgba(153, 102, 255)', // Cor da quinta barra
+                    'rgba(255, 159, 64)'  // Cor da sexta barra    
+                ], borderWidth: 2,
                 tension: 0.1,
             }]
         },
         options: {
+            indexAxis: 'y',
             scales: {
                 y: {
                     beginAtZero: true,
@@ -198,6 +99,7 @@
                         }
                     },
                     grid: {
+                        display: false,
                         color: '#FFF'
                     }
                 },
@@ -209,6 +111,7 @@
                         }
                     },
                     grid: {
+                        drawOnChart: true,
                         color: '#FFF'
                     }
                 }
@@ -216,13 +119,16 @@
             plugins: {
                 title: {
                     display: true,
+                    text: 'Seis maiores ataques no ultimo mês',
                     font: {
-                        size: 20
+                        size: 20,
                     },
                     color: '#FFF',
                 },
                 legend: {
+                    display: false,
                     labels: {
+                        hidden: true,
                         color: '#ffffff',
                         font: {
                             size: 20
@@ -235,22 +141,97 @@
 
     });
 
-    const ctx2 = document.getElementById('myChart2');
+    const ctx2 = document.getElementById('myChart2').getContext('2d');
 
-    new Chart(ctx2, {
+    const nValues1 = [];
+    const nValues2 = [];
+    const nValues3 = [];
+    const nValues4 = [];
+    const nValues5 = [];
+    const nValues6 = [];
+
+
+
+    for (let index = 0; index < 5; index++) {
+        nValues1.push(Math.floor(Math.random() * 20));
+        nValues2.push(Math.floor(Math.random() * 20));
+        nValues3.push(Math.floor(Math.random() * 20));
+        nValues4.push(Math.floor(Math.random() * 20));
+        nValues5.push(Math.floor(Math.random() * 20));
+        nValues6.push(Math.floor(Math.random() * 20));
+    }
+
+    // Adiciona um valor fixo ou um novo valor aleatório ao último índice
+    nValues1.push(19);
+    nValues2.push(15);
+    nValues3.push(12);
+    nValues4.push(5);
+    nValues5.push(3);
+    nValues6.push(2);
+
+    const myChart = new Chart(ctx2, {
+
         type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1,
-                fill: true,
-                borderColor: 'white',
-                borderWidth: 5,
-                tension: 0.1,
-            }]
+            labels: ['04/24', '05/24', '06/24', '07/24', '08/24', '09/24'],
+            datasets: [
+                {
+                    label: 'Scam',
+                    data: nValues1,
+                    hidden: false,
+                    fill: false,
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderWidth: 5,
+                },
+                {
+                    label: 'Roubo de Dados',
+                    data: nValues2,
+                    fill: false,
+                    hidden: true,
+                    borderColor: 'rgba(54, 162, 235)',
+                    backgroundColor: 'rgba(54, 162, 235)',
+                    borderWidth: 5
+                },
+                {
+                    label: 'Phishing',
+                    data: nValues3,
+                    fill: false,
+                    hidden: true,
+                    borderColor: 'rgba(255, 206, 86)',
+                    backgroundColor: 'rgba(255, 206, 86)',
+                    borderWidth: 5
+                },
+                {
+                    label: 'Ataques DDoS',
+                    data: nValues4,
+                    fill: false,
+                    hidden: true,
+                    borderColor: 'rgba(75, 192, 192)',
+                    backgroundColor: 'rgba(75, 192, 192)',
+                    borderWidth: 5
+                },
+                {
+                    label: 'Software malicioso',
+                    data: nValues5,
+                    fill: false,
+                    hidden: true,
+                    borderColor: 'rgba(153, 102, 255)',
+                    backgroundColor: 'rgba(153, 102, 255)',
+                    borderWidth: 5
+                },
+                {
+                    label: 'Sites Fraudulentos',
+                    data: nValues6,
+                    fill: false,
+                    hidden: true,
+                    borderColor: 'rgba(255, 159, 64)',
+                    backgroundColor: 'rgba(255, 159, 64)',
+                    borderWidth: 5
+                }
+            ],
         },
+
         options: {
             scales: {
                 y: {
@@ -258,30 +239,32 @@
                     ticks: {
                         color: '#FFF',
                         font: {
-                            size: 15
+                            size: 15,
                         }
                     },
                     grid: {
-                        color: '#FFF'
+                        display: false,
+                        color: '#FFF',
                     }
                 },
                 x: {
                     ticks: {
                         color: '#FFF',
                         font: {
-                            size: 15
+                            size: 15,
                         }
                     },
                     grid: {
-                        color: '#FFF'
+                        color: '#FFF',
                     }
                 }
             },
             plugins: {
                 title: {
                     display: true,
+                    text: 'Linha do tempo de cada ataque ao longo dos ultimos meses',
                     font: {
-                        size: 20
+                        size: 20,
                     },
                     color: '#FFF',
                 },
@@ -289,11 +272,12 @@
                     labels: {
                         color: '#ffffff',
                         font: {
-                            size: 20
+                            size: 20,
                         }
                     }
                 }
             },
         }
     });
+
 </script>
