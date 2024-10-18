@@ -12,7 +12,23 @@ body {
     font-family: "Roboto", sans-serif;
     color: #ffffff;
 }
+  
+  .meu-botao {
+    border: 2px solid #f4796b; 
+    border-radius: 8px;        
+    padding: 10px 20px;
+    color: #f4796b;        
+  }
 
+  .meu-alerta {
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .meu-icone {
+    color: #ff0000 !important;  /* Altere a cor do ícone */
+    font-size: 15px;  /* Ajusta o tamanho do ícone (opcional) */
+  }
 .material-symbols-outlined {
     background: none;
     color: #4ADC7C;
