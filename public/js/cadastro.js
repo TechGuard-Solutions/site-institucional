@@ -12,22 +12,106 @@ function changeRegister() {
     var ponto = email_usuario.indexOf('.');
 
     if (nome_usuario.length < 2) {
-        Swal.fire("Nome muito curto!");
+        Swal.fire({
+            title: "Nome muito curto!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (arroba == -1 || ponto == -1) {
-        Swal.fire("Email Inválido");
+        Swal.fire({
+            title: "Email Inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (cpf_usuario.length < 11) {
-        Swal.fire("CPF inválido");
+        Swal.fire({
+            title: "CPF inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (tel_usuario.length < 11) {
-        Swal.fire("Número de celular inválido");
+        Swal.fire({
+            title: "Número de celular inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (senha_usuario.length < 8) {
-        Swal.fire("Senha muito fraca!");
+        Swal.fire({
+            title: "Senha muito fraca!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (!(/[.*@#]/.test(senha_usuario))) {
-        Swal.fire("Senha deve conter pelo menos um dos seguintes caracteres especiais: '.', '*', '@', '#'");
+        Swal.fire({
+            title: "Senha deve conter pelo menos um dos seguintes caracteres especiais: '.', '*', '@', '#'",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (confirmarsenha_usuario != senha_usuario) {
-        Swal.fire("Senhas não correspondem!");
+        Swal.fire({
+            title: "Senhas não correspondem!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else {
         Swal.fire({
             title: "Agora cadastre a empresa!",
+            color: "#4ADC7C",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'},
             html: "Redirecionando...",
             timer: 1500,
             timerProgressBar: true,
@@ -89,19 +173,96 @@ function cadastrarUsuario() {
     var ponto = email_usuario.indexOf('.');
 
     if (nome_usuario.length < 2) {
-        Swal.fire("Nome muito curto!");
+        Swal.fire({
+            title: "Nome muito curto!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (arroba == -1 || ponto == -1) {
-        Swal.fire("Email Inválido");
+        Swal.fire({
+            title: "Email Inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (cpf_usuario.length < 11) {
-        Swal.fire("CPF inválido");
+        Swal.fire({
+            title: "CPF inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (tel_usuario.length < 11) {
-        Swal.fire("Número de celular inválido");
+        Swal.fire({
+            title: "Número de celular inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (senha_usuario.length < 8) {
-        Swal.fire("Senha muito fraca!");
+        Swal.fire({
+            title: "Senha muito fraca!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (!(/[.*@#]/.test(senha_usuario))) {
-        Swal.fire("Senha deve conter pelo menos um dos seguintes caracteres especiais: '.', '*', '@', '#'");
+        Swal.fire({
+            title: "Senha deve conter pelo menos um dos seguintes caracteres especiais: '.', '*', '@', '#'",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else if (confirmarsenha_usuario != senha_usuario) {
-        Swal.fire("Senhas não correspondem!");
+        Swal.fire({
+            title: "Senhas não correspondem!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
     } else {
         fetch("/usuarios/cadastrarUsuario", {
             method: "POST",
@@ -126,7 +287,14 @@ function cadastrarUsuario() {
                     Swal.fire({
                         title: "Usuário cadastrado!",
                         html: "Redirecionando...",
-                        timer: 2000,
+                        color: "#4ADC7C",
+                        background: "#10161c",
+                        confirmButtonColor: "#10161c",
+                          customClass: {
+                          confirmButton: 'meu-botao',
+                          popup: 'meu-alerta', 
+                          icon: 'meu-icone'},
+                        timer: 1500,
                         timerProgressBar: true,
                         didOpen: () => {
                             Swal.showLoading();
@@ -164,18 +332,74 @@ function cadastrarEmpresa() {
     var ponto = email_empresa.indexOf('.');
 
     if (nome_empresa < 3) {
-        alert("Nome da empresa muito curto!");
+        Swal.fire({
+            title: "Nome da empresa muito curto!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
         console.log(nome_empresa);
     } else if (arroba == -1 || ponto == -1) {
-        alert("Email Inválido!");
+        Swal.fire({
+            title: "Email Inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
         console.log(email_empresa);
     } else if (cep_empresa.length < 9) {
-        alert("CEP Inválido! Por favor verifique novamente");
+        Swal.fire({
+            title: "CEP Inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
         console.log(cep_empresa);
     } else if (tel_empresa < 8) {
-        alert("Telefone Inválido");
+        Swal.fire({
+            title: "Telefone Inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
+        console.log(tel_empresa);
     } else if (cnpj_empresa.length < 18) {
-        alert("CNPJ Inválido!");
+        Swal.fire({
+            title: "CNPJ Inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
         console.log(cnpj_empresa);
     } else {
         fetch("/usuarios/cadastrarEmpresa", {
