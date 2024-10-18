@@ -8,9 +8,9 @@ function autenticar(req, res) {
     console.log("Senha recebida:", senhaUsuario);  // Log da senha recebida
 
     if (emailUsuario == undefined) {
-        res.status(400).send("Seu email está undefined!");
+        res.status(400).send(console.log("Seu email está undefined!"));
     } else if (senhaUsuario == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
+        res.status(400).send(console.log("Sua senha está indefinida!"));
     } else {
         usuarioModel.autenticar(emailUsuario, senhaUsuario)
             .then(function (resultadoAutenticar) {
@@ -19,12 +19,13 @@ function autenticar(req, res) {
                         idUsuario: resultadoAutenticar[0].idUsuario,
                         nomeUsuario: resultadoAutenticar[0].nomeUsuario,
                         emailUsuario: resultadoAutenticar[0].emailUsuario,
-                        fkEmpresa: resultadoAutenticar[0].fkEmpresa
+                        fkEmpresa: resultadoAutenticar[0].fkEmpresa,
+                        nomeEmpresa: resultadoAutenticar[0].nomeEmpresa
                     });
                 } else if (resultadoAutenticar.length == 0) {
-                    res.status(403).send("Email e/ou senha inválido(s)");
+                    res.status(403).send(console.log("Email e/ou senha inválido(s)"));
                 } else {
-                    res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                    res.status(403).send(console.log("Mais de um usuário com o mesmo login e senha!"));
                 }
             })
             .catch(function (erro) {
@@ -42,15 +43,15 @@ function cadastrarEmpresa(req, res) {
     var telEmpresa = req.body.telEmpresaServer;
 
     if (nomeEmpresa == undefined) {
-        res.status(400).send("Seu nome está undefined!");
+        res.status(400).send(consoloe.log("Seu nome está undefined!"));
     } else if (emailCorporativo == undefined) {
-        res.status(400).send("Seu email está undefined!");
+        res.status(400).send(console.log("Seu email está undefined!"));
     } else if (cep == undefined) {
-        res.status(400).send("Seu cep está undefined!");
+        res.status(400).send(console.log("Seu cep está undefined!"));
     } else if (cnpj == undefined) {
-        res.status(400).send("Seu cnpj está undefined!");
+        res.status(400).send(console.log("Seu cnpj está undefined!"));
     } else if (telEmpresa == undefined) {
-        res.status(400).send("Seu telEmpresa está undefined!");
+        res.status(400).send(console.log("Seu telEmpresa está undefined!"));
     } else {
         usuarioModel.cadastrarEmpresa(nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa)
             .then(function (resultado) {

@@ -39,13 +39,19 @@ body {
     color: white;
     font-size: 40px;
     cursor: pointer;
+/* background-color: rgb(66, 11, 88);
+background-color: rgb(252, 3, 108);
+background-color: rgb(241, 162, 11);
+background-color: rgb(141, 156, 9);
+background-color: rgb(8, 128, 123);
+background-color: rgb(52, 80, 43); */
 }
 
 .infos-nome {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 95vw;
     margin-top: -60px;
     padding-left: 2%;
     padding-right: 2%;
@@ -74,10 +80,14 @@ body {
     color: black;
     font-family: "Goldman";
     font-size: large;
+    border: 2px #1fba07 solid;
+    box-shadow: 1px 1px 20px #1fba0783;
 
 }
 
 .kpi-cinza {
+    border: #ffffff;
+    box-shadow: 1px 2px 20px #ffffff83;
     color: #ffffff;
     background-color: #2D2D2D;
 }

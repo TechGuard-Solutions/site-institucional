@@ -19,18 +19,22 @@ function autenticar() {
                 console.log(resposta);
 
                 if (resposta.ok) {
+                    console.log("Usuário autenticado com sucesso!")
                     resposta.json().then(json => {
                         console.log("Resposta JSON:", json);
                             sessionStorage.idUsuario = json.idUsuario;
                             sessionStorage.nomeUsuario = json.nomeUsuario;
                             sessionStorage.emailUsuario = json.emailUsuario;
                             sessionStorage.fkEmpresa = json.fkEmpresa;
+                            sessionStorage.nomeEmpresa = json.nomeEmpresa;
+
                             alert("Usuário autenticado!");
                             setTimeout(() => {
                                 window.location.href = "../dashboard.html";
                             }, 1000);
                     });
                 } else {
+                    console.log("Houve um erro ao tentar realizar a autenticação!")
                     throw "Houve um erro ao tentar realizar a autenticação!";
                 }
             })
