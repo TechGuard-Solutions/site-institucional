@@ -333,7 +333,18 @@ function cadastrarEmpresa() {
     var ponto = email_empresa.indexOf('.');
 
     if (nome_empresa < 3) {
-        alert("Nome da empresa muito curto!");
+        Swal.fire({
+            title: "Nome da empresa muito curto!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
         console.log(nome_empresa);
     } else if (arroba == -1 || ponto == -1) {
         Swal.fire({
@@ -364,7 +375,19 @@ function cadastrarEmpresa() {
           });
         console.log(cep_empresa);
     } else if (tel_empresa < 8) {
-        alert("Telefone Inválido");
+        Swal.fire({
+            title: "Telefone Inválido!",
+            icon: "error",
+            color: "#f4796b",
+            background: "#10161c",
+            confirmButtonColor: "#10161c",
+              customClass: {
+              confirmButton: 'meu-botao',
+              popup: 'meu-alerta', 
+              icon: 'meu-icone'
+            }
+          });
+        console.log(tel_empresa);
     } else if (cnpj_empresa.length < 18) {
         Swal.fire({
             title: "CNPJ Inválido!",
