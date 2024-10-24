@@ -204,6 +204,7 @@ function cadastrarEmpresa() {
                         alert('Empresa Cadastrada');
                         console.log("cnpj fetch empresa: " + cnpj_empresa)
                         identificarEmpresa(cnpj_empresa);
+                        window.location.href = "login.html";
                     } else {
                         throw "Houve um erro ao tentar realizar o cadastro da empresa!";
                     }
