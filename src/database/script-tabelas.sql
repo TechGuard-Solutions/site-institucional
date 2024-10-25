@@ -2,11 +2,6 @@ CREATE DATABASE techguard;
 
 USE techguard;
 
-CREATE TABLE plano (
-	idPlano INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nomePlano VARCHAR(45)
-);
-
 CREATE TABLE contato (
 	idContato INT PRIMARY KEY AUTO_INCREMENT,
 	nomeContato VARCHAR(45),
