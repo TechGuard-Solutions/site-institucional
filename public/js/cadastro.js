@@ -436,53 +436,18 @@ function cadastrarEmpresa() {
                     .then(function (resposta) {
                         console.log("resposta: ", resposta);
 
-                        if (resposta.ok) {
-                            Swal.fire({
-                                title: "Empresa cadastrada com sucesso!",
-                                html: "Redirecionando...",
-                                color: "#4ADC7C",
-                                background: "#10161c",
-                                confirmButtonColor: "#10161c",
-                                customClass: {
-                                    confirmButton: 'meu-botao',
-                                    popup: 'meu-alerta',
-                                    icon: 'meu-icone'
-                                },
-                                timer: 1500,
-                                timerProgressBar: true,
-                                didOpen: () => {
-                                    Swal.showLoading();
-                                    const timer = Swal.getPopup().querySelector("b");
-                                    timerInterval = setInterval(() => {
-                                        timer.textContent = `${Swal.getTimerLeft()}`;
-                                    }, 100);
-                                },
-                                willClose: () => {
-                                    clearInterval(timerInterval);
-                                }
-                            })
-                            mandarParaTela();
-
-                            console.log("cnpj fetch empresa: " + cnpj_empresa)
-                            identificarEmpresa(cnpj_empresa);
-                        } else {
-                            Swal.fire({
-                                title: "Houve um erro ao tentar realizar o cadastro, por favor, verifique os dados!",
-                                icon: "error",
-                                color: "#f4796b",
-                                background: "#10161c",
-                                confirmButtonColor: "#10161c",
-                                customClass: {
-                                    confirmButton: 'meu-botao',
-                                    popup: 'meu-alerta',
-                                    icon: 'meu-icone'
-                                }
-                            });
-                        }
-                    })
-                    .catch(function (erro) {
-                        console.log(`#ERRO: ${erro}`);
-                    });
+                    if (resposta.ok) {
+                        console.log("Empresa cadastrada com sucesso!")
+                        alert('Empresa Cadastrada');
+                        console.log("cnpj fetch empresa: " + cnpj_empresa)
+                        identificarEmpresa(cnpj_empresa);
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro da empresa!";
+                    }
+                })
+                .catch(function (erro) {
+                    console.log(`#ERRO: ${erro}`);
+                });
             } else {
                 Swal.fire({
                     title: "CNPJ inválido, por favor, verifique os dados!",

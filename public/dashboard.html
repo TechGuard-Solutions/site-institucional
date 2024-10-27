@@ -4,49 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/dashboard.css">
     <title>Dashboard</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" href="assets/Logo - TechGuard 1.png">
+    <link rel="stylesheet" href="./css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
     <script src="js/dashboard.js"></script>
 
+    <!-- Imports Components -->
+    <link rel="stylesheet" href="./components/menu.css">
+    <script src="./components/menu.js"></script>
 </head>
 
 <body>
     <div class="todo-fundo">
-        <div class="menu-lateral" id="menu-lateral">
-            <span class="material-symbols-outlined" onclick="abrir()" id="menu">
-                menu
-            </span>
-            <span class="material-symbols-outlined dashboard-logo" id="dashboard-logo">
-                bar_chart
-            </span>
-            <span class="material-symbols-outlined" id="mark_chat_unread">
-                mark_chat_unread
-            </span>
-            <span class="material-symbols-outlined" id="upload_file">
-                upload_file
-            </span>
-            <span class="material-symbols-outlined" id="notifications_active">
-                notifications_active
-            </span>
-            <span class="material-symbols-outlined" id="help">
-                help
-            </span>
-        </div>
+        <sidebar-menu></sidebar-menu>
         <div class="fundo-infos">
             <div class="infos-nome">
                 <p id="nomeEmpresa">NOME DA EMPRESA</p>
                 <p id="nomeUsuario">NOME DO USUARIO</p>
             </div>
             <div class="kpis">
-                <div class="kpi kpi-cinza">Data do ultimo ataque</div>
-                <div class="kpi">Usuarios mais afetados</div>
-                <div class="kpi">Ataques mal sucedidos</div>
+                <div class="kpi kpi-cinza">Data do ultimo ataque <div class="info-kpi">22/6/2023</div>
+                </div>
+                <div class="kpi">Usuarios mais afetados <div class="info-kpis">Companies and organizations</div>
+                </div>
+                <div class="kpi">Ataques Com Mais Ocorrencia <div class="info-kpis">Software and Applications</div>
+                </div>
             </div>
             <div class="graficos">
 
@@ -76,7 +63,7 @@
                 'Protocols and APIs',
                 'Development Tools and Packages'],
             datasets: [{
-                label: 'Seis maiores ataques no ultimo mês',
+                label: 'Seis maiores ataques no ultimo mÃªs',
                 data: [19, 15, 12, 5, 3, 2],
                 borderWidth: 1,
                 fill: true,
@@ -131,7 +118,7 @@
             plugins: {
                 title: {
                     display: true,
-                    text: 'Seis maiores ataques no ultimo mês',
+                    text: 'Seis maiores ataques no ultimo mÃªs',
                     font: {
                         size: 21,
                     },
@@ -166,7 +153,7 @@
                 'Payment Diversion',
                 'Others'],
 
-                datasets: [{
+            datasets: [{
                 label: 'Tipos de danos que mais ocorrem',
                 data: [5, 2, 19, 15, 3, 12],
                 borderWidth: 1,
