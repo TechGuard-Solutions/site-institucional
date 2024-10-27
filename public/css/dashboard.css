@@ -81,12 +81,13 @@ background-color: rgb(52, 80, 43); */
     font-family: "Goldman";
     font-size: large;
     border: 2px #1fba07 solid;
-    box-shadow: 1px 1px 20px #1fba0783;
+    box-shadow: 1px 1px 20px #ffffff83;
 
 }
 
 .kpi-cinza {
-    border: #ffffff;
+    /* border: #ffffff; */
+    border: 1px #1fba07 solid;
     box-shadow: 1px 2px 20px #ffffff83;
     color: #ffffff;
     background-color: #2D2D2D;
