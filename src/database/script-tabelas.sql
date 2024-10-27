@@ -15,7 +15,7 @@ CREATE TABLE empresa (
 	cep CHAR(9),
 	cnpj CHAR(18),
 	emailCorporativo VARCHAR(45),
-	telEmpresa CHAR(9),
+	telEmpresa CHAR(9)
 );
 
 CREATE TABLE tipoUsuario (
@@ -26,7 +26,7 @@ CREATE TABLE tipoUsuario (
 CREATE TABLE Usuario (
 	idUsuario INT NOT NULL AUTO_INCREMENT,
 	nomeUsuario VARCHAR(45),
-	senhaUsuario VARCHAR(45),
+	senhaUsuario VARCHAR(500),
 	cpf CHAR(14),
 	emailUsuario VARCHAR(45),
 	telUsuario CHAR(14),
@@ -55,3 +55,5 @@ INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa) VALUE
 
 INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario) VALUES
 	('Admin', '2FD15005E2D51CB1BE7B2C1A75A91AF79C10350B184271A4F9CC9800B93BAFC9', '464.646.422-33', 'admin@techguard.com', '(11)94002-8922', 1, 2);
+
+select * from usuario;
