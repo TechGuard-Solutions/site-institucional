@@ -23,7 +23,7 @@ CREATE TABLE tipoUsuario (
 	tipo VARCHAR(45)
 );
 
-CREATE TABLE Usuario (
+CREATE TABLE usuario (
 	idUsuario INT NOT NULL AUTO_INCREMENT,
 	nomeUsuario VARCHAR(45),
 	senhaUsuario VARCHAR(500),
