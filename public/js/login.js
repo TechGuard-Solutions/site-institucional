@@ -53,7 +53,6 @@ function autenticar() {
                                 }
                             });
 
-                            alert("Usuário autenticado!");
                             setTimeout(() => {
                                 window.location.href = "../dashboard.html";
                             }, 1000);
