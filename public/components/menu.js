@@ -1,34 +1,31 @@
 class SidebarMenu extends HTMLElement {
     connectedCallback() {
-      this.innerHTML = `
-          <div class="menu-lateral" id="menu-lateral">
-              <span class="material-symbols-outlined" onclick="abrir()" id="menu">
-                  menu
-              </span>
-              <span class="material-symbols-outlined dashboard-logo" id="dashboard-logo">
-                  bar_chart
-              </span>
-              <span class="material-symbols-outlined" id="mark_chat_unread">
-                  mark_chat_unread
-              </span>
-              <span class="material-symbols-outlined" id="upload_file">
-                  upload_file
-              </span>
-              <span class="material-symbols-outlined" id="notifications_active">
-                  notifications_active
-              </span>
-              <span class="material-symbols-outlined" id="help">
-                  help
-              </span>
-          </div>`;
+        this.innerHTML = `
+            <div class="menu-lateral" id="menu-lateral">
+                <span class="material-symbols-outlined" onclick="abrir()" id="menu">
+                    menu
+                </span>
+                <span class="material-symbols-outlined dashboard-logo" id="dashboard-logo">
+                    bar_chart
+                </span>
+                <span class="material-symbols-outlined" id="mark_chat_unread">
+                    mark_chat_unread
+                </span>
+                <span class="material-symbols-outlined" id="upload_file">
+                    upload_file
+                </span>
+                <span class="material-symbols-outlined" id="notifications_active">
+                    notifications_active
+                </span>
+                <span class="material-symbols-outlined" id="help">
+                    help
+                </span>
+            </div>`;
     }
-  }
-  customElements.define('sidebar-menu', SidebarMenu);
-
-var i = 0;
+}
+customElements.define('sidebar-menu', SidebarMenu);
 
 function abrir() {
-
     var menuLateral = document.getElementById('menu-lateral');
     var dashboardLogo = document.getElementsByClassName('material-symbols-outlined');
     var menu = document.getElementById('menu');
@@ -39,6 +36,14 @@ function abrir() {
     var help = document.getElementById('help');
     var fundoInfos = document.querySelector('.fundo-infos');
     var isOpen = menuLateral.style.width === '270px';
+
+    // Adiciona ou remove a classe 'no-scroll' no body ao abrir/fechar o menu
+    if (isOpen) {
+        document.body.classList.remove('no-scroll');
+    } else {
+        document.body.classList.add('no-scroll');
+    }
+
     menuLateral.style.width = isOpen ? '5vw' : '270px';
     menuLateral.style.position = isOpen ? 'relative' : 'relative';
     fundoInfos.style.filter = isOpen ? 'none' : 'blur(5px)';
@@ -54,7 +59,6 @@ function abrir() {
     }
 
     if (!isOpen) {
-
         var fechar = document.createElement('span');
         var dashText = document.createElement('span');
         var markChatUnreadText = document.createElement('span');
@@ -83,13 +87,6 @@ function abrir() {
         notificationsActiveText.style.fontSize = '20px';
         helpText.style.fontSize = '20px';
 
-        dashText.style.display = 'flex';
-        fechar.style.display = 'flex';
-        markChatUnreadText.style.display = 'flex';
-        uploadFileText.style.display = 'flex';
-        notificationsActiveText.style.display = 'flex';
-        helpText.style.display = 'flex';
-
         fechar.style.justifyContent = 'center';
         fechar.style.alignItems = 'center';
         dashText.style.justifyContent = 'center';
@@ -111,7 +108,6 @@ function abrir() {
         help.innerHTML = 'help ' + helpText.outerHTML;
 
         menuLateral.style.backgroundColor = '#15202e';
-
     } else {
         menu.innerHTML = 'menu';
         dash.innerHTML = 'bar_chart';

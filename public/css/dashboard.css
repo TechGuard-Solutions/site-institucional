@@ -113,7 +113,9 @@ background-color: rgb(52, 80, 43); */
     align-items: center;
 }
 
-
+.no-scroll {
+    overflow: hidden;
+}
 
 #myChart,
 #myChart2 {
