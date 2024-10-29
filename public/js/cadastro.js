@@ -506,6 +506,7 @@ function identificarEmpresa(cnpj) {
                 resposta.json().then(json => {
                     console.log(json[0].idEmpresa);
                     sessionStorage.idEmpresa = json[0].idEmpresa;
+                    sessionStorage.nomeEmpresa = json[0].nomeEmpresa;
                     cadastrarUsuario();
                 });
             }

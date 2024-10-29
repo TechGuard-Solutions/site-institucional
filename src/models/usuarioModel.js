@@ -31,7 +31,7 @@ function autenticar(emailUsuario, senhaUsuario) {
 function identificarEmpresa(cnpj) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", cnpj)
     var instrucaoSql = `
-        SELECT idEmpresa FROM empresa WHERE cnpj = '${cnpj}';
+        SELECT idEmpresa, nomeEmpresa FROM empresa WHERE cnpj = '${cnpj}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
