@@ -22,7 +22,7 @@ function cadastrarUsuario(nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuar
 function autenticar(emailUsuario, senhaUsuario) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", emailUsuario, senhaUsuario)
     var instrucaoSql = `
-        SELECT idUsuario, nomeUsuario, emailUsuario, fkEmpresa FROM usuario WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = SHA2('${senhaUsuario}', 256);
+        SELECT idUsuario, nomeUsuario, emailUsuario, fkEmpresa, empresa.nomeEmpresa FROM usuario JOIN empresa on fkEmpresa = idEmpresa WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = SHA2('${senhaUsuario}', 256);
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -31,7 +31,7 @@ function autenticar(emailUsuario, senhaUsuario) {
 function identificarEmpresa(cnpj) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", cnpj)
     var instrucaoSql = `
-        SELECT idEmpresa, nomeEmpresa FROM empresa WHERE cnpj = '${cnpj}';
+        SELECT idEmpresa FROM empresa WHERE cnpj = '${cnpj}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
