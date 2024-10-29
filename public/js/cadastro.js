@@ -5,7 +5,7 @@ function changeRegister() {
     var nome_usuario = nomeUsuario.value;
     var email_usuario = emailUsuario.value;
     var cpf_usuario = cpfUsuario.value;
-    var tel_usuario = telUsuario.value
+    var tel_usuario = telUsuario.value;
     var senha_usuario = senhaUsuario.value;
     var confirmarsenha_usuario = confirmarSenhaUsuario.value;
     var arroba = email_usuario.indexOf('@');
