@@ -284,7 +284,7 @@ function cadastrarUsuario() {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    console.log("Usuário cadastrado com sucesso!")
+                    console.log("Usuário cadastrado com sucesso!");
                     let timerInterval;
                     Swal.fire({
                         title: "Usuário cadastrado!",
@@ -309,7 +309,7 @@ function cadastrarUsuario() {
                         willClose: () => {
                             clearInterval(timerInterval);
                         }
-                    })
+                    });
                     mandarParaTela();
                 } else {
                     Swal.fire({
@@ -436,18 +436,42 @@ function cadastrarEmpresa() {
                     .then(function (resposta) {
                         console.log("resposta: ", resposta);
 
-                    if (resposta.ok) {
-                        console.log("Empresa cadastrada com sucesso!")
-                        alert('Empresa Cadastrada');
-                        console.log("cnpj fetch empresa: " + cnpj_empresa)
-                        identificarEmpresa(cnpj_empresa);
-                    } else {
-                        throw "Houve um erro ao tentar realizar o cadastro da empresa!";
-                    }
-                })
-                .catch(function (erro) {
-                    console.log(`#ERRO: ${erro}`);
-                });
+                        if (resposta.ok) {
+                            console.log("Empresa cadastrada com sucesso!");
+                            Swal.fire({
+                                title: "Empresa cadastrada!",
+                                html: "Redirecionando...",
+                                color: "#4ADC7C",
+                                background: "#10161c",
+                                confirmButtonColor: "#10161c",
+                                customClass: {
+                                    confirmButton: 'meu-botao',
+                                    popup: 'meu-alerta',
+                                    icon: 'meu-icone'
+                                },
+                                timer: 1500,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading();
+                                    const timer = Swal.getPopup().querySelector("b");
+                                    timerInterval = setInterval(() => {
+                                        timer.textContent = `${Swal.getTimerLeft()}`;
+                                    }, 100);
+                                },
+                                willClose: () => {
+                                    clearInterval(timerInterval);
+                                }
+                            });
+                            console.log("cnpj fetch empresa: " + cnpj_empresa);
+                            identificarEmpresa(cnpj_empresa);
+
+                        } else {
+                            throw "Houve um erro ao tentar realizar o cadastro da empresa!";
+                        }
+                    })
+                    .catch(function (erro) {
+                        console.log(`#ERRO: ${erro}`);
+                    });
             } else {
                 Swal.fire({
                     title: "CNPJ inválido, por favor, verifique os dados!",
@@ -478,7 +502,7 @@ function identificarEmpresa(cnpj) {
             console.log("empresa identificada: ", resposta);
 
             if (resposta.ok) {
-                console.log("Empresa identificada com sucesso")
+                console.log("Empresa identificada com sucesso");
                 resposta.json().then(json => {
                     console.log(json[0].idEmpresa);
                     sessionStorage.idEmpresa = json[0].idEmpresa;

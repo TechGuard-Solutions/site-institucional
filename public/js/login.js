@@ -28,6 +28,31 @@ function autenticar() {
                             sessionStorage.fkEmpresa = json.fkEmpresa;
                             sessionStorage.nomeEmpresa = json.nomeEmpresa;
 
+                            Swal.fire({
+                                title: "Login efetuado!",
+                                html: "Redirecionando...",
+                                color: "#4ADC7C",
+                                background: "#10161c",
+                                confirmButtonColor: "#10161c",
+                                customClass: {
+                                    confirmButton: 'meu-botao',
+                                    popup: 'meu-alerta',
+                                    icon: 'meu-icone'
+                                },
+                                timer: 1500,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading();
+                                    const timer = Swal.getPopup().querySelector("b");
+                                    timerInterval = setInterval(() => {
+                                        timer.textContent = `${Swal.getTimerLeft()}`;
+                                    }, 100);
+                                },
+                                willClose: () => {
+                                    clearInterval(timerInterval);
+                                }
+                            });
+
                             alert("Usuário autenticado!");
                             setTimeout(() => {
                                 window.location.href = "../dashboard.html";
