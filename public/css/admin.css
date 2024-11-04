@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.menu-lateral {
+    width: 5vw;
+    height: 100vh;
+    background-color: #15202e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 10px;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+.menu-lateral.expanded {
+    width: 250px;
+}
+
+.material-symbols-outlined {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    padding: 23px;
+    transition: padding-left 0.3s;
+    cursor: pointer;
+    transition: 0.4s;
+
+}
+
+.material-symbols-outlined:hover {
+    color: #189704;
+    transition: 0.4s;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 140px;
+    white-space: nowrap;
+}
+
+.menu-item span.text {
+    margin-left: 15px;
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.menu-item span.text:hover {
+    color: #189704;
+}
+
+.menu-lateral.expanded .menu-item span.text {
+    display: inline;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-self: center;
+    align-items: center;
+}
+
+.hello{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-self: center;
+    align-items: center;
+}
+
+.icons-admin{
+    display: flex;
+    flex-direction: row;
+}
+
+.icons-admin .menu-item{
+    height: 70px;
+    width: 70px;
+    transition: 0.4s;
+}
+
+.icons-admin .menu-item:hover{
+    transition: 0.4s;
+    border-radius: 10px;
+    background-color: aquamarine;
+}
+
+.menu-item {
+    position: relative; /* Para o tooltip */
+    margin: 10px 0; /* Espaço entre os itens */
+    cursor: pointer; /* Indica que é interativo */
+}
+
+.material-symbols-outlined {
+    font-size: 40px; /* Tamanho do ícone */
+}
+
+.tooltip {
+    display: none; /* Esconde o tooltip inicialmente */
+    position: absolute;
+    top: 100%; /* Posiciona abaixo do elemento */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    white-space: nowrap;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+.menu-item:hover .tooltip {
+    display: block; /* Exibe o tooltip no hover */
+    opacity: 1;
+}
