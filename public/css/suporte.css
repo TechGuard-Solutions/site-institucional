@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.suporte{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-self: center;
+    align-items: center;
+}
+
+.labels{
+    display: flex;
+    flex-direction: row;
+}
+
+.first-label{
+    padding: 40px;
+}
+
+.first-label select{
+    width: 200px;
+    height: 40px;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    color: black;
+
+}
+
+.second-label{
+    padding: 40px;
+}
+
+.second-label select{
+    width: 200px;
+    height: 40px;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    color: black;
+}
+
+.suporte textarea{
+    width: 475px;
+    height: 200px;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    color: black;
+    resize: none;
+}
+

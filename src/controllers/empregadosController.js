@@ -1,46 +1,8 @@
-var usuarioModel = require("../models/usuarioModel");
+var usuarioModel = require("../models/empregadosModel");
 
-function autenticar(req, res) {
-    var emailUsuario = req.body.emailUsuarioServer;
-    var senhaUsuario = req.body.senhaUsuarioServer;
-
-    console.log("Email recebido:", emailUsuario);  // Log do email recebido
-    console.log("Senha recebida:", senhaUsuario);  // Log da senha recebida
-
-    if (emailUsuario == undefined) {
-        res.status(400).send(console.log("Seu email está undefined!"));
-    } else if (senhaUsuario == undefined) {
-        res.status(400).send(console.log("Sua senha está indefinida!"));
-    } else {
-        usuarioModel.autenticar(emailUsuario, senhaUsuario)
-            .then(function (resultadoAutenticar) {
-                if (resultadoAutenticar.length == 1) {
-                    res.json({
-                        idUsuario: resultadoAutenticar[0].idUsuario,
-                        nomeUsuario: resultadoAutenticar[0].nomeUsuario,
-                        emailUsuario: resultadoAutenticar[0].emailUsuario,
-                        fkEmpresa: resultadoAutenticar[0].fkEmpresa,
-                        nomeEmpresa: resultadoAutenticar[0].nomeEmpresa
-                    });
-                } else if (resultadoAutenticar.length == 0) {
-                    res.status(403).send(console.log("Email e/ou senha inválido(s)"));
-                } else {
-                    res.status(403).send(console.log("Mais de um usuário com o mesmo login e senha!"));
-                }
-            })
-            .catch(function (erro) {
-                console.log("Erro no login:", erro);
-                res.status(500).json(erro.sqlMessage);
-            });
-    }
-}
-
-function cadastrarEmpresa(req, res) {
-    var nomeEmpresa = req.body.nomeEmpresaServer;
+function cadastrarEmpregado(req, res) {
+    var nomeEmpregado = req.body.nomeEmpresaServer;
     var cep = req.body.cepServer;
-    var cnpj = req.body.cnpjServer;
-    var emailCorporativo = req.body.emailCorporativoServer;
-    var telEmpresa = req.body.telEmpresaServer;
 
     if (nomeEmpresa == undefined) {
         res.status(400).send(consoloe.log("Seu nome está undefined!"));
@@ -67,7 +29,7 @@ function cadastrarEmpresa(req, res) {
 }
 
 
-function cadastrarUsuario(req, res) {
+function alterarEmpregado(req, res) {
     var emailUsuario = req.body.emailUsuarioServer;
     var nomeUsuario = req.body.nomeUsuarioServer;
     var senhaUsuario = req.body.senhaUsuarioServer;
@@ -108,7 +70,24 @@ function cadastrarUsuario(req, res) {
     }
 }
 
-function identificarEmpresa(req, res) {
+function removerEmpregado(req, res) {
+    var cnpj = req.body.cnpj;
+
+    usuarioModel.identificarEmpresa(cnpj)
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao identificar o CNPJ da empresa! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json({ error: erro.sqlMessage });
+        });
+}
+
+function listarEmpregados(req, res) {
     var cnpj = req.body.cnpj;
 
     usuarioModel.identificarEmpresa(cnpj)
@@ -126,8 +105,8 @@ function identificarEmpresa(req, res) {
 }
 
 module.exports = {
-    autenticar,
-    cadastrarEmpresa,
-    cadastrarUsuario,
-    identificarEmpresa
+    alterarEmpregado,
+    listarEmpregados,
+    removerEmpregado,
+    cadastrarEmpregado
 }
