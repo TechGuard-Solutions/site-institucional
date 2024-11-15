@@ -7,20 +7,20 @@ class SidebarMenu extends HTMLElement {
                     <span class="text">Fechar</span>
                 </div>
                 <div class="menu-item">
-                    <span class="material-symbols-outlined">bar_chart</span>
-                    <span class="text">Gráficos</span>
+                    <span class="material-symbols-outlined" onclick="window.location.href='dashboard.html'">bar_chart</span>
+                    <span class="text" onclick="window.location.href='dashboard.html'">Gráficos</span>
                 </div>
                 <div class="menu-item">
-                    <span class="material-symbols-outlined">forum</span>
-                    <span class="text">Chat com IA</span>
+                    <span class="material-symbols-outlined" onclick="window.location.href='chat.html'">forum</span>
+                    <span class="text" onclick="window.location.href='chat.html'">Chat com IA</span>
                 </div>
                 <div class="menu-item">
-                    <span class="material-symbols-outlined">supervisor_account</span>
-                    <span class="text">Usuários</span>
+                    <span class="material-symbols-outlined" onclick="window.location.href='crud.html'">supervisor_account</span>
+                    <span class="text" onclick="window.location.href='crud.html'">Usuários</span>
                 </div>
                 <div class="menu-item">
-                    <span class="material-symbols-outlined">help</span>
-                    <span class="text">Ajuda</span>
+                    <span class="material-symbols-outlined" onclick="window.location.href='suporte.html'">help</span>
+                    <span class="text" onclick="window.location.href='suporte.html'">Ajuda</span>
                 </div>
             </div>`;
     }
