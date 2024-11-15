@@ -1,5 +1,3 @@
-listarUsuarios();
-
 async function listarUsuarios() {
 
     try{
@@ -13,7 +11,7 @@ async function listarUsuarios() {
           if (resposta.ok) {
             console.log(`Usuários recebidos:`, resposta);
             console.log("Dados obtidos com sucesso!");
-            return await resposta(resposta).json();
+            return await resposta.json();
           } else {
             console.log("Houve um erro ao obter dados!");
             throw new Error("Houve um erro ao obter dados!");
@@ -24,7 +22,7 @@ async function listarUsuarios() {
       }
 }
 
-async function listarUsuariosNaTela(usuario) {
+async function listarUsuariosNaTela() {
     
     const resposta = await listarUsuarios();
     console.log(resposta);
@@ -32,13 +30,13 @@ async function listarUsuariosNaTela(usuario) {
     container.innerHTML = ""; 
     let usuarioDiv = ""
 
-    for(var i = 0; i < usuario.length; i++){
+    for(var i = 0; i < resposta.length; i++){
          usuarioDiv += `
-        <div class="employee-item" id="employee-${usuario[i].idUsuario}">
-            <span>${usuario[i].NomeUsuario}</span>
-            <span>${usuario[i].Cargo}</span>
-            <button onclick="editarUsuario(${usuario[i].idUsuario})">Editar</button>
-            <button onclick="deletarUsuario(${usuario[i].idUsuario})">Deletar</button>
+        <div class="employee-item" id="employee-${resposta[i].idUsuario}">
+            <span>${resposta[i].NomeUsuario}</span>
+            <span>${resposta[i].Cargo}</span>
+            <button onclick="editarUsuario(${resposta[i].idUsuario})">Editar</button>
+            <button onclick="deletarUsuario(${resposta[i].idUsuario})">Deletar</button>
         </div>`;
     container.innerHTML += usuarioDiv;
     }
