@@ -56,4 +56,4 @@ INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa) VALUE
 INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario) VALUES
 	('Admin', '2FD15005E2D51CB1BE7B2C1A75A91AF79C10350B184271A4F9CC9800B93BAFC9', '464.646.422-33', 'admin@techguard.com', '(11)94002-8922', 1, 2);
 
-select * from usuario;
+select * from registros;

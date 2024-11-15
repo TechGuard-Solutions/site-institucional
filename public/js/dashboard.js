@@ -1,96 +1,438 @@
-var i = 0;
+initCharts();
 
-function abrir() {
+async function obterDados() {
+  try {
+    const resposta = await fetch("/dashboard/obterDados", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-    var menuLateral = document.getElementById('menu-lateral');
-    var dashboardLogo = document.getElementsByClassName('material-symbols-outlined');
-    var menu = document.getElementById('menu');
-    var dash = document.getElementById('dashboard-logo');
-    var markChatUnread = document.getElementById('mark_chat_unread');
-    var uploadFile = document.getElementById('upload_file');
-    var notificationsActive = document.getElementById('notifications_active');
-    var help = document.getElementById('help');
-    var fundoInfos = document.querySelector('.fundo-infos');
-    var isOpen = menuLateral.style.width === '270px';
-    menuLateral.style.width = isOpen ? '5vw' : '270px';
-    menuLateral.style.position = isOpen ? 'relative' : 'absolute';
-    fundoInfos.style.filter = isOpen ? 'none' : 'blur(5px)';
-    fundoInfos.style.zIndex = isOpen ? '0' : '-100';
-    fundoInfos.style.marginLeft = isOpen ? '0px' : '5vw';
-
-    for (var i = 0; i < dashboardLogo.length; i++) {
-        dashboardLogo[i].style.textAlign = isOpen ? 'center' : 'start';
-        dashboardLogo[i].style.paddingLeft = isOpen ? '0' : '15px';
-        dashboardLogo[i].style.display = isOpen ? '' : 'flex';
-        dashboardLogo[i].style.alignItems = isOpen ? '' : 'center';
-        dashboardLogo[i].style.gap = isOpen ? '' : '30px';
-    }
-
-    if (!isOpen) {
-
-        var fechar = document.createElement('span');
-        var dashText = document.createElement('span');
-        var markChatUnreadText = document.createElement('span');
-        var uploadFileText = document.createElement('span');
-        var notificationsActiveText = document.createElement('span');
-        var helpText = document.createElement('span');
-
-        fechar.innerText = 'Fechar';
-        dashText.innerText = 'Gráficos';
-        markChatUnreadText.innerText = 'Chat';
-        uploadFileText.innerText = "Upload de BD's";
-        notificationsActiveText.innerText = 'Notificações';
-        helpText.innerText = 'Ajuda';
-
-        fechar.style.fontFamily = '"Roboto", sans-serif';
-        dashText.style.fontFamily = '"Roboto", sans-serif';
-        markChatUnreadText.style.fontFamily = '"Roboto", sans-serif';
-        uploadFileText.style.fontFamily = '"Roboto", sans-serif';
-        notificationsActiveText.style.fontFamily = '"Roboto", sans-serif';
-        helpText.style.fontFamily = '"Roboto", sans-serif';
-
-        fechar.style.fontSize = '20px';
-        dashText.style.fontSize = '20px';
-        markChatUnreadText.style.fontSize = '20px';
-        uploadFileText.style.fontSize = '20px';
-        notificationsActiveText.style.fontSize = '20px';
-        helpText.style.fontSize = '20px';
-
-        dashText.style.display = 'flex';
-        fechar.style.display = 'flex';
-        markChatUnreadText.style.display = 'flex';
-        uploadFileText.style.display = 'flex';
-        notificationsActiveText.style.display = 'flex';
-        helpText.style.display = 'flex';
-
-        fechar.style.justifyContent = 'center';
-        fechar.style.alignItems = 'center';
-        dashText.style.justifyContent = 'center';
-        dashText.style.alignItems = 'center';
-        markChatUnreadText.style.justifyContent = 'center';
-        markChatUnreadText.style.alignItems = 'center';
-        uploadFileText.style.justifyContent = 'center';
-        uploadFileText.style.alignItems = 'center';
-        notificationsActiveText.style.justifyContent = 'center';
-        notificationsActiveText.style.alignItems = 'center';
-        helpText.style.justifyContent = 'center';
-        helpText.style.alignItems = 'center';
-
-        menu.innerHTML = 'menu ' + fechar.outerHTML;
-        dash.innerHTML = 'bar_chart ' + dashText.outerHTML;
-        markChatUnread.innerHTML = 'mark_chat_unread ' + markChatUnreadText.outerHTML;
-        uploadFile.innerHTML = 'upload_file ' + uploadFileText.outerHTML;
-        notificationsActive.innerHTML = 'notifications_active ' + notificationsActiveText.outerHTML;
-        help.innerHTML = 'help ' + helpText.outerHTML;
-
-        menuLateral.style.backgroundColor = '#15202e';
-
+    if (resposta.ok) {
+      console.log("Dados obtidos com sucesso!");
+      return await resposta.json();
     } else {
-        menu.innerHTML = 'menu';
-        dash.innerHTML = 'bar_chart';
-        markChatUnread.innerHTML = 'mark_chat_unread';
-        uploadFile.innerHTML = 'upload_file';
-        notificationsActive.innerHTML = 'notifications_active';
-        help.innerHTML = 'help';
+      console.log("Houve um erro ao obter dados!");
+      throw new Error("Houve um erro ao obter dados!");
     }
+  } catch (erro) {
+    console.log(`#ERRO: ${erro}`);
+    return null;
+  }
+}
+
+async function contarPorCategoria(categoria, valor) {
+  const json = await obterDados();
+  if (json) {
+    const quantidade = json.filter((item) => item[categoria] === valor).length;
+    console.log(`Quantidade de ${valor}: `, quantidade);
+    return quantidade;
+  } else {
+    console.log(`Não foi possível obter os dados para ${valor}.`);
+    return null;
+  }
+}
+
+async function qtdAttacks() {
+  return await contarPorCategoria("attack_ou_disclosure", "Attack");
+}
+
+async function qtdDisclosures() {
+  return await contarPorCategoria("attack_ou_disclosure", "Disclosure");
+}
+
+// Funções para 'modificados affect'
+async function qtdSaA() {
+  return await contarPorCategoria(
+    "modificados_affect",
+    "Software and Applications"
+  );
+}
+
+async function qtdMaV() {
+  return await contarPorCategoria(
+    "modificados_affect",
+    "Malware and Vulnerabilities"
+  );
+}
+
+async function qtdFaL() {
+  return await contarPorCategoria(
+    "modificados_affect",
+    "Frameworks and Libraries"
+  );
+}
+
+async function qtdHaF() {
+  return await contarPorCategoria(
+    "modificados_affect",
+    "Hardware and Firmware"
+  );
+}
+
+async function qtdPaA() {
+  return await contarPorCategoria("modificados_affect", "Protocols and APIs");
+}
+
+async function qtdDaP() {
+  return await contarPorCategoria(
+    "modificados_affect",
+    "Development Tools and Packages"
+  );
+}
+
+// Funções para 'modificados impact'
+async function qtdDE() {
+  return await contarPorCategoria("modificados_impact", "Data Extraction");
+}
+
+async function qtdRCE() {
+  return await contarPorCategoria(
+    "modificados_impact",
+    "Remote Code Execution"
+  );
+}
+
+async function qtdBA() {
+  return await contarPorCategoria("modificados_impact", "Backdoor Access");
+}
+
+async function qtdDD() {
+  return await contarPorCategoria("modificados_impact", "Data Damage");
+}
+
+async function qtdPD() {
+  return await contarPorCategoria("modificados_impact", "Payment Diversion");
+}
+
+async function qtdOthers() {
+  return await contarPorCategoria("modificados_impact", "Others");
+}
+
+// Funções para 'modificados downstream target'
+async function qtdSpU() {
+  return await contarPorCategoria(
+    "modificados_downstream_target",
+    "Systems and Platform Users"
+  );
+}
+
+async function qtdSaL() {
+  return await contarPorCategoria(
+    "modificados_downstream_target",
+    "Software Applications and Libraries"
+  );
+}
+
+async function qtdCaO() {
+  return await contarPorCategoria(
+    "modificados_downstream_target",
+    "companies and organizations"
+  );
+}
+
+async function qtdCfU() {
+  return await contarPorCategoria(
+    "modificados_downstream_target",
+    "Cryptocurrency and Finance Users"
+  );
+}
+
+async function qtdGaN() {
+  return await contarPorCategoria(
+    "modificados_downstream_target",
+    "Governments, Activists and Non-Governmental Organizations (NGOs)"
+  );
+}
+
+async function qtdDaI() {
+  return await contarPorCategoria(
+    "modificados_downstream_target",
+    "Developers and IT Professionals"
+  );
+}
+
+async function initCharts() {
+  const qtdAttacksValue = await qtdAttacks();
+  const qtdDisclosuresValue = await qtdDisclosures();
+  const qtdSaAValue = await qtdSaA();
+  const qtdMaVValue = await qtdMaV();
+  const qtdFaLValue = await qtdFaL();
+  const qtdHaFValue = await qtdHaF();
+  const qtdPaAValue = await qtdPaA();
+  const qtdDaPValue = await qtdDaP();
+  const qtdDEValue = await qtdDE();
+  const qtdRCEValue = await qtdRCE();
+  const qtdBAValue = await qtdBA();
+  const qtdDDValue = await qtdDD();
+  const qtdPDValue = await qtdPD();
+  const qtdOthersValue = await qtdOthers();
+  const qtdSpUValue = await qtdSpU();
+  const qtdSaLValue = await qtdSaL();
+  const qtdCaOValue = await qtdCaO();
+  const qtdCfUValue = await qtdCfU();
+  const qtdGaNValue = await qtdGaN();
+  const qtdDaIValue = await qtdDaI();
+
+  const ctx = document.getElementById("myChart").getContext("2d");
+  const ctx2 = document.getElementById("myChart2").getContext("2d");
+
+  let tituloAffect = [
+    "Aplicações e Softwares",
+    "Vulnerabilidades e Malware",
+    "Bibliotecas e Frameworks",
+    "Hardware e Firmware",
+    "APIs e Protocolos",
+    "Ferramentas e pacotes de desenvolvimento",
+  ];
+
+  let valuesAffect = [
+    qtdSaAValue,
+    qtdMaVValue,
+    qtdFaLValue,
+    qtdHaFValue,
+    qtdPaAValue,
+    qtdDaPValue,
+  ];
+
+  let tituloImpact = [
+    "Extração de Dados",
+    "Execução de código remoto",
+    "Acesso Backdoor",
+    "Dano aos Dados",
+    "Fraudes Monetárias",
+    "Outros",
+  ];
+  let valuesImpact = [
+    qtdDEValue,
+    qtdRCEValue,
+    qtdBAValue,
+    qtdDDValue,
+    qtdPDValue,
+    qtdOthersValue,
+  ];
+
+  let tituloDownstream = [
+    "Sistemas e Plataformas de Usuários",
+    "Bibliotecas e Aplicações de Softwares",
+    "Empresas e Organizações",
+    "Usuários de criptomoeda e finanças",
+    "Governos, ativistas e organizações não governamentais (ONGs)",
+    "Desenvolvedores e profissionais de TI",
+  ];
+  let valuesDownstream = [
+    qtdSpUValue,
+    qtdSaLValue,
+    qtdCaOValue,
+    qtdCfUValue,
+    qtdGaNValue,
+    qtdDaIValue,
+  ];
+
+  let Affects = valuesAffect.map((valor, index) => ({
+    titulo: tituloAffect[index],
+    valor: valor,
+  }));
+  Affects.sort((a, b) => a.valor - b.valor);
+  console.log(Affects);
+
+  let Impacts = valuesImpact.map((valor, index) => ({
+    titulo: tituloImpact[index],
+    valor: valor,
+  }));
+  Impacts.sort((a, b) => a.valor - b.valor);
+  console.log(Impacts);
+
+  let Downstream = valuesDownstream.map((valor, index) => ({
+    titulo: tituloDownstream[index],
+    valor: valor,
+  }));
+  Downstream.sort((a, b) => a.valor - b.valor);
+  console.log(Downstream);
+
+  let totalAttacksDisclosures = qtdAttacksValue + qtdDisclosuresValue;
+  let pctgAtaques = ((qtdAttacksValue / totalAttacksDisclosures) * 100).toFixed(
+    2
+  );
+  let pctgVazamentos = (
+    (qtdDisclosuresValue / totalAttacksDisclosures) *
+    100
+  ).toFixed(2);
+
+  const contentFocoAtaques = document.getElementById("contentFocoAtaques");
+  contentFocoAtaques.innerHTML = `${Downstream[5].titulo} <p id="vejamais">VEJA MAIS!</p>`;
+
+  console.log(Downstream);
+
+  // Evento ao passar o mouse sobre a div
+  kpiAtaques.addEventListener("mouseenter", function () {
+    // Aumenta a altura da div
+    kpiAtaques.style.height = "30vh"; // Defina a altura desejada
+
+    // Adiciona mais conteúdo à div
+    contentFocoAtaques.innerHTML = `
+        1° ${Downstream[5].titulo}
+        <br>
+        <br>
+        2° ${Downstream[4].titulo}
+        <br>
+        <br>
+        3° ${Downstream[3].titulo}
+    `;
+    contentFocoAtaques.style.fontSize = '15px';
+  });
+
+  // Evento ao retirar o mouse da div
+  kpiAtaques.addEventListener("mouseleave", function () {
+    console.log("entrei no evento out");
+
+    // Redefine a altura da div
+    kpiAtaques.style.height = "25vh"; // Altura original
+
+    // Restaura o conteúdo original
+    contentFocoAtaques.innerHTML = `${Downstream[5].titulo} <p id="vejamais">VEJA MAIS!</p>`;
+    contentFocoAtaques.style.fontSize = '25px';
+
+  });
+
+  contentTaxas.innerHTML = `<p class="tituloPctg info-kpis">Ataques:
+                                  ${pctgAtaques}%</p>
+                                  <p class="tituloPctg info-kpis">Vazamentos:
+                                  ${pctgVazamentos}%</p`;
+  if (Chart.getChart(ctx)) {
+    Chart.getChart(ctx).destroy();
+  }
+
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: [
+        Affects[5].titulo,
+        Affects[4].titulo,
+        Affects[3].titulo,
+        Affects[2].titulo,
+        Affects[1].titulo,
+        Affects[0].titulo,
+      ],
+      datasets: [
+        {
+          label: "Seis maiores ataques no ultimo mês",
+          data: [
+            Affects[5].valor,
+            Affects[4].valor,
+            Affects[3].valor,
+            Affects[2].valor,
+            Affects[1].valor,
+            Affects[0].valor,
+          ],
+          borderWidth: 1,
+          fill: true,
+          borderColor: "white",
+          backgroundColor: [
+            "#005227",
+            "#038554",
+            "#03bb85",
+            "#4ed2ad",
+            "#73d9bc",
+            "#9befd7",
+          ],
+          borderWidth: 2,
+          tension: 0.1,
+        },
+      ],
+    },
+    options: {
+      indexAxis: "y",
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: "#FFF", font: { size: 16 } },
+          grid: { display: false, color: "#FFF" },
+        },
+        x: {
+          ticks: { color: "#FFF", font: { size: 16 } },
+          grid: { drawOnChart: true, color: "#FFF" },
+        },
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: "Ataques mais frequentes",
+          font: { size: 21 },
+          color: "#FFF",
+        },
+        legend: {
+          display: false,
+          labels: { hidden: true, color: "#ffffff", font: { size: 21 } },
+        },
+      },
+    },
+  });
+
+  new Chart(ctx2, {
+    type: "bar",
+    data: {
+      labels: [
+        Impacts[5].titulo,
+        Impacts[4].titulo,
+        Impacts[3].titulo,
+        Impacts[2].titulo,
+        Impacts[1].titulo,
+        Impacts[0].titulo,
+      ],
+      datasets: [
+        {
+          label: "Danos mais frequentes",
+          data: [
+            Impacts[5].valor,
+            Impacts[4].valor,
+            Impacts[3].valor,
+            Impacts[2].valor,
+            Impacts[1].valor,
+            Impacts[0].valor,
+          ],
+          borderWidth: 1,
+          fill: true,
+          borderColor: "white",
+          backgroundColor: [
+            "#82c0ff",
+            "#218eff",
+            "#2A3BFA",
+            "#002ABF",
+            "#001CAD",
+            "#010e8a",
+          ],
+          borderWidth: 2,
+          tension: 0.1,
+        },
+      ],
+    },
+    options: {
+      indexAxis: "y",
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: "#FFF", font: { size: 16 } },
+          grid: { display: false, color: "#FFF" },
+        },
+        x: {
+          ticks: { color: "#FFF", font: { size: 16 } },
+          grid: { drawOnChart: true, color: "#FFF" },
+        },
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: "Tipos de danos que mais ocorrem",
+          font: { size: 21 },
+          color: "#FFF",
+        },
+        legend: {
+          display: false,
+          labels: { hidden: true, color: "#ffffff", font: { size: 21 } },
+        },
+      },
+    },
+  });
 }
