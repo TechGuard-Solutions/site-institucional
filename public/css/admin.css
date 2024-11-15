@@ -4,63 +4,6 @@ body {
     overflow: hidden;
 }
 
-.menu-lateral {
-    width: 5vw;
-    height: 100vh;
-    background-color: #15202e;
-    color: white;
-    display: flex;
-    flex-direction: column;
-
-    padding-top: 10px;
-    transition: width 0.3s;
-    overflow: hidden;
-}
-
-.menu-lateral.expanded {
-    width: 250px;
-}
-
-.material-symbols-outlined {
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    padding: 23px;
-    transition: padding-left 0.3s;
-    cursor: pointer;
-    transition: 0.4s;
-
-}
-
-.material-symbols-outlined:hover {
-    color: #189704;
-    transition: 0.4s;
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 140px;
-    white-space: nowrap;
-}
-
-.menu-item span.text {
-    margin-left: 15px;
-    font-size: 20px;
-    display: none;
-    cursor: pointer;
-    transition: 0.4s;
-}
-
-.menu-item span.text:hover {
-    color: #189704;
-}
-
-.menu-lateral.expanded .menu-item span.text {
-    display: inline;
-}
-
 .container{
     display: flex;
     flex-direction: row;

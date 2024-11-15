@@ -1,233 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="icon" href="assets/Logo - TechGuard 1.png">
-    <link rel="stylesheet" href="./css/dashboard.css">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="icon" href="assets/Logo - TechGuard 1.png" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="js/dashboard.js"></script>
 
     <!-- Imports Components -->
-    <link rel="stylesheet" href="./components/menu.css">
-    <script src="./components/menu.js"></script>
-</head>
+    <link rel="stylesheet" href="./components/menu_admin.css" />
+    <script src="./components/menu_admin.js"></script>
+  </head>
 
-<body>
+  <body>
     <div class="todo-fundo">
-        <sidebar-menu></sidebar-menu>
-        <div class="fundo-infos">
-            <div class="infos-nome">
-                <p id="nomeEmpresa">NOME DA EMPRESA</p>
-                <p id="nomeUsuario">NOME DO USUARIO</p>
-            </div>
-            <div class="kpis">
-                <div class="kpi kpi-cinza">Data do ultimo ataque <div class="info-kpi">22/6/2023</div>
-                </div>
-                <div class="kpi">Usuarios mais afetados <div class="info-kpis">Companies and organizations</div>
-                </div>
-                <div class="kpi">Ataques Com Mais Ocorrencia <div class="info-kpis">Software and Applications</div>
-                </div>
-            </div>
-            <div class="graficos">
-
-                <canvas id="myChart"></canvas>
-                <canvas id="myChart2"></canvas>
-
-            </div>
+      <sidebar-menu></sidebar-menu>
+      <div class="fundo-infos">
+        <div class="infos-nome">
+          <p id="nomeEmpresa">NOME DA EMPRESA</p>
+          <p id="nomeUsuario">NOME DO USUARIO</p>
         </div>
+        <div class="informacoes">
+          <div class="kpis">
+            <div class="kpi kpi-cinza">
+              Taxa de Ataques e Vazamentos
+              <div class="info-kpi" id="contentTaxas"></div>
+            </div>
+            <div class="kpi" id="kpiAtaques">
+              Maior foco de ataques
+              <div class="info-kpis" id="contentFocoAtaques"></div>
+            </div>
+          </div>
+          <div class="graficos">
+            <canvas id="myChart"></canvas>
+            <canvas id="myChart2"></canvas>
+            <canvas id="myChart3"></canvas>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
 
-<script>
-    nomeEmpresa.innerHTML = `${sessionStorage.nomeEmpresa}`;
-    nomeUsuario.innerHTML = `${sessionStorage.nomeUsuario}`;
-
-    const ctx = document.getElementById('myChart');
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Software and Applications',
-                'Malware and Vulnerabilities',
-                'Frameworks and Libraries',
-                'Hardware and Firmware',
-                'Protocols and APIs',
-                'Development Tools and Packages'],
-            datasets: [{
-                label: 'Seis maiores ataques no ultimo mês',
-                data: [19, 15, 12, 5, 3, 2],
-                borderWidth: 1,
-                fill: true,
-                borderColor: 'white',
-                backgroundColor: [
-                '#005227', // Cor da primeira barra
-                '#038554',  // Cor da segunda barra
-                '#03bb85', // Cor da terceira barra
-                '#4ed2ad', // Cor da quarta barra
-                '#73d9bc', // Cor da quinta barra
-                '#9befd7', // Cor da sexta barra  
-                ], borderWidth: 2,
-                tension: 0.1,
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: '#FFF',
-                        font: {
-                            size: 16
-                            
-                        }
-                    },
-                    grid: {
-                        display: false,
-                        color: '#FFF'
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#FFF',
-                        font: {
-                            size: 16
-                        }
-                    },
-                    grid: {
-                        drawOnChart: true,
-                        color: '#FFF'
-                    }
-                }
-            },
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Seis maiores ataques no ultimo mês',
-                    font: {
-                        size: 21,
-                    },
-                    color: '#FFF',
-                },
-                legend: {
-                    display: false,
-                    labels: {
-                        hidden: true,
-                        color: '#ffffff',
-                        font: {
-                            size: 21
-                        }
-                    }
-                }
-            },
-        }
-
-
-    });
-
-    const ctx2 = document.getElementById('myChart2').getContext('2d');
-
-    const myChart = new Chart(ctx2, {
-
-        type: 'bar',
-        data: {
-            labels: ['Data Extraction',
-                'Remote Code Execution',
-                'Backdoor Access',
-                'Data Damage',
-                'Payment Diversion',
-                'Others'],
-
-            datasets: [{
-                label: 'Tipos de danos que mais ocorrem',
-                data: [20, 15, 14, 9, 6, 5],
-                borderWidth: 1,
-                fill: true,
-                borderColor: 'white',
-                backgroundColor: [
-                    "#82c0ff",
-                    "#218eff",
-                    "#2A3BFA",
-                    "#002ABF",
-                    "#001CAD",
-                    "#010e8a",
-                    // "#315818", // Cor da primeira barra
-                    // "#416E25", // Cor da segunda barra
-                    // "#538536", // Cor da terceira barra
-                    // "#669B49", // Cor da quarta barra
-                    // "#7CB15F", // Cor da quinta barra
-                    // "#93C777", // Cor da sexta barra
-
-                    // 'rgb(66, 11, 88)', // Cor da primeira barra
-                    // 'rgb(252, 3, 108)', // Cor da segunda barra
-                    // 'rgb(241, 162, 11)', // Cor da terceira barra
-                    // 'rgb(141, 156, 9)', // Cor da quarta barra
-                    // 'rgb(8, 128, 123)', // Cor da quinta barra
-                    // 'rgb(52, 80, 43)'  // Cor da sexta barra    
-                ], borderWidth: 2,
-                tension: 0.1,
-            }]
-        },
-
-        options: {
-            indexAxis: 'y',
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: '#FFF',
-                        font: {
-                            size: 16
-                        }
-                    },
-                    grid: {
-                        display: false,
-                        color: '#FFF'
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#FFF',
-                        font: {
-                            size: 16
-                        }
-                    },
-                    grid: {
-                        drawOnChart: true,
-                        color: '#FFF'
-                    }
-                }
-            },
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Tipos de danos que mais ocorrem',
-                    font: {
-                        size: 21,
-                    },
-                    color: '#FFF',
-                },
-                legend: {
-                    display: false,
-                    labels: {
-                        hidden: true,
-                        color: '#ffffff',
-                        font: {
-                            size: 21
-                        }
-                    }
-                }
-            },
-        }
-    });
-
-</script>
+<script src="js/dashboard.js"></script>
