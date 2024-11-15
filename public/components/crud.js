@@ -1,60 +1,47 @@
-let employees = [
-    { name: "João", role: "Analista" },
-    { name: "Maria", role: "Desenvolvedora" }
-];
+listarUsuarios();
 
+async function listarUsuarios() {
 
-function renderEmployeeList() {
-    const employeeList = document.getElementById('employee-list');
-    employeeList.innerHTML = ""; 
+    try{
+        const resposta = await fetch("/usuarios/listarUsuarios", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
 
-    employees.forEach((employee, index) => {
-        const employeeDiv = document.createElement('div');
-        employeeDiv.classList.add('container-crud');
-        employeeDiv.innerHTML = `
-            <p>${employee.name}</p>
-            <p>${employee.role}</p>
-            <span class="material-symbols-outlined" onclick="editEmployee(${index})">
-                more_vert
-            </span>
-        `;
-        employeeList.appendChild(employeeDiv);
-    });
+          if (resposta.ok) {
+            console.log(`Usuários recebidos:`, resposta);
+            console.log("Dados obtidos com sucesso!");
+            return await resposta(resposta).json();
+          } else {
+            console.log("Houve um erro ao obter dados!");
+            throw new Error("Houve um erro ao obter dados!");
+          }
+    } catch (erro) {
+        console.log(`#ERRO: ${erro}`);
+        return null;
+      }
 }
 
-function addEmployee() {
-    const nameInput = document.getElementById('new-name');
-    const roleInput = document.getElementById('new-role');
-    const name = nameInput.value.trim();
-    const role = roleInput.value.trim();
+async function listarUsuariosNaTela(usuario) {
+    
+    const resposta = await listarUsuarios();
+    console.log(resposta);
+    const container = document.getElementById("employee-list");
+    container.innerHTML = ""; 
+    let usuarioDiv = ""
 
-    if (name && role) {
-        employees.push({ name, role });
-        nameInput.value = "";
-        roleInput.value = "";
-        renderEmployeeList();
-    } else {
-        alert("Por favor, preencha todos os campos.");
+    for(var i = 0; i < usuario.length; i++){
+         usuarioDiv += `
+        <div class="employee-item" id="employee-${usuario[i].idUsuario}">
+            <span>${usuario[i].NomeUsuario}</span>
+            <span>${usuario[i].Cargo}</span>
+            <button onclick="editarUsuario(${usuario[i].idUsuario})">Editar</button>
+            <button onclick="deletarUsuario(${usuario[i].idUsuario})">Deletar</button>
+        </div>`;
+    container.innerHTML += usuarioDiv;
     }
 }
 
-
-function removeEmployee(index) {
-    employees.splice(index, 1);
-    renderEmployeeList();
-}
-
-function editEmployee(index) {
-    const newName = prompt("Digite o novo nome:", employees[index].name);
-    const newRole = prompt("Digite o novo cargo:", employees[index].role);
-
-    if (newName && newRole) {
-        employees[index].name = newName;
-        employees[index].role = newRole;
-        renderEmployeeList();
-    } else {
-        alert("Os campos não podem estar vazios.");
-    }
-}
-
-renderEmployeeList();
+listarUsuariosNaTela();

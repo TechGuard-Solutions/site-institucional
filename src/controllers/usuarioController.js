@@ -125,9 +125,52 @@ function identificarEmpresa(req, res) {
         });
 }
 
+function listarUsuarios(req, res) {
+    usuarioModel.listarUsuarios().then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum usuário encontrado!");
+            }
+        })
+        .catch((erro) => {
+            console.log(erro);
+        res.status(500).json({ erro: erro.message });
+        });
+}
+
+function editarUsuario(req, res) {
+    var { idUsuario, nomeUsuario, cargo } = req.body;
+    usuarioModel.editarUsuario(idUsuario, nomeUsuario, cargo)
+        .then(function () {
+            res.status(200).send("Usuário alterado com sucesso!");
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function deletarUsuario(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    usuarioModel.deletarUsuario(idUsuario)
+        .then(function () {
+            res.status(200).send("Usuário deletado com sucesso!");
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+
 module.exports = {
     autenticar,
     cadastrarEmpresa,
     cadastrarUsuario,
-    identificarEmpresa
+    identificarEmpresa,
+    listarUsuarios,
+    editarUsuario,
+    deletarUsuario
 }

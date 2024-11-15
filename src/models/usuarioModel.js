@@ -37,9 +37,33 @@ function identificarEmpresa(cnpj) {
     return database.executar(instrucaoSql);
 }
 
+function listarUsuarios() {
+    console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",)
+    var instrucaoSql = 'SELECT u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM Usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario;'; 
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function editarUsuario(idUsuario, nomeUsuario, cargo) {
+    var instrucaoSql = `
+        UPDATE usuario
+        SET nomeUsuario = '${nomeUsuario}', fkTipoUsuario = (SELECT idTipoUsuario FROM tipoUsuario WHERE tipo = '${cargo}')
+        WHERE idUsuario = '${idUsuario}';
+    `;
+    return database.executar(instrucaoSql);
+}
+
+function deletarUsuario(idUsuario) {
+    var instrucaoSql = `DELETE FROM usuario WHERE idUsuario = '${idUsuario}';`;
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrarEmpresa,
     cadastrarUsuario,
-    identificarEmpresa
+    identificarEmpresa,
+    listarUsuarios,
+    editarUsuario,
+    deletarUsuario
 };
