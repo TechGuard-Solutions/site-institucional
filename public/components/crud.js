@@ -21,6 +21,29 @@ async function listarUsuarios() {
     }
 }
 
+async function deletarUsuario(idUsuario) {
+    if (idUsuario === undefined || idUsuario === null) {
+        console.error("ID de usuário inválido");
+        return;
+    }
+
+    const res = await fetch(`/usuarios/deletarUsuario/${idUsuario}`, {  // Passando idUsuario na URL
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    if (res.ok) {
+        console.log("teste")
+        console.log(`Usuário com ID ${idUsuario} deletado com sucesso!`);
+        return await res.json();
+    } else {
+        console.log("Houve um erro ao deletar o usuário.");
+        throw new Error("Houve um erro ao deletar o usuário.");
+    }
+}
+
 async function listarUsuariosNaTela() {
     const resposta = await listarUsuarios();
     console.log(resposta);
@@ -36,18 +59,16 @@ async function listarUsuariosNaTela() {
 
     for (let i = 0; i < resposta.length; i++) {
         usuarioDiv += `
-            <div class="employee-item" id="employee-${resposta[i].idUsuario}">
+            <div class="employee-item" id="employee-${resposta[i].IdUsuario}">
                 <span>${resposta[i].NomeUsuario}</span>
                 <span>${resposta[i].Cargo}</span>
-                <button onclick="editarUsuario(${resposta[i].idUsuario})">Editar</button>
-                <button onclick="deletarUsuario(${resposta[i].idUsuario})">Deletar</button>
+                <button onclick="editarUsuario(${resposta[i].IdUsuario})">Editar</button>
+                <button onclick="deletarUsuario(${resposta[i].IdUsuario})">Deletar</button>
             </div>`;
     }
     container.innerHTML = usuarioDiv;
 }
 
-function deletarUsuario(idUsuario){
-    
-}
+
 
 listarUsuariosNaTela();

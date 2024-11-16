@@ -66,6 +66,24 @@ function cadastrarEmpresa(req, res) {
     }
 }
 
+function deletarUsuario(req, res) {
+    const idUsuario = req.params.id;
+
+    if (!idUsuario) {
+        return res.status(400).json({ message: "ID do usuário é necessário." });
+    }
+
+    usuarioModel.deletarUsuario(idUsuario)
+        .then(function () {
+            res.status(200).json({ message: "Usuário deletado com sucesso!" }); // Envia um JSON
+        })
+        .catch(function (erro) {
+            console.error("Erro ao deletar usuário:", erro);
+            res.status(500).json({ message: erro.sqlMessage || "Erro interno ao deletar o usuário." });
+        });
+}
+
+
 
 function cadastrarUsuario(req, res) {
     var emailUsuario = req.body.emailUsuarioServer;
@@ -151,18 +169,7 @@ function editarUsuario(req, res) {
         });
 }
 
-function deletarUsuario(req, res) {
-    var idUsuario = req.params.idUsuario;
 
-    usuarioModel.deletarUsuario(idUsuario)
-        .then(function () {
-            res.status(200).send("Usuário deletado com sucesso!");
-        })
-        .catch(function (erro) {
-            console.log(erro);
-            res.status(500).json(erro.sqlMessage);
-        });
-}
 
 
 module.exports = {

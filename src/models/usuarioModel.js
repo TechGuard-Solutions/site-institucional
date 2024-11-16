@@ -39,14 +39,14 @@ function identificarEmpresa(cnpj) {
 
 function listarUsuarios() {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",)
-    var instrucaoSql = 'SELECT u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM Usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario;'; 
+    var instrucaoSql = 'SELECT u.idUsuario AS IdUsuario, u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM Usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario;'; 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
 function editarUsuario(idUsuario, nomeUsuario, cargo) {
     var instrucaoSql = `
-        UPDATE usuario
+        UPDATE Usuario
         SET nomeUsuario = '${nomeUsuario}', fkTipoUsuario = (SELECT idTipoUsuario FROM tipoUsuario WHERE tipo = '${cargo}')
         WHERE idUsuario = '${idUsuario}';
     `;
@@ -54,9 +54,12 @@ function editarUsuario(idUsuario, nomeUsuario, cargo) {
 }
 
 function deletarUsuario(idUsuario) {
-    var instrucaoSql = `DELETE FROM usuario WHERE idUsuario = '${idUsuario}';`;
-    return database.executar(instrucaoSql);
+    console.log("ID do usuário para exclusão:", idUsuario);
+    
+    var instrucaoSql = `DELETE FROM Usuario WHERE idUsuario = ${idUsuario}`;  
+    return database.executar(instrucaoSql, [idUsuario]);
 }
+
 
 module.exports = {
     autenticar,
