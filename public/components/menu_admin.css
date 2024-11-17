@@ -1,8 +1,8 @@
 .menu-lateral {
     width: 5vw;
     height: 100vh;
-    background-color: #15202e;
-    color: white;
+    background-color: #D9D9D9;
+    color: black;
     display: flex;
     flex-direction: column;
 
