@@ -88,10 +88,30 @@ async function listarUsuarios() {
     selectModal.value = usuario.fkTipoUsuario || "";
   }
   
-  function deletarUsuario(idUsuario) {
-    // Função para deletar um usuário
-    console.log(`Usuário ${idUsuario} será deletado.`);
-  }
+  async function deletarUsuario(idUsuario) {
+    if (idUsuario === undefined || idUsuario === null) {
+        console.error("ID de usuário inválido");
+        return;
+    }
+    const res = await fetch(`/usuarios/deletarUsuario`, {  // Passando idUsuario na URL
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuarioServer: idUsuario,
+        }),
+    });
+    if (res.ok) {
+        console.log("teste")
+        console.log(`Usuário com ID ${idUsuario} deletado com sucesso!`);
+        window.location.reload();
+        return await res.json();
+    } else {
+        console.log("Houve um erro ao deletar o usuário.");
+        throw new Error("Houve um erro ao deletar o usuário.");
+    }
+}
   
   function cancelar() {
     modal.style.display = "none";

@@ -67,12 +67,10 @@ function cadastrarEmpresa(req, res) {
 }
 
 function deletarUsuario(req, res) {
-    const idUsuario = req.params.id;
-
+    const idUsuario = req.body.idUsuarioServer;
     if (!idUsuario) {
         return res.status(400).json({ message: "ID do usuário é necessário." });
     }
-
     usuarioModel.deletarUsuario(idUsuario)
         .then(function () {
             res.status(200).json({ message: "Usuário deletado com sucesso!" }); // Envia um JSON
