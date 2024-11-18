@@ -15,8 +15,8 @@ class SidebarMenu extends HTMLElement {
                     <span class="text" onclick="window.location.href='chat.html'">Chat com IA</span>
                 </div>
                 <div class="menu-item">
-                    <span class="material-symbols-outlined" onclick="window.location.href='crud.html'">supervisor_account</span>
-                    <span class="text" onclick="window.location.href='crud.html'">Usuários</span>
+                    <span class="material-symbols-outlined" onclick="window.location.href='administracaoUsuario.html'">supervisor_account</span>
+                    <span class="text" onclick="window.location.href='administracaoUsuario.html'">Usuários</span>
                 </div>
                 <div class="menu-item">
                     <span class="material-symbols-outlined" onclick="window.location.href='suporte.html'">help</span>

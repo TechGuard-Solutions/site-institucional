@@ -154,6 +154,9 @@ async function qtdDaI() {
 }
 
 async function initCharts() {
+  nomeEmpresa.innerHTML = sessionStorage.nomeEmpresa
+  nomeUsuario.innerHTML = sessionStorage.nomeUsuario
+
   const qtdAttacksValue = await qtdAttacks();
   const qtdDisclosuresValue = await qtdDisclosures();
   const qtdSaAValue = await qtdSaA();

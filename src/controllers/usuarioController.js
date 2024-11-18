@@ -171,6 +171,26 @@ function editarUsuario(req, res) {
 
 
 
+function identificarUsuario(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+
+    usuarioModel.identificarUsuario(idUsuario)
+    .then(function (resposta) {
+        if (resposta && resposta.length > 0) {
+            // Retorna os dados do usuário como JSON
+            res.status(200).json(resposta[0]); 
+        } else {
+            // Caso o usuário não seja encontrado
+            res.status(404).json({ mensagem: "Usuário não encontrado." });
+        }
+    })
+    .catch(function (erro) {
+        console.error("Erro ao identificar o usuário:", erro);
+        res.status(500).json({ erro: erro.sqlMessage || "Erro no servidor." });
+    });
+}
+
+
 
 module.exports = {
     autenticar,
@@ -179,5 +199,6 @@ module.exports = {
     identificarEmpresa,
     listarUsuarios,
     editarUsuario,
-    deletarUsuario
+    deletarUsuario,
+    identificarUsuario
 }
