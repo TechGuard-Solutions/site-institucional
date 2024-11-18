@@ -1,11 +1,11 @@
 .menu-lateral {
     width: 5vw;
     height: 100vh;
-    background-color: #D9D9D9;
+    background-color: #26344a;
     color: black;
     display: flex;
     flex-direction: column;
-
+    border-right: #189704 2px solid;
     padding-top: 10px;
     transition: width 0.3s;
     overflow: hidden;
@@ -23,7 +23,7 @@
     transition: padding-left 0.3s;
     cursor: pointer;
     transition: 0.4s;
-
+    color: aliceblue;
 }
 
 .material-symbols-outlined:hover {
@@ -45,6 +45,7 @@
     display: none;
     cursor: pointer;
     transition: 0.4s;
+    color: aliceblue;
 }
 
 .menu-item span.text:hover {
