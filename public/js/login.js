@@ -27,6 +27,7 @@ function autenticar() {
                             sessionStorage.emailUsuario = json.emailUsuario;
                             sessionStorage.fkEmpresa = json.fkEmpresa;
                             sessionStorage.nomeEmpresa = json.nomeEmpresa;
+                            sessionStorage.fkTipoUsuario = json.fkTipoUsuario;
 
                             Swal.fire({
                                 title: "Login efetuado!",

@@ -22,7 +22,7 @@ function cadastrarUsuario(nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuar
 function autenticar(emailUsuario, senhaUsuario) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", emailUsuario, senhaUsuario)
     var instrucaoSql = `
-        SELECT idUsuario, nomeUsuario, emailUsuario, fkEmpresa, empresa.nomeEmpresa FROM usuario JOIN empresa on fkEmpresa = idEmpresa WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = SHA2('${senhaUsuario}', 256);
+        SELECT idUsuario, nomeUsuario, emailUsuario, fkEmpresa, fkTipoUsuario empresa.nomeEmpresa FROM usuario JOIN empresa on fkEmpresa = idEmpresa WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = SHA2('${senhaUsuario}', 256);
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -39,22 +39,26 @@ function identificarEmpresa(cnpj) {
 
 function listarUsuarios() {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",)
-    var instrucaoSql = 'SELECT u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM Usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario;'; 
+    var instrucaoSql = 'SELECT u.idUsuario, u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM Usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario;'; 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function editarUsuario(idUsuario, nomeUsuario, cargo) {
+function editarUsuario(idUsuario, nomeUsuario, emailUsuario, senhaUsuario, cargo) {
     var instrucaoSql = `
         UPDATE usuario
-        SET nomeUsuario = '${nomeUsuario}', fkTipoUsuario = (SELECT idTipoUsuario FROM tipoUsuario WHERE tipo = '${cargo}')
-        WHERE idUsuario = '${idUsuario}';
+        SET nomeUsuario = '${nomeUsuario}', emailUsuario = '${emailUsuario}', senhaUsuario = '${senhaUsuario},fkTipoUsuario =  ${cargo} WHERE idUsuario = '${idUsuario}';
     `;
     return database.executar(instrucaoSql);
 }
 
 function deletarUsuario(idUsuario) {
     var instrucaoSql = `DELETE FROM usuario WHERE idUsuario = '${idUsuario}';`;
+    return database.executar(instrucaoSql);
+}
+
+function identificarUsuario(idUsuario) {
+    var instrucaoSql = `SELECT * FROM usuario WHERE idUsuario = '${idUsuario}';`;
     return database.executar(instrucaoSql);
 }
 
@@ -65,5 +69,6 @@ module.exports = {
     identificarEmpresa,
     listarUsuarios,
     editarUsuario,
-    deletarUsuario
+    deletarUsuario,
+    identificarUsuario
 };
