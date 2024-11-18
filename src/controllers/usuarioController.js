@@ -20,7 +20,9 @@ function autenticar(req, res) {
                         nomeUsuario: resultadoAutenticar[0].nomeUsuario,
                         emailUsuario: resultadoAutenticar[0].emailUsuario,
                         fkEmpresa: resultadoAutenticar[0].fkEmpresa,
-                        nomeEmpresa: resultadoAutenticar[0].nomeEmpresa
+                        nomeEmpresa: resultadoAutenticar[0].nomeEmpresa,
+                        fkTipoUsuario: resultadoAutenticar[0].fkTipoUsuario,
+                        cargo: resultadoAutenticar[0].cargo
                     });
                 } else if (resultadoAutenticar.length == 0) {
                     res.status(403).send(console.log("Email e/ou senha inválido(s)"));
@@ -142,7 +144,8 @@ function identificarEmpresa(req, res) {
 }
 
 function listarUsuarios(req, res) {
-    usuarioModel.listarUsuarios().then(function (resultado) {
+    var fkEmpresa = req.body.fkEmpresaServer;
+    usuarioModel.listarUsuarios(fkEmpresa).then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
             } else {
@@ -155,9 +158,12 @@ function listarUsuarios(req, res) {
         });
 }
 
-function editarUsuario(req, res) {
-    var { idUsuario, nomeUsuario, cargo } = req.body;
-    usuarioModel.editarUsuario(idUsuario, nomeUsuario, cargo)
+function confirmarEdicao(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+    var emailUsuario = req.body.emailUsuarioServer;
+    var cargo = req.body.fkTipoUsuarioServer;
+    console.log("informacoesEdicao: ", idUsuario, emailUsuario, cargo)
+    usuarioModel.confirmarEdicao(idUsuario, emailUsuario, cargo)
         .then(function () {
             res.status(200).send("Usuário alterado com sucesso!");
         })
@@ -196,7 +202,7 @@ module.exports = {
     cadastrarUsuario,
     identificarEmpresa,
     listarUsuarios,
-    editarUsuario,
+    confirmarEdicao,
     deletarUsuario,
     identificarUsuario
 }

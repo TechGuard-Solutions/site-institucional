@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./components/modalEditar.css">
     <script src="./components/menu_admin.js"></script>
     <script src="./components/modalEditar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -21,8 +23,8 @@
             <modal-editar class="modalUsuario" id="modal"></modal-editar>
             <section class="info">
                 <img src="./assets/png-no-photo.png" width="200px" alt="">
-                <h3>Nome</h3>
-                <p>Cargo</p>
+                <h3 id="nomeUsuario"></h3>
+                <p id="cargoUsuario"></p>
             </section>
 
             <section class="crud">
