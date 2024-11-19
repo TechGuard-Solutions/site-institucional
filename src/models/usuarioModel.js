@@ -46,9 +46,9 @@ function autenticar(emailUsuario, senhaUsuario) {
         ON 
             usuario.fkTipoUsuario = tipoUsuario.idTipoUsuario 
         WHERE 
-            usuario.emailUsuario = 'admin@techguard.com' 
+            usuario.emailUsuario = '${emailUsuario}' 
         AND 
-            usuario.senhaUsuario = SHA2('12345678.', 256);
+            usuario.senhaUsuario = SHA2('${senhaUsuario}', 256);
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

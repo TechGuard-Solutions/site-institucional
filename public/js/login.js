@@ -58,7 +58,7 @@ function autenticar() {
                         });
 
                         setTimeout(() => {
-                            window.location.href = "../dashboard.html";
+                            window.location.href = "../admin.html";
                         }, 1000);
                     });
                 } else {
