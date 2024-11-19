@@ -9,6 +9,7 @@
     padding-top: 10px;
     transition: width 0.3s;
     overflow: hidden;
+    user-select: none;
 }
 
 .menu-lateral.expanded {
