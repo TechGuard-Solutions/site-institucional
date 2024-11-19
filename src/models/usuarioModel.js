@@ -20,13 +20,41 @@ function cadastrarUsuario(nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuar
 }
 
 function autenticar(emailUsuario, senhaUsuario) {
-    console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", emailUsuario, senhaUsuario)
+    console.log(
+        "USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",
+        emailUsuario, senhaUsuario
+    );
+
+    // Query SQL ajustada com base no seu script SQL
     var instrucaoSql = `
-        SELECT idUsuario, nomeUsuario, emailUsuario, fkEmpresa, fkTipoUsuario empresa.nomeEmpresa FROM usuario JOIN empresa on fkEmpresa = idEmpresa WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = SHA2('${senhaUsuario}', 256);
+        SELECT 
+            usuario.idUsuario, 
+            usuario.nomeUsuario, 
+            usuario.emailUsuario, 
+            usuario.fkEmpresa, 
+            usuario.fkTipoUsuario, 
+            tipoUsuario.tipo AS cargo,
+            empresa.nomeEmpresa 
+        FROM 
+            usuario 
+        JOIN 
+            empresa 
+        ON 
+            usuario.fkEmpresa = empresa.idEmpresa 
+        JOIN 
+            tipoUsuario 
+        ON 
+            usuario.fkTipoUsuario = tipoUsuario.idTipoUsuario 
+        WHERE 
+            usuario.emailUsuario = 'admin@techguard.com' 
+        AND 
+            usuario.senhaUsuario = SHA2('12345678.', 256);
     `;
+
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
 
 function identificarEmpresa(cnpj) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", cnpj)
@@ -37,17 +65,17 @@ function identificarEmpresa(cnpj) {
     return database.executar(instrucaoSql);
 }
 
-function listarUsuarios() {
+function listarUsuarios(fkEmpresa) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",)
-    var instrucaoSql = 'SELECT u.idUsuario, u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM Usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario;'; 
+    var instrucaoSql = `SELECT u.idUsuario, u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM Usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario WHERE fkEmpresa = ${fkEmpresa}`; 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function editarUsuario(idUsuario, nomeUsuario, emailUsuario, senhaUsuario, cargo) {
+function confirmarEdicao(idUsuario, emailUsuario, cargo) {
     var instrucaoSql = `
         UPDATE usuario
-        SET nomeUsuario = '${nomeUsuario}', emailUsuario = '${emailUsuario}', senhaUsuario = '${senhaUsuario},fkTipoUsuario =  ${cargo} WHERE idUsuario = '${idUsuario}';
+        SET emailUsuario = '${emailUsuario}', fkTipoUsuario =  ${cargo} WHERE idUsuario = '${idUsuario}';
     `;
     return database.executar(instrucaoSql);
 }
@@ -70,7 +98,7 @@ module.exports = {
     cadastrarUsuario,
     identificarEmpresa,
     listarUsuarios,
-    editarUsuario,
+    confirmarEdicao,
     deletarUsuario,
     identificarUsuario
 };

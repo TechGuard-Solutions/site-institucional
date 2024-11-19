@@ -19,12 +19,12 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
-router.get("/listarUsuarios", function (req, res){
+router.post("/listarUsuarios", function (req, res){
     usuarioController.listarUsuarios(req, res);
 });
 
-router.put("/editarUsuario", function (req, res) {
-    usuarioController.editarUsuario(req, res);
+router.put("/confirmarEdicao", function (req, res) {
+    usuarioController.confirmarEdicao(req, res);
 });
 
 router.delete("/deletarUsuario", function (req, res) {
