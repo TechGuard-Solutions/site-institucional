@@ -46,6 +46,24 @@ CREATE TABLE registros (
     modificados_downstream_target VARCHAR(255) NOT NULL,
     modificados_impact VARCHAR(50) NOT NULL
 );
+
+CREATE TABLE perguntaIA (
+	idPerguntaIA INT AUTO_INCREMENT PRIMARY KEY,
+    prompt VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE respostaIA (
+	idRespostaIA INT AUTO_INCREMENT,
+    fkPerguntaIA INT NOT NULL,
+    fkUsuario INT NOT NULL,
+    fkEmpresa INT NOT NULL,
+    resultado VARCHAR(255) NOT NULL,
+    CONSTRAINT pkCompRespostaIA PRIMARY KEY (idSaidaIA, fkPerguntaIA),
+    CONSTRAINT fkRespostaPerguntaIA FOREIGN KEY (fkPerguntaIA) REFERENCES perguntaIA(idPerguntaIA),
+    CONSTRAINT fkRespostaUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
+    CONSTRAINT fkRepostaEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
+);
+
 INSERT INTO tipoUsuario (tipo) VALUES
 	('Padrao'),
 	('Admin');
