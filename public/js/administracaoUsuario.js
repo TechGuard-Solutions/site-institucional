@@ -1,3 +1,7 @@
+function goToAddUser() {
+  window.location.href = "./adicionarUsuario.html";
+}
+
 async function listarUsuarios() {
   nomeUsuario.innerHTML = sessionStorage.nomeUsuario;
   cargoUsuario.innerHTML = sessionStorage.cargo;
@@ -11,8 +15,6 @@ async function listarUsuarios() {
         fkEmpresaServer: sessionStorage.fkEmpresa,
       }),
     });
-
-    
 
     if (!resposta.ok) {
       console.error(
@@ -113,7 +115,6 @@ async function deletarUsuario(idUsuario) {
   }
 }
 
-
 async function editarUsuario(idUsuario) {
   const usuario = await identificarUsuario(idUsuario);
   modal.style.display = "flex";
@@ -121,23 +122,31 @@ async function editarUsuario(idUsuario) {
   selectModal.value = usuario.fkTipoUsuario;
 
   sessionStorage.idDoUsuarioIdentificado = usuario.idUsuario;
-
 }
 
 function salvar() {
   var idUsuario = sessionStorage.idDoUsuarioIdentificado;
   var emailUsuario = emailModal.value;
   var cargo = selectModal.value;
-  console.log(idUsuario,emailUsuario,cargo)
+  console.log(idUsuario, emailUsuario, cargo);
   Swal.fire({
     title: "Você quer salvar as alterações desse usuário?",
     showDenyButton: true,
     confirmButtonText: "Salvar",
     denyButtonText: `Cancelar`,
+    color: "#4ADC7C",
+    background: "#10161c",
+    confirmButtonColor: "#10161c",
+    denyButtonColor: "#10161c",
+    customClass: {
+      confirmButton: "meu-botao",
+      denyButton: "meu-botao",
+    },
   }).then((result) => {
     if (result.isConfirmed) {
       confirmarEdicao(idUsuario, emailUsuario, cargo);
-      Swal.fire("Informações salvas!", "", "success");
+      modal.style.display = "none";
+      
     }
   });
 }
@@ -155,12 +164,12 @@ async function confirmarEdicao(idUsuario, emailUsuario, cargo) {
     body: JSON.stringify({
       idUsuarioServer: idUsuario,
       emailUsuarioServer: emailUsuario,
-      fkTipoUsuarioServer: cargo
+      fkTipoUsuarioServer: cargo,
     }),
   });
   if (res.ok) {
     console.log(`Usuário com ID ${idUsuario} modificado com sucesso!`);
-    window.location.reload();
+    listarUsuariosNaTela();
     return await res.json();
   } else {
     console.log("Houve um erro ao modificar o usuário.");

@@ -1,7 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow: hidden;
+}
+
+.meu-botao {
+    border: 2px solid #4ADC7C;
+    color: #4ADC7C;
+    font-family: "Goldman";
+}
+
+.containerAdicionar {
+    display: flex;
+    justify-content: end;
+    padding-right: 20px;
+}
+
+.btnAdd {
+    font-size: large;
 }
 
 .menu-lateral {
