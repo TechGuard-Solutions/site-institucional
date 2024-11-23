@@ -13,72 +13,6 @@ body {
     font-family: "Goldman";
 }
 
-.containerAdicionar {
-    display: flex;
-    justify-content: end;
-    padding-right: 20px;
-}
-
-.btnAdd {
-    font-size: large;
-}
-
-.menu-lateral {
-    width: 5vw;
-    height: 100vh;
-    background-color: #15202e;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-    transition: width 0.3s;
-    overflow: hidden;
-}
-
-.menu-lateral.expanded {
-    width: 250px;
-}
-
-.material-symbols-outlined {
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    padding: 23px;
-    transition: padding-left 0.3s;
-    cursor: pointer;
-    transition: 0.4s;
-
-}
-
-.material-symbols-outlined:hover {
-    color: #189704;
-    transition: 0.4s;
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 140px;
-    white-space: nowrap;
-}
-
-.menu-item span.text {
-    margin-left: 15px;
-    font-size: 20px;
-    display: none;
-    cursor: pointer;
-    transition: 0.4s;
-}
-
-.menu-item span.text:hover {
-    color: #1ac600;
-}
-
-.menu-lateral.expanded .menu-item span.text {
-    display: inline;
-}
-
 .container{
     display: flex;
     flex-direction: row;
@@ -96,9 +30,9 @@ body {
 }
 
 .crud {
-    margin-left: 300px;
-    width: 600px;
-    height: 500px;
+    margin-left: 35px;
+    width: 90%;
+    height: 600px;
     border-radius: 15px;
     border: 1px solid black;
     background-color: rgb(189, 189, 189);
@@ -150,17 +84,4 @@ body {
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
-}
-
-.modalUsuario {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(5px);
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.3s ease;
 }
