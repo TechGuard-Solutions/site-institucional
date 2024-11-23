@@ -1,19 +1,10 @@
-function goToAddUser() {
-  window.location.href = "./adicionarUsuario.html";
-}
-
-async function listarUsuarios() {
-  nomeUsuario.innerHTML = sessionStorage.nomeUsuario;
-  cargoUsuario.innerHTML = sessionStorage.cargo;
+async function listarEmpresas() {
   try {
-    const resposta = await fetch("/usuarios/listarUsuarios", {
-      method: "POST",
+    const resposta = await fetch("/usuarios/listarEmpresas", {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        fkEmpresaServer: sessionStorage.fkEmpresa,
-      }),
     });
 
     if (!resposta.ok) {
@@ -26,7 +17,7 @@ async function listarUsuarios() {
     }
 
     const dados = await resposta.json();
-    console.log(`Usuários recebidos:`, dados);
+    console.log(`Empresas recebidas:`, dados);
     console.log("Dados obtidos com sucesso!");
     return dados;
   } catch (erro) {
@@ -35,102 +26,141 @@ async function listarUsuarios() {
   }
 }
 
-async function listarUsuariosNaTela() {
-  const usuarios = await listarUsuarios();
+async function listarEmpresasNaTela() {
+  const empresas = await listarEmpresas();
 
-  if (!usuarios) {
+  if (!empresas) {
     console.log("Não há dados para exibir.");
     return;
   }
 
   const container = document.getElementById("employee-list");
   container.innerHTML = ""; // Limpa o container para evitar duplicações
-
-  usuarios.forEach((usuario) => {
+  var isActive = "";
+  empresas.forEach((empresa) => {
+    // Quando for estilizar, coloque o ativo como "STATUS"
+    if (!empresa.ativo) {
+      isActive = "Inativo";
+    } else {
+      isActive = "Ativo"
+    };
     const usuarioDiv = `
-        <div class="employee-item" id="employee-${usuario.idUsuario}">
-          <span>${usuario.idUsuario}</span>
-          <span>${usuario.NomeUsuario}</span>
-          <span>${usuario.Cargo}</span>
-          <button onclick="editarUsuario(${usuario.idUsuario})">Editar</button>
-          <button onclick="deletarUsuario(${usuario.idUsuario})">Deletar</button>
+        <div class="employee-item" id="employee-${empresa.idEmpresa}">
+          <span>${empresa.idEmpresa}</span>
+          <span>${empresa.nomeEmpresa}</span>
+          <span>${empresa.cep}</span>
+          <span>${empresa.cnpj}</span>
+          <span>${empresa.emailCorporativo}</span>
+          <span>${empresa.telEmpresa}</span>
+          <span>${isActive}</span>
+          <button onclick="editarEmpresa(${empresa.idEmpresa})">Editar</button>
+          <button onclick="ativarEmpresa(${empresa.idEmpresa})">Ativar</button>
+          <button onclick="desativarEmpresa(${empresa.idEmpresa})">Desativar</button>
         </div>
       `;
     container.innerHTML += usuarioDiv;
   });
 }
 
-async function identificarUsuario(idUsuario) {
+async function desativarEmpresa(idEmpresa) {
+  if (idEmpresa === undefined || idEmpresa === null) {
+    console.error("ID de empresa inválido");
+    return;
+  }
+  const res = await fetch(`/usuarios/desativarEmpresa`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      idEmpresaServer: idEmpresa,
+    }),
+  });
+  if (res.ok) {
+    console.log(`Empresa com ID ${idEmpresa} desativado com sucesso!`);
+    listarEmpresasNaTela();
+    return await res.json();
+  } else {
+    console.log("Houve um erro ao desativar a empresa.");
+    throw new Error("Houve um erro ao desativar a empresa.");
+  }
+}
+
+async function ativarEmpresa(idEmpresa) {
+  if (idEmpresa === undefined || idEmpresa === null) {
+    console.error("ID de empresa inválido");
+    return;
+  }
+  const res = await fetch(`/usuarios/ativarEmpresa`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      idEmpresaServer: idEmpresa,
+    }),
+  });
+  if (res.ok) {
+    console.log(`Empresa com ID ${idEmpresa} ativada com sucesso!`);
+    listarEmpresasNaTela();
+    return await res.json();
+  } else {
+    console.log("Houve um erro ao ativar a empresa.");
+    throw new Error("Houve um erro ao ativar a empresa.");
+  }
+}
+
+async function editarEmpresa(idEmpresa) {
+  const empresa = await identificarEmpresas(idEmpresa);
+  console.log(empresa)
+  modal.style.display = "flex";
+  nomeEmpresaModal.value = empresa.nomeEmpresa;
+  cepEmpresaModal.value = empresa.cep;
+  cnpjEmpresaModal.value = empresa.cnpj;
+  emailEmpresaModal.value = empresa.emailCorporativo;
+  telEmpresaModal.value = empresa.telEmpresa;
+  sessionStorage.idDaEmpresaIdentificada = empresa.idEmpresa;
+}
+
+async function identificarEmpresas(idEmpresa) {
   try {
-    const resposta = await fetch(`/usuarios/identificarUsuario`, {
+    const resposta = await fetch(`/usuarios/identificarEmpresas`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        idUsuarioServer: idUsuario,
+        idEmpresaServer: idEmpresa
       }),
     });
 
     if (!resposta.ok) {
       console.error(
-        "Erro ao identificar usuário:",
+        "Erro ao identificar empresa:",
         resposta.status,
         resposta.statusText
       );
-      throw new Error("Houve um erro ao identificar o usuário.");
+      throw new Error("Houve um erro ao identificar o empresa.");
     }
 
-    const usuario = await resposta.json();
-    console.log("Usuário identificado:", usuario);
-    return usuario;
+    const empresa = await resposta.json();
+    console.log("Empresa identificada:", empresa[0]);
+    return empresa[0];
   } catch (erro) {
     console.error(`#ERRO: ${erro}`);
     return null;
   }
 }
 
-async function deletarUsuario(idUsuario) {
-  if (idUsuario === undefined || idUsuario === null) {
-    console.error("ID de usuário inválido");
-    return;
-  }
-  const res = await fetch(`/usuarios/deletarUsuario`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      idUsuarioServer: idUsuario,
-    }),
-  });
-  if (res.ok) {
-    console.log("teste");
-    console.log(`Usuário com ID ${idUsuario} deletado com sucesso!`);
-    window.location.reload();
-    return await res.json();
-  } else {
-    console.log("Houve um erro ao deletar o usuário.");
-    throw new Error("Houve um erro ao deletar o usuário.");
-  }
-}
-
-async function editarUsuario(idUsuario) {
-  const usuario = await identificarUsuario(idUsuario);
-  modal.style.display = "flex";
-  emailModal.value = usuario.emailUsuario;
-  selectModal.value = usuario.fkTipoUsuario;
-
-  sessionStorage.idDoUsuarioIdentificado = usuario.idUsuario;
-}
-
 function salvar() {
-  var idUsuario = sessionStorage.idDoUsuarioIdentificado;
-  var emailUsuario = emailModal.value;
-  var cargo = selectModal.value;
-  console.log(idUsuario, emailUsuario, cargo);
+  var idEmpresa = sessionStorage.idDaEmpresaIdentificada;
+  var nomeEmpresa = nomeEmpresaModal.value;
+  var cepEmpresa = cepEmpresaModal.value;
+  var cnpjEmpresa = cnpjEmpresaModal.value;
+  var emailEmpresa = emailEmpresaModal.value;
+  var telEmpresa = telEmpresaModal.value;
   Swal.fire({
-    title: "Você quer salvar as alterações desse usuário?",
+    title: "Você quer salvar as alterações dessa empresa?",
     showDenyButton: true,
     confirmButtonText: "Salvar",
     denyButtonText: `Cancelar`,
@@ -144,32 +174,39 @@ function salvar() {
     },
   }).then((result) => {
     if (result.isConfirmed) {
-      confirmarEdicao(idUsuario, emailUsuario, cargo);
+      confirmarEdicao(idEmpresa,
+        nomeEmpresa,
+        cepEmpresa,
+        cnpjEmpresa,
+        emailEmpresa,
+        telEmpresa);
       modal.style.display = "none";
-      
     }
   });
 }
 
-async function confirmarEdicao(idUsuario, emailUsuario, cargo) {
-  if (idUsuario === undefined || idUsuario === null) {
-    console.error("ID de usuário inválido");
+async function confirmarEdicao(idEmpresa, nomeEmpresa, cepEmpresa, cnpjEmpresa, emailEmpresa, telEmpresa) {
+  if (idEmpresa === undefined || idEmpresa === null) {
+    console.error("ID de empresa inválido");
     return;
   }
-  const res = await fetch(`/usuarios/confirmarEdicao`, {
+  const res = await fetch(`/usuarios/confirmarEdicaoEmpresa`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      idUsuarioServer: idUsuario,
-      emailUsuarioServer: emailUsuario,
-      fkTipoUsuarioServer: cargo,
+      idEmpresaServer: idEmpresa,
+      nomeEmpresaServer: nomeEmpresa,
+      cepEmpresaServer:  cepEmpresa,
+      cnpjEmpresaServer: cnpjEmpresa,
+      emailEmpresaServer: emailEmpresa,
+      telEmpresaServer: telEmpresa
     }),
   });
   if (res.ok) {
-    console.log(`Usuário com ID ${idUsuario} modificado com sucesso!`);
-    listarUsuariosNaTela();
+    console.log(`Empresa com ID ${idEmpresa} modificado com sucesso!`);
+    listarEmpresasNaTela();
     return await res.json();
   } else {
     console.log("Houve um erro ao modificar o usuário.");
@@ -181,4 +218,4 @@ function cancelar() {
   modal.style.display = "none";
 }
 
-listarUsuariosNaTela();
+listarEmpresasNaTela();
