@@ -1,0 +1,77 @@
+*{
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.chat{
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.baloon {
+    position: relative;
+    background-color: #f0f0f0; /* Cor de fundo do balão */
+    color: #333; /* Cor do texto */
+    padding: 15px 20px;
+    border-radius: 15px;
+    width: 200px;
+    height: 100px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.4s, border 0.4s;
+    overflow: hidden;
+    user-select: none;
+}
+
+.baloon:hover {
+    transform: scale(1.15); /* Aumenta o balão */
+    border: #333 1px solid;
+}
+
+.baloon-quests {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.ia-answer{
+    padding-top: 100px;
+}
+
+.ia-response {
+    width: 500px;
+    height: 100px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0; /* Cor de fundo do balão */
+    color: #333;
+    font-size: 16px;
+    resize: none; /* Remove o redimensionamento */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
+    outline: none; /* Remove o contorno */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transições suaves */
+    cursor: default; /* Muda o cursor para indicar que não é clicável */
+}
+
+.ia-response:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Aumenta a sombra no hover */
+}
+
+.ia-response:focus {
+    border: 1px solid #333; /* Cor da borda no foco */
+    transform: scale(1.02); /* Leve aumento no foco */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+

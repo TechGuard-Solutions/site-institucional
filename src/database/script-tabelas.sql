@@ -8,7 +8,8 @@ CREATE TABLE empresa (
 	cep CHAR(9),
 	cnpj CHAR(18),
 	emailCorporativo VARCHAR(45),
-	telEmpresa CHAR(9)
+	telEmpresa CHAR(9),
+	ativo BOOLEAN
 );
 
 CREATE TABLE tipoUsuario (
@@ -57,25 +58,18 @@ CREATE TABLE perguntaIA (
 );
 
 CREATE TABLE respostaIA (
-	idRespostaIA INT AUTO_INCREMENT,
-    fkPerguntaIA INT NOT NULL,
-    fkUsuario INT NOT NULL,
-    fkEmpresa INT NOT NULL,
-    resultado VARCHAR(255) NOT NULL,
-    CONSTRAINT pkCompRespostaIA PRIMARY KEY (idRespostaIA, fkPerguntaIA),
-    CONSTRAINT fkRespostaPerguntaIA FOREIGN KEY (fkPerguntaIA) REFERENCES perguntaIA(idPerguntaIA),
-    CONSTRAINT fkRespostaUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
-    CONSTRAINT fkRepostaEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
+    idRespostaIA INT AUTO_INCREMENT PRIMARY KEY,
+    fkPerguntaIA INT NOT NULL,  -- Referência à tabela perguntaIA
+    resultado TEXT,            -- Tipo TEXT para textos longos
+    FOREIGN KEY (fkPerguntaIA) REFERENCES perguntaIA(idPerguntaIA)
 );
 
 INSERT INTO tipoUsuario (tipo) VALUES
 	('Padrao'),
 	('Admin');
 
-INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa) VALUES
-	('TechGuard Solutions', '01414-001', "40.028.922/0001-00", 'techguardsolutions.suporte@gmail.com', "4002-8922");
+INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa, ativo) VALUES
+	('TechGuard Solutions', '01414-001', "40.028.922/0001-00", 'techguardsolutions.suporte@gmail.com', "4002-8922", true);
 
-INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario) VALUES
+INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario, ativo) VALUES
 	('Admin', '2FD15005E2D51CB1BE7B2C1A75A91AF79C10350B184271A4F9CC9800B93BAFC9', '464.646.422-33', 'admin@techguard.com', '(11)94002-8922', 1, 2);
-
-select * from registros;

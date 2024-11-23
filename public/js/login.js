@@ -19,47 +19,50 @@ function autenticar() {
                 console.log(resposta);
 
                 if (resposta.ok) {
-                    console.log("Usuário autenticado com sucesso!")
+                    console.log("Usuário autenticado com sucesso!");
                     resposta.json().then(json => {
                         console.log("Resposta JSON:", json);
-                            sessionStorage.idUsuario = json.idUsuario;
-                            sessionStorage.nomeUsuario = json.nomeUsuario;
-                            sessionStorage.emailUsuario = json.emailUsuario;
-                            sessionStorage.fkEmpresa = json.fkEmpresa;
-                            sessionStorage.nomeEmpresa = json.nomeEmpresa;
-                            sessionStorage.fkTipoUsuario = json.fkTipoUsuario;
 
-                            Swal.fire({
-                                title: "Login efetuado!",
-                                html: "Redirecionando...",
-                                color: "#4ADC7C",
-                                background: "#10161c",
-                                confirmButtonColor: "#10161c",
-                                customClass: {
-                                    confirmButton: 'meu-botao',
-                                    popup: 'meu-alerta',
-                                    icon: 'meu-icone'
-                                },
-                                timer: 1500,
-                                timerProgressBar: true,
-                                didOpen: () => {
-                                    Swal.showLoading();
-                                    const timer = Swal.getPopup().querySelector("b");
-                                    timerInterval = setInterval(() => {
-                                        timer.textContent = `${Swal.getTimerLeft()}`;
-                                    }, 100);
-                                },
-                                willClose: () => {
-                                    clearInterval(timerInterval);
-                                }
-                            });
+                        // Salvando os dados na sessionStorage
+                        sessionStorage.idUsuario = json.idUsuario;
+                        sessionStorage.nomeUsuario = json.nomeUsuario;
+                        sessionStorage.emailUsuario = json.emailUsuario;
+                        sessionStorage.fkEmpresa = json.fkEmpresa;
+                        sessionStorage.nomeEmpresa = json.nomeEmpresa;
+                        sessionStorage.fkTipoUsuario = json.fkTipoUsuario;
+                        sessionStorage.cargo = json.cargo;
 
-                            setTimeout(() => {
-                                window.location.href = "../dashboard.html";
-                            }, 1000);
+                        Swal.fire({
+                            title: "Login efetuado!",
+                            html: "Redirecionando...",
+                            color: "#4ADC7C",
+                            background: "#10161c",
+                            confirmButtonColor: "#10161c",
+                            customClass: {
+                                confirmButton: 'meu-botao',
+                                popup: 'meu-alerta',
+                                icon: 'meu-icone'
+                            },
+                            timer: 1500,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                                const timer = Swal.getPopup().querySelector("b");
+                                timerInterval = setInterval(() => {
+                                    timer.textContent = `${Swal.getTimerLeft()}`;
+                                }, 100);
+                            },
+                            willClose: () => {
+                                clearInterval(timerInterval);
+                            }
+                        });
+
+                        setTimeout(() => {
+                            window.location.href = "../admin.html";
+                        }, 1000);
                     });
                 } else {
-                    console.log("Houve um erro ao tentar realizar a autenticação!")
+                    console.log("Houve um erro ao tentar realizar a autenticação!");
                     throw "Houve um erro ao tentar realizar a autenticação!";
                 }
             })

@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./components/modalEditar.css">
     <script src="./components/menu_admin.js"></script>
     <script src="./components/modalEditar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -20,15 +22,20 @@
             <sidebar-menu></sidebar-menu>
             <modal-editar class="modalUsuario" id="modal"></modal-editar>
             <section class="info">
-                <img src="./assets/png-no-photo.png" width="200px" alt="">
-                <h3>Nome</h3>
-                <p>Cargo</p>
+                <!-- <div class="infos-nome">
+                    <a id="nomeEmpresa">NOME DA EMPRESA</a>
+                </div> -->
+                <img src="./assets/foto-perfil.png" alt="" width="200px">
+                <h2 id="nomeUsuario"></h2>
+                <p id="cargoUsuario"></p>
             </section>
 
             <section class="crud">
                 <div class="texts-crud">
-                    <h2>Funcionarios</h2>
+                    <h1>Funcionários</h1>
                 </div>
+                
+                <div class="containerAdicionar"><button onclick="goToAddUser()" class="btnAdd">+</button></div>
                 
                 
                 <div class="form-crud">
