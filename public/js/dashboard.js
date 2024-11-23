@@ -268,7 +268,7 @@ async function initCharts() {
   // Evento ao passar o mouse sobre a div
   kpiAtaques.addEventListener("mouseenter", function () {
     // Aumenta a altura da div
-    kpiAtaques.style.height = "30vh"; // Defina a altura desejada
+    kpiAtaques.style.height = "32vh"; // Defina a altura desejada
 
     // Adiciona mais conteúdo à div
     contentFocoAtaques.innerHTML = `
