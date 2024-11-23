@@ -5,6 +5,13 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow: hidden;
+    background-color: #1f2a3c;
+    color: white;
+    font-size: 18px;
+}
+
+h2 {
+    color: #4ADC7C;
 }
 
 .meu-botao {
@@ -29,13 +36,25 @@ body {
     margin-left: 100px;
 }
 
+/* .infos-nome {
+    display: flex;
+    width: 100%;
+    margin-left: 20px;
+    padding-left: 3%;
+    color: #4ADC7C;
+    font-size: 22px;
+    font-family: "Goldman";
+} */
+
 .crud {
     margin-left: 35px;
     width: 90%;
     height: 600px;
     border-radius: 15px;
     border: 1px solid black;
-    background-color: rgb(189, 189, 189);
+    background-color: rgb(233, 233, 233);
+    color: #000;
+    font-size: 24px;
 }
 
 .form-crud material-symbols-outlined:hover{
