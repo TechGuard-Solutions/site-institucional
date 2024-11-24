@@ -29,17 +29,22 @@
                 <h2 id="nomeUsuario"></h2>
                 <p id="cargoUsuario"></p>
             </section>
-
             <section class="crud">
                 <div class="texts-crud">
                     <h1>Funcionários</h1>
                 </div>
-                
-                <div class="containerAdicionar"><button onclick="goToAddUser()" class="btnAdd">+</button></div>
-                
-                
+
+                <div class="titulo">
+                <div class="titulo-id"> <h3>ID</h3> </div>
+                <div class="titulo-nome"> <h3>Nome</h3> </div>
+                <div class="titulo-cargo"> <h3>Cargo</h3> </div>
+                </div>
+                <div class="containerAdicionar"><button onclick="goToAddUser()" class="btnAdd">
+                    <img src="./assets/simbolo-adicionar.png" alt="Adicionar" width="20px"/>
+                </button></div>
                 <div class="form-crud">
-                    <div id="employee-list"></div>
+                    <div id="employee-list"></div>                  
+                    <div id="div-usuario"></div>
                 </div>
             </section>
         </div>
