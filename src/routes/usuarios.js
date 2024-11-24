@@ -35,4 +35,24 @@ router.post("/identificarUsuario", function (req, res) {
     usuarioController.identificarUsuario(req, res);
 });
 
+router.get("/listarEmpresas", function (req, res){
+    usuarioController.listarEmpresas(req, res);
+});
+
+router.put("/desativarEmpresa", function (req, res) {
+    usuarioController.desativarEmpresa(req, res);
+});
+
+router.put("/ativarEmpresa", function (req, res) {
+    usuarioController.ativarEmpresa(req, res);
+});
+
+router.post("/identificarEmpresas", function (req, res) {
+    usuarioController.identificarEmpresas(req, res);
+});
+
+router.put("/confirmarEdicaoEmpresa", function (req, res) {
+    usuarioController.confirmarEdicaoEmpresa(req, res);
+});
+
 module.exports = router;

@@ -92,6 +92,41 @@ function identificarUsuario(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function listarEmpresas() {
+    console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",)
+    var instrucaoSql = `SELECT * FROM empresa;`; 
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function desativarEmpresa(idEmpresa) {
+    console.log("ID da para desativação:", idEmpresa);
+    
+    var instrucaoSql = `UPDATE empresa SET ativo = false WHERE idEmpresa = ${idEmpresa}`;  
+    return database.executar(instrucaoSql, [idEmpresa]);
+}
+
+function ativarEmpresa(idEmpresa) {
+    console.log("ID da para ativação:", idEmpresa);
+    
+    var instrucaoSql = `UPDATE empresa SET ativo = true WHERE idEmpresa = ${idEmpresa}`;  
+    return database.executar(instrucaoSql, [idEmpresa]);
+}
+
+function identificarEmpresas(idEmpresa) {
+    console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",)
+    var instrucaoSql = `SELECT * FROM empresa WHERE idEmpresa = ${idEmpresa};`; 
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function confirmarEdicaoEmpresa(idEmpresa, nomeEmpresa, cepEmpresa, cnpjEmpresa, emailEmpresa, telEmpresa) {
+    var instrucaoSql = `
+        UPDATE empresa SET nomeEmpresa = '${nomeEmpresa}', cep =  '${cepEmpresa}', cnpj = '${cnpjEmpresa}', emailCorporativo = '${emailEmpresa}', telEmpresa = '${telEmpresa}'  WHERE idEmpresa = '${idEmpresa}';
+    `;
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrarEmpresa,
@@ -100,5 +135,10 @@ module.exports = {
     listarUsuarios,
     confirmarEdicao,
     deletarUsuario,
-    identificarUsuario
+    identificarUsuario,
+    listarEmpresas,
+    identificarEmpresas,
+    confirmarEdicaoEmpresa,
+    desativarEmpresa,
+    ativarEmpresa
 };
