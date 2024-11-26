@@ -3,10 +3,16 @@ var chamadoController = require("../controllers/chamadoController");
 
 var router = express.Router();
 
-router.post("/criar", chamadoController.criarChamado);
+router.post("/criar", function (req, res){
+    chamadoController.criarChamado(req, res);
+});
 
-router.get("/listar", chamadoController.listarChamados);
+router.get("/listar", function (req, res){
+    chamadoController.listarChamados(req, res);
+});
 
-router.delete("/deletar/", chamadoController.deletarChamado);
+router.post("/deletar", function (req, res){
+    chamadoController.deletarChamado(req, res);
+});
 
 module.exports = router;

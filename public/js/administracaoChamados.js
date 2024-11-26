@@ -14,11 +14,11 @@ async function listarChamados() {
         resposta.status,
         resposta.statusText
       );
-      throw new Error("Houve um erro ao obter os dados dos usuários.");
+      throw new Error("Houve um erro ao obter os chamados");
     }
 
     const dados = await resposta.json();
-    console.log(`Usuários recebidos:`, dados);
+    console.log(`Chamados recebidos:`, dados);
     console.log("Dados obtidos com sucesso!");
     return dados;
   } catch (erro) {
@@ -49,18 +49,18 @@ async function listarChamadosNaTela() {
   console.log("Chamados exibidos na tela.");
 }
 
-// Função para deletar um chamado
 async function deletarChamado(id) {
   const response = await fetch("/chamados/deletar", {
-    method: "POST", // Agora estamos utilizando POST
+    method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id }) // Passamos o ID no corpo da requisição
+    body: JSON.stringify({ id })
   });
 
   const data = await response.json();
   if (response.ok) {
     alert("Chamado deletado com sucesso!");
-    listarChamadosNaTela(); // Atualiza a lista de chamados
+    window.reload(); 
+    listarChamadosNaTela(); 
   } else {
     alert("Erro ao deletar chamado: " + data.error);
   }
