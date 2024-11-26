@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.meu-botao {
+    border: 2px solid #4ADC7C;
+    color: #4ADC7C;
+    font-family: "Goldman";
+}
+
+.containerAdicionar {
+    display: flex;
+    justify-content: end;
+    padding-right: 20px;
+}
+
+.btnAdd {
+    font-size: large;
+    background-color: #4ADC7C;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btnAdd:hover {
+    background-color: #3ab665;
+}
+
+.menu-lateral {
+    width: 5vw;
+    height: 100vh;
+    background-color: #15202e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+.menu-lateral.expanded {
+    width: 250px;
+}
+
+.material-symbols-outlined {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    padding: 23px;
+    transition: padding-left 0.3s;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.material-symbols-outlined:hover {
+    color: #189704;
+    transition: 0.4s;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 140px;
+    white-space: nowrap;
+}
+
+.menu-item span.text {
+    margin-left: 15px;
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.menu-item span.text:hover {
+    color: #1ac600;
+}
+
+.menu-lateral.expanded .menu-item span.text {
+    display: inline;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-self: center;
+    align-items: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 300px;
+    margin-left: 100px;
+}
+
+.crud {
+    margin-left: 300px;
+    width: 600px;
+    height: 500px;
+    border-radius: 15px;
+    border: 1px solid black;
+    background-color: rgb(189, 189, 189);
+}
+
+.form-crud material-symbols-outlined:hover {
+    color: #21d106;
+}
+
+.texts-crud {
+    display: flex;
+    justify-content: center;
+}
+
+.texts-crud h2 {
+    font-size: 20px;
+    color: #15202e;
+}
+
+.container-crud {
+    display: flex;
+    gap: 90px;
+    padding-left: 50px;
+}
+
+.container-crud p {
+    text-align: center;
+    width: 110px;
+}
+
+.crud .material-symbols-outlined {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    text-align: center;
+}
+
+.form-crud {
+    display: flex;
+    margin-top: 20px;
+    padding-left: 50px;
+}
+
+.form-crud input {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-crud button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4ADC7C;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.form-crud button:hover {
+    background-color: #3ab665;
+}
+
+.modalEmpresa {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+/* Estilos adicionais para o cadastro de empresas */
+.company-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.company-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.company-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.company-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-name {
+    font-weight: bold;
+    color: #15202e;
+}
+
+.company-segment {
+    color: #666;
+    font-size: 14px;
+}
+
+.company-actions {
+    display: flex;
+    gap: 10px;
+}
