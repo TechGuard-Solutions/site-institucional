@@ -22,6 +22,10 @@ class SidebarMenu extends HTMLElement {
                     <span class="material-symbols-outlined" onclick="window.location.href='suporte.html'">help</span>
                     <span class="text" onclick="window.location.href='suporte.html'">Ajuda</span>
                 </div>
+                <div class="menu-item">
+                    <span class="material-symbols-outlined" onclick="sair()">logout</span>
+                    <span class="text" onclick="sair()'">Sair</span>
+                </div>
             </div>`;
     }
 }
@@ -30,4 +34,9 @@ customElements.define('sidebar-menu', SidebarMenu);
 function abrir() {
     var menuLateral = document.getElementById('menu-lateral');
     menuLateral.classList.toggle('expanded');
+}
+
+function sair() {
+    sessionStorage.clear();
+    window.location.href='index.html';
 }
