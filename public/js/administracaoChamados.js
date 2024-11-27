@@ -31,7 +31,7 @@ async function listarChamadosNaTela() {
   const chamados = await listarChamados();
 
   const listContainer = document.getElementById("chamado-list");
-  listContainer.innerHTML = ""; 
+  listContainer.innerHTML = "";
 
   chamados.forEach(chamado => {
     const chamadoDiv = `
@@ -40,7 +40,7 @@ async function listarChamadosNaTela() {
         <p><strong>Descrição:</strong> ${chamado.descricao}</p>
         <p><strong>Prioridade:</strong> ${chamado.prioridade}</p>
         <p><strong>Tema:</strong> ${chamado.tema}</p>
-        <p><strong>Data:</strong> ${new Date(chamado.data).toLocaleDateString()}</p>
+        <p><strong>Data:</strong> ${new Date(chamado.data).toLocaleString()}</p>
         <button onclick="deletarChamado('${chamado.id}')">Deletar</button>
       </div>
     `;
@@ -59,12 +59,35 @@ async function deletarChamado(id) {
   const data = await response.json();
   if (response.ok) {
     alert("Chamado deletado com sucesso!");
-    window.reload(); 
-    listarChamadosNaTela(); 
+    window.reload();
+    listarChamadosNaTela();
   } else {
     alert("Erro ao deletar chamado: " + data.error);
   }
 }
+
+async function criarChamado(tema, prioridade, descricao, fk_usuario) {
+  try {
+      const response = await fetch("http://localhost:3333/chamados/criar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+              tema,
+              prioridade,
+              descricao,
+              fk_usuario
+          })
+      });
+      if (!response.ok) {
+        throw new Error("Erro ao criar chamado no banco.");
+      }
+      alert("Chamado criado com sucesso no banco e enviado!");
+  } catch (error) {
+      console.error("Erro:", error);
+      alert("Erro ao criar o chamado no banco de dados.");
+  }
+}
+
 
 listarChamados();
 listarChamadosNaTela();

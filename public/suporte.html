@@ -21,46 +21,41 @@
         <div class="container">
             <sidebar-menu></sidebar-menu>
             <section class="suporte">
-                <div class="infos-nome">
-                    <a id="nomeEmpresa">NOME DA EMPRESA</a>
-                </div>
-                <!-- <h2>Página de suporte ao cliente</h2> -->
-                <img src="./assets/foto-perfil.png" alt="" width="160px">
-                <div class="labels">
-                    <div class="first-label">
-                        <p>ASSUNTO:</p>
-                        <select name="" id="">
-                            <option value="" selected disabled>Selecione uma opção</option>
-                            <option value="">Site lento</option>
-                            <option value="">Dashboard sumiu</option>
-                            <option value="">Página sem resposta</option>
-                            <option value="">Falha de conexão</option>
-                        </select>
-                    </div>
-                    <div class="second-label">
-                        <p>URGÊNCIA:</p>
-                        <select name="" id="">
-                            <option value="" selected disabled>Selecione uma opção</option>
-                            <option value="">Baixa</option>
-                            <option value="">Média</option>
-                            <option value="">Alta</option>
-                            <option value="">Extrema</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="description">
-                    <p>MENSAGEM:</p>
-                    <textarea type="text" class="mensagem"></textarea>
-                </div>
-                <div>
-                   <p> <button><b>ENVIAR</b></button> </p>
-                </div>
-
+                <form id="formChamado" action="https://api.staticforms.xyz/submit" method="post">
+                    <input type="text" name="tema" placeholder="Tema do Chamado" id="tema" required>
+                    <select name="prioridade" id="prioridade" required>
+                        <option value="" selected disabled>Selecione a Prioridade</option>
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Extrema">Extrema</option>
+                    </select>
+                    <textarea name="descricao" class="descricao" placeholder="Descrição do Chamado" required></textarea>
+                
+                    <!-- Campos ocultos para Static Forms -->
+                    <input type="hidden" name="accessKey" value="982d06b1-f682-4a60-b757-75b3c052bfdb">
+                    <input type="hidden" name="emailTo" value="techguardsolutions.suporte@gmail.com">
+                
+                    <input type="submit" value="ENVIAR"/>
+                </form>
 
             </section>
         </div>
     </section>
 
 </body>
-
 </html>
+<script>
+document.getElementById("formChamado").addEventListener("submit", async function(event) {
+  event.preventDefault(); // Evita o envio direto do formulário
+
+  const tema = document.getElementById("tema").value;
+  const prioridade = document.getElementById("prioridade").value;
+  const descricao = document.querySelector(".descricao").value;
+  const fk_usuario = 1; // Supondo que já conhecemos o ID do usuário; adapte conforme necessário
+
+  // Envia os dados para a API para criar o chamado no banco de dados
+  await criarChamado(tema, prioridade, descricao, fk_usuario);
+});
+</script>
+<script src="./js/administracaoChamados.js"></script>
