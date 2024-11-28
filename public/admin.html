@@ -10,13 +10,13 @@
     <link rel="icon" href="assets/Logo - TechGuard 1.png">
     <link rel="stylesheet" href="./components/menu_admin.css">
     <script src="./components/menu_admin.js"></script>
+    <script src="./js/redirecionamento.js"></script>
 </head>
 <body>
     
     
     <section class="main">
         <div class="container">
-            <sidebar-menu></sidebar-menu>
             <section class="hello">
                 <img src="./assets/foto-perfil.png" alt="" width="300px">
                 <!-- <img src="./assets/png-no-photo.png" alt="" width="300px"> -->
@@ -33,8 +33,8 @@
                         <div class="tooltip">Chat com IA</div>
                     </div>
                     <div class="menu-item">
-                        <span class="material-symbols-outlined" onclick="window.location.href='crud.html'">supervisor_account</span>
-                        <div class="tooltip">Usuários</div>
+                        <span class="material-symbols-outlined" onclick="redirecionamentoCrud()">supervisor_account</span>
+                        <div class="tooltip">Administração</div>
                     </div>
                     <div class="menu-item">
                         <span class="material-symbols-outlined" onclick="window.location.href='suporte.html'">help</span>
