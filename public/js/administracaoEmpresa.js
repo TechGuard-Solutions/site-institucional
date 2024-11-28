@@ -46,6 +46,8 @@ async function listarEmpresasNaTela() {
     };
     const usuarioDiv = `
         <div class="employee-item" id="employee-${empresa.idEmpresa}">
+          <div class="div-usuario"> 
+          <div class="id-usuario"> 
           <span>${empresa.idEmpresa}</span>
           <span>${empresa.nomeEmpresa}</span>
           <span>${empresa.cep}</span>
