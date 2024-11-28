@@ -14,8 +14,7 @@
 
 .baloon {
     position: relative;
-    background-color: #989898;
-    /* background-color: #ffffff; Cor de fundo do balão */
+    background-color: #3f3f3f; 
     color: #FFF; /* Cor do texto */
     padding: 15px 20px;
     border-radius: 15px;
@@ -55,11 +54,8 @@
     padding: 15px 20px;
     border-radius: 15px;
     border: 1px solid #ccc;
-    background-color: #989898;
-    /*OPCAO 2 background-color: #3f3f3f; Cor de fundo do balão */
-    /*OPCAO 3 background-color: #989898; */
-    /* background-color: #ffffff; */
-    color: #000000;
+    background-color: #3f3f3f; 
+    color: #fff;
     font-size: 16px;
     resize: none; /* Remove o redimensionamento */
     box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 

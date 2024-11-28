@@ -62,6 +62,18 @@ function autenticar() {
                         }, 1000);
                     });
                 } else {
+                    Swal.fire({
+                        title: "Tente novamente e valide as informações!",
+                        icon: "error",
+                        color: "#f4796b",
+                        background: "#10161c",
+                        confirmButtonColor: "#10161c",
+                        customClass: {
+                            confirmButton: 'meu-botao',
+                            popup: 'meu-alerta',
+                            icon: 'meu-icone'
+                        }
+                    });
                     console.log("Houve um erro ao tentar realizar a autenticação!");
                     throw "Houve um erro ao tentar realizar a autenticação!";
                 }
