@@ -14,14 +14,14 @@
 
 .baloon {
     position: relative;
-    background-color: #f0f0f0; /* Cor de fundo do balão */
-    color: #333; /* Cor do texto */
+    background-color: #3f3f3f; 
+    color: #FFF; /* Cor do texto */
     padding: 15px 20px;
     border-radius: 15px;
     width: 200px;
     height: 100px;
     font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,7 @@
 }
 
 .ia-answer{
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 .ia-response {
@@ -54,24 +54,28 @@
     padding: 15px 20px;
     border-radius: 15px;
     border: 1px solid #ccc;
-    background-color: #f0f0f0; /* Cor de fundo do balão */
-    color: #333;
+    background-color: #3f3f3f; 
+    color: #fff;
     font-size: 16px;
     resize: none; /* Remove o redimensionamento */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
+    box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
     outline: none; /* Remove o contorno */
     transition: transform 0.3s, box-shadow 0.3s; /* Transições suaves */
     cursor: default; /* Muda o cursor para indicar que não é clicável */
 }
 
 .ia-response:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Aumenta a sombra no hover */
+    box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
 }
 
 .ia-response:focus {
     border: 1px solid #333; /* Cor da borda no foco */
     transform: scale(1.02); /* Leve aumento no foco */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
 }
 
+textarea::placeholder {
+    color: #FFF; /* Cor do texto */
+    font-style: italic; /* Estilo de fonte */
+}
 
