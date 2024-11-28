@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administração de Empresas</title>
+    <title>Administração da empresa</title>
     <link rel="stylesheet" href="./css/administracaoEmpresa.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" href="assets/Logo - TechGuard 1.png">
@@ -13,17 +12,17 @@
     <script src="./components/menu_admin.js"></script>
     <script src="./components/modalEditarEmpresa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/redirecionamento.js"></script>
 
 </head>
-
-<body>
+<body onload="redirecionamentoErro()">
     <section class="main">
         <div class="container">
             <sidebar-menu></sidebar-menu>
             <modal-editar-empresa class="modalUsuario" id="modal"></modal-editar-empresa>
                 <section class="crud">
                     <div class="texts-crud">
-                        <h2>Empresas</h2>
+                        <h1>Empresas</h1>
                     </div>
                     <div class="form-crud">
                         <div id="employee-list"></div>
@@ -31,8 +30,6 @@
             </div>
         </div>
     </section>
-
     <script src="./js/administracaoEmpresa.js"></script>
 </body>
-
 </html>

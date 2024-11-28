@@ -7,7 +7,6 @@ function adicionarUsuario() {
     var confirmarsenha_usuario = confirmarSenhaUsuario.value;
     var arroba = email_usuario.indexOf('@');
     var ponto = email_usuario.indexOf('.');
-
     if (nome_usuario.length < 2) {
         Swal.fire({
             title: "Nome do usuário deve conter mais de 2 caracteres!",
@@ -131,13 +130,10 @@ function adicionarUsuario() {
         });
     }
 }
-
 function mandarParaTela() {
     setTimeout(window.location.href = "administracaoUsuario.html", 2000);
 }
-
 //Funções de cadastro
-
 function cadastrarUsuario() {
     var nome_usuario = nomeUsuario.value;
     var email_usuario = emailUsuario.value;
@@ -147,10 +143,8 @@ function cadastrarUsuario() {
     var confirmarsenha_usuario = confirmarSenhaUsuario.value;
     var tipo_usuario = 1;
     var fk_empresa = sessionStorage.fkEmpresa;
-
     var arroba = email_usuario.indexOf('@');
     var ponto = email_usuario.indexOf('.');
-
     if (nome_usuario.length < 2) {
         Swal.fire({
             title: "Nome do usuário deve conter mais de 2 carácteres!",
@@ -260,7 +254,6 @@ function cadastrarUsuario() {
         })
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
-
                 if (resposta.ok) {
                     console.log("Usuário cadastrado com sucesso!");
                     let timerInterval;
@@ -308,7 +301,5 @@ function cadastrarUsuario() {
                 console.log(`#ERRO: ${erro}`);
             });
         return false;
-
     }
-
 }

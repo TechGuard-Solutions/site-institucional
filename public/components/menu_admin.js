@@ -15,8 +15,8 @@ class SidebarMenu extends HTMLElement {
                     <span class="text" onclick="window.location.href='chat.html'">Chat com IA</span>
                 </div>
                 <div class="menu-item">
-                    <span class="material-symbols-outlined" onclick="window.location.href='administracaoUsuario.html'">supervisor_account</span>
-                    <span class="text" onclick="window.location.href='administracaoUsuario.html'">Usuários</span>
+                    <span class="material-symbols-outlined" onclick="redirecionamentoCrud()">supervisor_account</span>
+                    <span class="text" onclick="redirecionamentoCrud()">Usuários</span>
                 </div>
                 <div class="menu-item">
                     <span class="material-symbols-outlined" onclick="window.location.href='suporte.html'">help</span>
@@ -39,4 +39,18 @@ function abrir() {
 function sair() {
     sessionStorage.clear();
     window.location.href='index.html';
+}
+
+function redirecionamentoErro() {
+    if (sessionStorage.fkTipoUsuario == 1)  {
+        window.location.href = 'erro.html';
+    }
+}
+
+function redirecionamentoCrud() {
+    if (sessionStorage.fkEmpresa == 1) {
+        window,location.href = 'administracaoEmpresa.html';
+    } else {
+        window,location.href = 'administracaoUsuario.html';
+    }
 }
