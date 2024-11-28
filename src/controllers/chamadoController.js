@@ -1,18 +1,18 @@
 const chamadoModel = require('../models/chamadoModel');
 
-// Controlador para criar um chamado
 const criarChamado = (req, res) => {
-  const { nome, email, mensagem } = req.body;
+  const { descricao, prioridade, fk_usuario, tema, nome_usuario, email_usuario } = req.body;
 
-  chamadoModel.criarChamado(nome, email, mensagem, (err, novoChamado) => {
-    if (err) {
-      return res.status(500).json({ error: "Erro ao criar chamado." });
-    }
-    res.status(201).json(novoChamado);
-  });
+  chamadoModel.cadastrarChamado(descricao, prioridade, fk_usuario, tema, nome_usuario, email_usuario)
+    .then((novoChamado) => {
+      res.status(201).json(novoChamado);
+    })
+    .catch((err) => {
+      console.error("Erro ao criar chamado:", err);
+      res.status(500).json({ error: "Erro ao criar chamado." });
+    });
 };
 
-// Controlador para listar todos os chamados
 function listarChamados(req, res) {
   var fk_usuario = req.body.fk_usuario;
   chamadoModel.listarChamados(fk_usuario).then(function (resultado) {
@@ -30,9 +30,8 @@ function listarChamados(req, res) {
 };
 
 
-// Controlador para deletar um chamado
 const deletarChamado = (req, res) => {
-  const { id } = req.body; // Agora o id vem no corpo da requisição
+  const { id } = req.body; 
 
   chamadoModel.deletarChamado(id, (err, result) => {
     if (err) {
