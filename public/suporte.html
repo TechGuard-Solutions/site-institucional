@@ -22,15 +22,17 @@
             <sidebar-menu></sidebar-menu>
             <section class="suporte">
                 <form id="formChamado" action="https://api.staticforms.xyz/submit" method="post">
-                    <input type="text" name="tema" placeholder="Tema do Chamado" id="tema" required>
-                    <select name="prioridade" id="prioridade" required>
+                    <input type="text" name="$name" id="name" hidden>
+                    <input type="text" name="$email" id="email" hidden>
+                    <input type="text" name="subject" placeholder="Tema do Chamado" id="tema" required>
+                    <select name="$prioridade" id="prioridade" required>
                         <option value="" selected disabled>Selecione a Prioridade</option>
                         <option value="Baixa">Baixa</option>
                         <option value="Média">Média</option>
                         <option value="Alta">Alta</option>
                         <option value="Extrema">Extrema</option>
                     </select>
-                    <textarea name="descricao" class="descricao" placeholder="Descrição do Chamado" required></textarea>
+                    <textarea name="$mensagem" class="descricao" placeholder="Descrição do Chamado" required></textarea>
                 
                     <!-- Campos ocultos para Static Forms -->
                     <input type="hidden" name="accessKey" value="982d06b1-f682-4a60-b757-75b3c052bfdb">
@@ -49,13 +51,19 @@
 document.getElementById("formChamado").addEventListener("submit", async function(event) {
   event.preventDefault(); // Evita o envio direto do formulário
 
+  document.querySelector("#name").value = sessionStorage.nomeUsuario;
+  document.querySelector("#email").value = sessionStorage.emailUsuario;
+
+  const nome_usuario = sessionStorage.nomeUsuario
+  const email_usuario = sessionStorage.emailUsuario
   const tema = document.getElementById("tema").value;
   const prioridade = document.getElementById("prioridade").value;
   const descricao = document.querySelector(".descricao").value;
-  const fk_usuario = 1; // Supondo que já conhecemos o ID do usuário; adapte conforme necessário
+  const fk_usuario = sessionStorage.idUsuario; 
 
-  // Envia os dados para a API para criar o chamado no banco de dados
-  await criarChamado(tema, prioridade, descricao, fk_usuario);
+  await criarChamado(tema, prioridade, descricao, fk_usuario, nome_usuario, email_usuario);
+
+  event.target.submit();
 });
 </script>
 <script src="./js/administracaoChamados.js"></script>

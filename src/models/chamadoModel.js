@@ -9,13 +9,13 @@ function gerarIdChamado() {
     return id;
 }
 
-function cadastrarChamado(descricao, prioridade, fk_usuario, tema) {
-    console.log("CHAMADO MODEL: Cadastrando chamado com os valores:", descricao, prioridade, fk_usuario, tema);
+function cadastrarChamado(descricao, prioridade, fk_usuario, tema, nome_usuario, email_usuario) {
+    console.log("CHAMADO MODEL: Cadastrando chamado com os valores:", descricao, prioridade, fk_usuario, tema, nome_usuario, email_usuario);
     const idChamado = gerarIdChamado();
 
     var instrucaoSql = `
-        INSERT INTO chamados (id, descricao, prioridade, fk_usuario, tema, data)
-        VALUES ('${idChamado}', '${descricao}', '${prioridade}', '${fk_usuario}', '${tema}', CURRENT_TIMESTAMP);
+        INSERT INTO chamados (id, descricao, prioridade, fk_usuario, tema, data, nomeUsuario, emailUsuario)
+        VALUES ('${idChamado}', '${descricao}', '${prioridade}', '${fk_usuario}', '${tema}', CURRENT_TIMESTAMP, '${nome_usuario}', '${email_usuario}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -26,7 +26,9 @@ function listarChamados() {
     
     var instrucaoSql = `
         SELECT 
-            id, 
+            id,
+            nomeUsuario,
+            emailUsuario, 
             descricao, 
             prioridade, 
             fk_usuario, 

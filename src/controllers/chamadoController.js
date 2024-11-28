@@ -1,9 +1,9 @@
 const chamadoModel = require('../models/chamadoModel');
 
 const criarChamado = (req, res) => {
-  const { descricao, prioridade, fk_usuario, tema } = req.body;
+  const { descricao, prioridade, fk_usuario, tema, nome_usuario, email_usuario } = req.body;
 
-  chamadoModel.cadastrarChamado(descricao, prioridade, fk_usuario, tema)
+  chamadoModel.cadastrarChamado(descricao, prioridade, fk_usuario, tema, nome_usuario, email_usuario)
     .then((novoChamado) => {
       res.status(201).json(novoChamado);
     })

@@ -41,6 +41,8 @@ async function listarChamadosNaTela() {
         <p><strong>Prioridade:</strong> ${chamado.prioridade}</p>
         <p><strong>Tema:</strong> ${chamado.tema}</p>
         <p><strong>Data:</strong> ${new Date(chamado.data).toLocaleString()}</p>
+        <p><strong>Usuário:</strong> ${chamado.nomeUsuario}</p>
+        <p><strong>Email:</strong> ${chamado.emailUsuario}</p>
         <button onclick="deletarChamado('${chamado.id}')">Deletar</button>
       </div>
     `;
@@ -66,12 +68,15 @@ async function deletarChamado(id) {
   }
 }
 
-async function criarChamado(tema, prioridade, descricao, fk_usuario) {
+async function criarChamado(tema, prioridade, descricao, fk_usuario, nome_usuario, email_usuario) {
+
   try {
       const response = await fetch("http://localhost:3333/chamados/criar", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+              nome_usuario,
+              email_usuario,
               tema,
               prioridade,
               descricao,
