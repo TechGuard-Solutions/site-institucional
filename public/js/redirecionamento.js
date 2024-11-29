@@ -6,6 +6,6 @@ function redirecionamentoErro() {
 
 function redirecionamentoCrud() {
     if (sessionStorage.fkEmpresa == 1) {
-        window.location.href = 'administracaoEmpresa.html';
+        window.location.href = 'redirecionamento.html';
     }
 }

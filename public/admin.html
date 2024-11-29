@@ -20,13 +20,13 @@
             <section class="hello">
                 <img src="./assets/foto-perfil.png" alt="" width="300px">
                 <!-- <img src="./assets/png-no-photo.png" alt="" width="300px"> -->
-                <h2>Bem vindo Example!</h2>
-                <h3>Este é o seu painel de admin, aproveite!</h3>
+                <h2 id="bemvindoUser"></h2>
+                <h3>Este é o seu painel, aproveite!</h3>
                 <h4>Algumas das funcionalidades que você pode utilizar:</h4>
                 <div class="icons-admin">
                     <div class="menu-item">
                         <span class="material-symbols-outlined" onclick="window.location.href='dashboard.html'">bar_chart</span>
-                        <div class="tooltip" >Gráficos</div>
+                        <div class="tooltip">Gráficos</div>
                     </div>
                     <div class="menu-item">
                         <span class="material-symbols-outlined" onclick="window.location.href='chat.html'">forum</span>
@@ -47,3 +47,12 @@
 
 </body>
 </html>
+
+<script>
+
+bemvindoUser.innerHTML = `Bem vindo, ${sessionStorage.nomeUsuario}!`;
+
+
+
+
+</script>
