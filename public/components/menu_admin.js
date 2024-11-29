@@ -16,7 +16,7 @@ class SidebarMenu extends HTMLElement {
                 </div>
                 <div class="menu-item">
                     <span class="material-symbols-outlined" onclick="redirecionamentoCrud()">supervisor_account</span>
-                    <span class="text" onclick="redirecionamentoCrud()">Usuários</span>
+                    <span class="text" onclick="redirecionamentoCrud()">Administração</span>
                 </div>
                 <div class="menu-item">
                     <span class="material-symbols-outlined" onclick="window.location.href='suporte.html'">help</span>
@@ -49,8 +49,8 @@ function redirecionamentoErro() {
 
 function redirecionamentoCrud() {
     if (sessionStorage.fkEmpresa == 1) {
-        window,location.href = 'administracaoEmpresa.html';
+        window.location.href = 'redirecionamento.html';
     } else {
-        window,location.href = 'administracaoUsuario.html';
+        window.location.href = 'administracaoUsuario.html';
     }
 }
