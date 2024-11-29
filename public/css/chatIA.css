@@ -15,7 +15,7 @@
 .baloon {
     position: relative;
     background-color: #3f3f3f; 
-    color: #FFF; /* Cor do texto */
+    color: #FFF; 
     padding: 15px 20px;
     border-radius: 15px;
     width: 200px;
@@ -33,7 +33,7 @@
 }
 
 .baloon:hover {
-    transform: scale(1.15); /* Aumenta o balão */
+    transform: scale(1.15); 
     border: #333 1px solid;
 }
 
@@ -58,11 +58,11 @@
     background-color: #3f3f3f; 
     color: #fff;
     font-size: 16px;
-    resize: none; /* Remove o redimensionamento */
+    resize: none;
     box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
-    outline: none; /* Remove o contorno */
-    transition: transform 0.3s, box-shadow 0.3s; /* Transições suaves */
-    cursor: default; /* Muda o cursor para indicar que não é clicável */
+    outline: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default; 
 }
 
 .ia-response:hover {
@@ -70,13 +70,13 @@
 }
 
 .ia-response:focus {
-    border: 1px solid #333; /* Cor da borda no foco */
-    transform: scale(1.02); /* Leve aumento no foco */
+    border: 1px solid #333; 
+    transform: scale(1.02); 
     box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
 }
 
 textarea::placeholder {
-    color: #FFF; /* Cor do texto */
-    font-style: italic; /* Estilo de fonte */
+    color: #FFF;
+    font-style: italic;
 }
 
