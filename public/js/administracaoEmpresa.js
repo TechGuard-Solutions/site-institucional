@@ -41,18 +41,31 @@ async function listarEmpresasNaTela() {
     };
     const usuarioDiv = `
         <div class="employee-item" id="employee-${empresa.idEmpresa}">
-          <div class="div-usuario"> 
-          <div class="id-usuario"> 
+          <div class="id-empresa"> 
           <span>${empresa.idEmpresa}</span>
+          </div>
+          <div class="nome-empresa"> 
           <span>${empresa.nomeEmpresa}</span>
+          </div>
+          <div class="cep-empresa"> 
           <span>${empresa.cep}</span>
+          </div>
+          <div class="cnpj-empresa"> 
           <span>${empresa.cnpj}</span>
+          </div>
+          <div class="e-mail-empresa">           
           <span>${empresa.emailCorporativo}</span>
+          </div>
+          <div class="telefone-empresa"> 
           <span>${empresa.telEmpresa}</span>
+          </div>
           <span>${isActive}</span>
-          <button onclick="editarEmpresa(${empresa.idEmpresa})">Editar</button>
+          <div class="acoes">
+          <button onclick="editarEmpresa(${empresa.idEmpresa})">
+          <img src="./assets/pontos.png" alt="Editar" width="20px"</button>
           <button onclick="ativarEmpresa(${empresa.idEmpresa})">Ativar</button>
           <button onclick="desativarEmpresa(${empresa.idEmpresa})">Desativar</button>
+          </div>
         </div>
       `;
     container.innerHTML += usuarioDiv;
