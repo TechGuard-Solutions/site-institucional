@@ -9,7 +9,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.738); 
+    background-color: rgba(0, 0, 0, 0.738);
     z-index: 1000; 
     color: white;
     font-family: 'Goldman';
@@ -24,7 +24,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:#0f161f;
+    background-color:#0f161f; 
     border: #117701 solid 1px;
     border-radius: 3px;
     width: 300px;
