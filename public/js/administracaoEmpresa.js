@@ -6,7 +6,6 @@ async function listarEmpresas() {
         "Content-Type": "application/json",
       },
     });
-
     if (!resposta.ok) {
       console.error(
         "Erro ao listar usuários:",
@@ -15,7 +14,6 @@ async function listarEmpresas() {
       );
       throw new Error("Houve um erro ao obter os dados dos usuários.");
     }
-
     const dados = await resposta.json();
     console.log(`Empresas recebidas:`, dados);
     console.log("Dados obtidos com sucesso!");
@@ -25,15 +23,12 @@ async function listarEmpresas() {
     return null;
   }
 }
-
 async function listarEmpresasNaTela() {
   const empresas = await listarEmpresas();
-
   if (!empresas) {
     console.log("Não há dados para exibir.");
     return;
   }
-
   const container = document.getElementById("employee-list");
   container.innerHTML = ""; // Limpa o container para evitar duplicações
   var isActive = "";
@@ -76,7 +71,6 @@ async function listarEmpresasNaTela() {
     container.innerHTML += usuarioDiv;
   });
 }
-
 async function desativarEmpresa(idEmpresa) {
   if (idEmpresa === undefined || idEmpresa === null) {
     console.error("ID de empresa inválido");
@@ -100,7 +94,6 @@ async function desativarEmpresa(idEmpresa) {
     throw new Error("Houve um erro ao desativar a empresa.");
   }
 }
-
 async function ativarEmpresa(idEmpresa) {
   if (idEmpresa === undefined || idEmpresa === null) {
     console.error("ID de empresa inválido");
@@ -124,7 +117,6 @@ async function ativarEmpresa(idEmpresa) {
     throw new Error("Houve um erro ao ativar a empresa.");
   }
 }
-
 async function editarEmpresa(idEmpresa) {
   const empresa = await identificarEmpresas(idEmpresa);
   console.log(empresa)
@@ -136,7 +128,6 @@ async function editarEmpresa(idEmpresa) {
   telEmpresaModal.value = empresa.telEmpresa;
   sessionStorage.idDaEmpresaIdentificada = empresa.idEmpresa;
 }
-
 async function identificarEmpresas(idEmpresa) {
   try {
     const resposta = await fetch(`/usuarios/identificarEmpresas`, {
@@ -148,7 +139,6 @@ async function identificarEmpresas(idEmpresa) {
         idEmpresaServer: idEmpresa
       }),
     });
-
     if (!resposta.ok) {
       console.error(
         "Erro ao identificar empresa:",
@@ -157,7 +147,6 @@ async function identificarEmpresas(idEmpresa) {
       );
       throw new Error("Houve um erro ao identificar o empresa.");
     }
-
     const empresa = await resposta.json();
     console.log("Empresa identificada:", empresa[0]);
     return empresa[0];
@@ -166,7 +155,6 @@ async function identificarEmpresas(idEmpresa) {
     return null;
   }
 }
-
 function salvar() {
   var idEmpresa = sessionStorage.idDaEmpresaIdentificada;
   var nomeEmpresa = nomeEmpresaModal.value;
@@ -199,7 +187,6 @@ function salvar() {
     }
   });
 }
-
 async function confirmarEdicao(idEmpresa, nomeEmpresa, cepEmpresa, cnpjEmpresa, emailEmpresa, telEmpresa) {
   if (idEmpresa === undefined || idEmpresa === null) {
     console.error("ID de empresa inválido");
@@ -228,9 +215,7 @@ async function confirmarEdicao(idEmpresa, nomeEmpresa, cepEmpresa, cnpjEmpresa, 
     throw new Error("Houve um erro ao modificar o usuário.");
   }
 }
-
 function cancelar() {
   modal.style.display = "none";
 }
-
 listarEmpresasNaTela();

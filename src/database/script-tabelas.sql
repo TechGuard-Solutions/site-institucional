@@ -38,6 +38,7 @@ CREATE TABLE contato (
 	mensagem VARCHAR(300),
     fkUsuario INT NOT NULL,
     fkEmpresa INT NOT NULL,
+	statusChamado VARCHAR(15),
     CONSTRAINT fkContatoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
     CONSTRAINT fkContatoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES usuario (fkEmpresa)
     );
@@ -72,4 +73,4 @@ INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa, ativo
 	('TechGuard Solutions', '01414-001', "40.028.922/0001-00", 'techguardsolutions.suporte@gmail.com', "4002-8922", true);
 
 INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario, ativo) VALUES
-	('Admin', '2FD15005E2D51CB1BE7B2C1A75A91AF79C10350B184271A4F9CC9800B93BAFC9', '464.646.422-33', 'admin@techguard.com', '(11)94002-8922', 1, 2);
+	('Admin', '2FD15005E2D51CB1BE7B2C1A75A91AF79C10350B184271A4F9CC9800B93BAFC9', '464.646.422-33', 'admin@techguard.com', '(11)94002-8922', 1, 2, true);

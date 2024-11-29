@@ -1,0 +1,79 @@
+/* Define um fundo claro e uma fonte legível */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estiliza o container dos chamados */
+#chamado-list {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estiliza cada item de chamado */
+.chamado-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+/* Estilização para os títulos de campos */
+.chamado-item p {
+    margin: 8px 0;
+}
+
+/* Destaque para o nome e título */
+.chamado-item p strong {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilo do botão */
+.chamado-item button {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.chamado-item button:hover {
+    background-color: #c0392b;
+}
+
+/* Título da página */
+h1 {
+    text-align: center;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Estilização responsiva */
+@media (max-width: 600px) {
+    #chamado-list {
+        padding: 15px;
+    }
+    
+    .chamado-item {
+        padding: 10px;
+    }
+
+    .chamado-item button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
