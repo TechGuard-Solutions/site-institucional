@@ -44,20 +44,55 @@ async function listarUsuariosNaTela() {
   }
 
   const container = document.getElementById("employee-list");
-  container.innerHTML = ""; // Limpa o container para evitar duplicações
+  container.innerHTML = ""; // Limpa o container para evitar 
+  
+
+  // usuarios.forEach((usuario) => {
+  //   const usuarioDiv = `
+  //       <div class="employee-item" id="employee-${usuario.idUsuario}">
+  //       <div class="div-usuario"> 
+  //       <div class="id-usuario"> 
+  //         <span>${usuario.idUsuario}</span>
+  //       </div>
+  //       <div class="nome-usuario"> 
+  //         <span>${usuario.NomeUsuario}</span>
+  //       </div>
+  //       <div class="cargo-usuario"> 
+  //         <span>${usuario.Cargo}</span>
+  //       </div>
+  //         <button onclick="editarUsuario(${usuario.idUsuario})">:</button>
+  //         <button onclick="deletarUsuario(${usuario.idUsuario})">X</button>
+  //       </div>
+  //     `;
+  //   container.innerHTML += usuarioDiv;
+  // });
 
   usuarios.forEach((usuario) => {
     const usuarioDiv = `
-        <div class="employee-item" id="employee-${usuario.idUsuario}">
-          <span>${usuario.idUsuario}</span>
-          <span>${usuario.NomeUsuario}</span>
-          <span>${usuario.Cargo}</span>
-          <button onclick="editarUsuario(${usuario.idUsuario})">Editar</button>
-          <button onclick="deletarUsuario(${usuario.idUsuario})">Deletar</button>
+      <div class="employee-item" id="employee-${usuario.idUsuario}">
+        <div class="div-usuario"> 
+          <div class="id-usuario"> 
+            <span>${usuario.idUsuario}</span>
+          </div>
+          <div class="nome-usuario"> 
+            <span>${usuario.NomeUsuario}</span>
+          </div>
+          <div class="cargo-usuario"> 
+            <span>${usuario.Cargo}</span>
+          </div>
+          <div class="employee-actions">
+            <button onclick="editarUsuario(${usuario.idUsuario})">
+            <img src="./assets/pontos.png" alt="Adicionar" width="20px"/>
+            </button>
+            <button onclick="deletarUsuario(${usuario.idUsuario})">
+            <img src="./assets/excluir.png" alt="Adicionar" width="20px"/>
+            </button>
+          </div>
         </div>
-      `;
+      </div>
+    `;
     container.innerHTML += usuarioDiv;
-  });
+  });  
 }
 
 async function identificarUsuario(idUsuario) {

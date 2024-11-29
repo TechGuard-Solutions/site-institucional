@@ -47,8 +47,8 @@ h2 {
 } */
 
 .crud {
-    margin-left: 35px;
-    width: 90%;
+    margin-left: 10%;
+    width: 50%;
     height: 600px;
     border-radius: 15px;
     border: 1px solid black;
@@ -81,6 +81,17 @@ h2 {
     width: 110px;
 }
 
+.containerAdicionar {
+    position: absolute;
+    top: 13%; 
+    left: 79%;
+}
+
+.btnAdd{
+    width: 50px;
+    height: 50px;
+}
+
 .crud .material-symbols-outlined{
     padding: 0;
     margin: 0;
@@ -88,10 +99,17 @@ h2 {
     text-align: center;
 }
 
-.form-crud {
+/* .form-crud {
     display: flex;
     margin-top: 20px;
     padding-left: 50px;
+} */
+
+.form-crud {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    width: 100%; 
 }
 
 .form-crud input {
@@ -104,3 +122,92 @@ h2 {
     font-size: 16px;
     cursor: pointer;
 }
+
+.div-usuario {
+    display: flex; 
+    /* align-items: flex-start;
+    justify-content: flex-start; */
+    gap: 25px; 
+    width: 100%;
+  }
+  
+  .id-usuario, .nome-usuario, .cargo-usuario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* .id-usuario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .titulo-id{
+    position: absolute;
+    left: 39%;
+    right: 50%;
+  }
+
+  .titulo-nome {
+    position: absolute;
+    left: 49%;
+    right: 50%;
+  }
+
+  .nome-usuario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cargo-usuario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
+
+  .titulo{
+    display: flex;
+    flex-direction: row;
+    margin-left: 12%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 125px; 
+    font-weight: normal;
+    font-size: 24px;
+    color: #555;
+  }
+
+  .id-usuario h3, .nome-usuario h3, .cargo-usuario h3 {
+    font-weight: normal;
+    font-size: 24px;
+    color: #555;
+  }
+  
+  .id-usuario span, .nome-usuario span, .cargo-usuario span {
+    font-size: 25px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  button {
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    background-color: #4ADC7C;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button:hover {
+    background-color: #379d5b; 
+  }

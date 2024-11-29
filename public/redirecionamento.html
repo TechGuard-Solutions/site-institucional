@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionamento</title>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="assets/Logo - TechGuard 1.png">
+    <script src="./js/redirecionamento.js"></script>
+
+</head>
+
+<style>
+
+body {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.cards {
+    display: flex;
+    width: 80%;
+    height: 690px;
+    border: red solid 3px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    background-color: #151D26;
+    border: solid blueviolet 2px;
+    width: 30%;
+    height: 60%;
+    justify-content: center;
+}
+
+.card span {
+    display: flex;
+    font-size: 50px;
+    color: #4ADC7C;
+    border: white solid 1px;
+    text-align: center;
+    justify-content: center;
+    }
+
+</style>
+
+<body onload="redirecionamentoErro()">
+    <div class="cards">
+        <div class="card" onclick="redFunc()"><span class="material-symbols-outlined">supervisor_account</span>
+        </div>
+    <div class="card" onclick="redEmp()"><span class="material-symbols-outlined">
+        enterprise
+        </span></div>
+    </div>
+</body>
+</html>
+
+<script>
+    function redFunc() {
+        window.location.href = 'administracaoUsuario.html';
+    }
+
+    function redEmp() {
+        window.location.href = 'administracaoEmpresa.html';
+    }
+    
+</script>
