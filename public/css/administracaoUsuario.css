@@ -14,6 +14,40 @@ h2 {
     color: #4ADC7C;
 }
 
+.titulo, .employee-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr 2fr; /* Ajuste proporcional: ID, Nome, Cargo, Ações */
+  padding: 10px 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.titulo {
+  height: 60px;
+  font-weight: bold;
+  font-size: 22px;
+  border-bottom: 2px solid #ccc;
+  color: #555;
+}
+
+.employee-item {
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  color: #333;
+  height: 35px
+}
+
+.employee-item span {
+  font-weight: bold;
+}
+
+.acoes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+}
+
 .meu-botao {
     border: 2px solid #4ADC7C;
     color: #4ADC7C;
@@ -36,16 +70,6 @@ h2 {
     margin-left: 100px;
 }
 
-/* .infos-nome {
-    display: flex;
-    width: 100%;
-    margin-left: 20px;
-    padding-left: 3%;
-    color: #4ADC7C;
-    font-size: 22px;
-    font-family: "Goldman";
-} */
-
 .crud {
     margin-left: 10%;
     width: 50%;
@@ -64,10 +88,11 @@ h2 {
 .texts-crud{
     display: flex;
     justify-content: center;
+    height: 60px;
 }
 
 .texts-crud h2{
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .container-crud{
@@ -83,8 +108,8 @@ h2 {
 
 .containerAdicionar {
     position: absolute;
-    top: 13%; 
-    left: 79%;
+    top: 11%; 
+    left: 78%;
 }
 
 .btnAdd{
@@ -98,12 +123,6 @@ h2 {
     display: flex;
     text-align: center;
 }
-
-/* .form-crud {
-    display: flex;
-    margin-top: 20px;
-    padding-left: 50px;
-} */
 
 .form-crud {
     display: flex;
@@ -138,72 +157,28 @@ h2 {
     align-items: center;
   }
 
-  /* .id-usuario{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .titulo-id{
-    position: absolute;
-    left: 39%;
-    right: 50%;
-  }
-
-  .titulo-nome {
-    position: absolute;
-    left: 49%;
-    right: 50%;
-  }
-
-  .nome-usuario {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .cargo-usuario {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  } */
-
-  .titulo{
-    display: flex;
-    flex-direction: row;
-    margin-left: 12%;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 125px; 
-    font-weight: normal;
-    font-size: 24px;
-    color: #555;
-  }
-
   .id-usuario h3, .nome-usuario h3, .cargo-usuario h3 {
     font-weight: normal;
-    font-size: 24px;
+    font-size: 20px;
     color: #555;
   }
   
   .id-usuario span, .nome-usuario span, .cargo-usuario span {
-    font-size: 25px;
+    font-size: 20px;
     color: #333;
     font-weight: bold;
   }
   
   button {
     padding: 5px 10px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     border: none;
     background-color: #4ADC7C;
     color: white;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
