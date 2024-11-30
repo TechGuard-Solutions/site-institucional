@@ -30,6 +30,19 @@ CREATE TABLE usuario (
 	CONSTRAINT fkTipoUsuario FOREIGN KEY (fkTipoUsuario) REFERENCES tipoUsuario (idTipoUsuario)
 );
 
+CREATE TABLE chamados (
+  id VARCHAR(6) PRIMARY KEY,
+  nomeUsuario varchar(50),
+  emailUsuario varchar(100),
+  descricao TEXT NOT NULL,
+  prioridade VARCHAR(50) NOT NULL,
+  fk_usuario INT NOT NULL,
+  statusChamado VARCHAR(15),
+  tema VARCHAR(255) NOT NULL,
+  data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
+);
+
 CREATE TABLE contato (
 	idContato INT PRIMARY KEY AUTO_INCREMENT,
 	nomeContato VARCHAR(45),
