@@ -3,8 +3,8 @@ var router = express.Router();
 
 var respostaController = require("../controllers/respostaController");
 
-router.get("/obterDados", function (req, res) {
-    respostaController.obterDados(req, res);
+router.get("/obterRespostas", function (req, res) {
+    respostaController.obterRespostas(req, res);
 })
 
 module.exports = router;

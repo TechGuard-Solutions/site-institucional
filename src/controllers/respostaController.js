@@ -1,7 +1,7 @@
 var respostaModel = require("../models/respostaModel");
 
-function obterDados(req, res) {
-    respostaModel.obterDados()
+function obterRespostas(req, res) { 
+    respostaModel.obterRespostas()
         .then(function (resultado) {
             res.status(200).json(resultado);
         })
@@ -11,5 +11,5 @@ function obterDados(req, res) {
         });
 }
 module.exports = {
-    obterDados,
+    obterRespostas,
 };

@@ -50,14 +50,14 @@
 }
 
 .ia-response {
-    width: 500px;
-    height: 100px;
+    width: 700px;
+    height: 150px;
     padding: 15px 20px;
     border-radius: 15px;
     border: 1px solid #ccc;
     background-color: #3f3f3f; 
     color: #fff;
-    font-size: 16px;
+    font-size: 15px;
     resize: none; /* Remove o redimensionamento */
     box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
     outline: none; /* Remove o contorno */
