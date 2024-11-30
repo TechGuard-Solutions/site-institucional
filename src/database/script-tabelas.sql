@@ -30,7 +30,6 @@ CREATE TABLE usuario (
 	CONSTRAINT fkTipoUsuario FOREIGN KEY (fkTipoUsuario) REFERENCES tipoUsuario (idTipoUsuario)
 );
 
-<<<<<<< HEAD
 CREATE TABLE chamados (
   id VARCHAR(6) PRIMARY KEY,
   nomeUsuario varchar(50),
@@ -39,23 +38,11 @@ CREATE TABLE chamados (
   prioridade VARCHAR(50) NOT NULL,
   fk_usuario INT NOT NULL,
   tema VARCHAR(255) NOT NULL,
+  statusChamado VARCHAR(15),
 	data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
 );
 
-=======
-CREATE TABLE contato (
-	idContato INT PRIMARY KEY AUTO_INCREMENT,
-	nomeContato VARCHAR(45),
-	emailContato VARCHAR(45),
-	mensagem VARCHAR(300),
-    fkUsuario INT NOT NULL,
-    fkEmpresa INT NOT NULL,
-	statusChamado VARCHAR(15),
-    CONSTRAINT fkContatoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
-    CONSTRAINT fkContatoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES usuario (fkEmpresa)
-    );
->>>>>>> c786f459e5c92fc89a2af5aa218d0c84d35a7136
 
 CREATE TABLE registros (
     id INT AUTO_INCREMENT PRIMARY KEY,
