@@ -2,13 +2,6 @@ CREATE DATABASE techguard;
 
 USE techguard;
 
-CREATE TABLE contato (
-	idContato INT PRIMARY KEY AUTO_INCREMENT,
-	nomeContato VARCHAR(45),
-	emailContato VARCHAR(45),
-	mensagem VARCHAR(300)
-);
-
 CREATE TABLE empresa (
 	idEmpresa INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	nomeEmpresa VARCHAR(45),
@@ -37,6 +30,7 @@ CREATE TABLE usuario (
 	CONSTRAINT fkTipoUsuario FOREIGN KEY (fkTipoUsuario) REFERENCES tipoUsuario (idTipoUsuario)
 );
 
+<<<<<<< HEAD
 CREATE TABLE chamados (
   id VARCHAR(6) PRIMARY KEY,
   nomeUsuario varchar(50),
@@ -49,6 +43,19 @@ CREATE TABLE chamados (
   FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
 );
 
+=======
+CREATE TABLE contato (
+	idContato INT PRIMARY KEY AUTO_INCREMENT,
+	nomeContato VARCHAR(45),
+	emailContato VARCHAR(45),
+	mensagem VARCHAR(300),
+    fkUsuario INT NOT NULL,
+    fkEmpresa INT NOT NULL,
+	statusChamado VARCHAR(15),
+    CONSTRAINT fkContatoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
+    CONSTRAINT fkContatoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES usuario (fkEmpresa)
+    );
+>>>>>>> c786f459e5c92fc89a2af5aa218d0c84d35a7136
 
 CREATE TABLE registros (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -59,6 +66,19 @@ CREATE TABLE registros (
     modificados_downstream_target VARCHAR(255) NOT NULL,
     modificados_impact VARCHAR(50) NOT NULL
 );
+
+CREATE TABLE perguntaIA (
+	idPerguntaIA INT AUTO_INCREMENT PRIMARY KEY,
+    prompt VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE respostaIA (
+    idRespostaIA INT AUTO_INCREMENT PRIMARY KEY,
+    fkPerguntaIA INT NOT NULL,  -- Referência à tabela perguntaIA
+    resultado TEXT,            -- Tipo TEXT para textos longos
+    FOREIGN KEY (fkPerguntaIA) REFERENCES perguntaIA(idPerguntaIA)
+);
+
 INSERT INTO tipoUsuario (tipo) VALUES
 	('Padrao'),
 	('Admin');
@@ -66,7 +86,5 @@ INSERT INTO tipoUsuario (tipo) VALUES
 INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa) VALUES
 	('TechGuard Solutions', '01414-001', "40.028.922/0001-00", 'techguardsolutions.suporte@gmail.com', "4002-8922");
 
-INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario) VALUES
-	('Admin', '2FD15005E2D51CB1BE7B2C1A75A91AF79C10350B184271A4F9CC9800B93BAFC9', '464.646.422-33', 'admin@techguard.com', '(11)94002-8922', 1, 2);
-
-select * from registros;
+INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario, ativo) VALUES
+	('Admin', '2FD15005E2D51CB1BE7B2C1A75A91AF79C10350B184271A4F9CC9800B93BAFC9', '464.646.422-33', 'admin@techguard.com', '(11)94002-8922', 1, 2, true);

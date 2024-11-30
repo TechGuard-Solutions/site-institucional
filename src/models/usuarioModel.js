@@ -20,13 +20,41 @@ function cadastrarUsuario(nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuar
 }
 
 function autenticar(emailUsuario, senhaUsuario) {
-    console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", emailUsuario, senhaUsuario)
+    console.log(
+        "USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",
+        emailUsuario, senhaUsuario
+    );
+
+    // Query SQL ajustada com base no seu script SQL
     var instrucaoSql = `
-        SELECT idUsuario, nomeUsuario, emailUsuario, fkEmpresa, empresa.nomeEmpresa FROM usuario JOIN empresa on fkEmpresa = idEmpresa WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = SHA2('${senhaUsuario}', 256);
+        SELECT 
+            usuario.idUsuario, 
+            usuario.nomeUsuario, 
+            usuario.emailUsuario, 
+            usuario.fkEmpresa, 
+            usuario.fkTipoUsuario, 
+            tipoUsuario.tipo AS cargo,
+            empresa.nomeEmpresa 
+        FROM 
+            usuario 
+        JOIN 
+            empresa 
+        ON 
+            usuario.fkEmpresa = empresa.idEmpresa 
+        JOIN 
+            tipoUsuario 
+        ON 
+            usuario.fkTipoUsuario = tipoUsuario.idTipoUsuario 
+        WHERE 
+            usuario.emailUsuario = '${emailUsuario}' 
+        AND 
+            usuario.senhaUsuario = SHA2('${senhaUsuario}', 256);
     `;
+
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
 
 function identificarEmpresa(cnpj) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", cnpj)
@@ -37,18 +65,17 @@ function identificarEmpresa(cnpj) {
     return database.executar(instrucaoSql);
 }
 
-function listarUsuarios() {
+function listarUsuarios(fkEmpresa) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",)
-    var instrucaoSql = 'SELECT u.idUsuario AS IdUsuario, u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM Usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario;'; 
+    var instrucaoSql = `SELECT u.idUsuario, u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM Usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario WHERE fkEmpresa = ${fkEmpresa}`; 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function editarUsuario(idUsuario, nomeUsuario, cargo) {
+function confirmarEdicao(idUsuario, emailUsuario, cargo) {
     var instrucaoSql = `
-        UPDATE Usuario
-        SET nomeUsuario = '${nomeUsuario}', fkTipoUsuario = (SELECT idTipoUsuario FROM tipoUsuario WHERE tipo = '${cargo}')
-        WHERE idUsuario = '${idUsuario}';
+        UPDATE usuario
+        SET emailUsuario = '${emailUsuario}', fkTipoUsuario =  ${cargo} WHERE idUsuario = '${idUsuario}';
     `;
     return database.executar(instrucaoSql);
 }
@@ -60,6 +87,45 @@ function deletarUsuario(idUsuario) {
     return database.executar(instrucaoSql, [idUsuario]);
 }
 
+function identificarUsuario(idUsuario) {
+    var instrucaoSql = `SELECT * FROM usuario WHERE idUsuario = '${idUsuario}';`;
+    return database.executar(instrucaoSql);
+}
+
+function listarEmpresas() {
+    console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",)
+    var instrucaoSql = `SELECT * FROM empresa;`; 
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function desativarEmpresa(idEmpresa) {
+    console.log("ID da para desativação:", idEmpresa);
+    
+    var instrucaoSql = `UPDATE empresa SET ativo = false WHERE idEmpresa = ${idEmpresa}`;  
+    return database.executar(instrucaoSql, [idEmpresa]);
+}
+
+function ativarEmpresa(idEmpresa) {
+    console.log("ID da para ativação:", idEmpresa);
+    
+    var instrucaoSql = `UPDATE empresa SET ativo = true WHERE idEmpresa = ${idEmpresa}`;  
+    return database.executar(instrucaoSql, [idEmpresa]);
+}
+
+function identificarEmpresas(idEmpresa) {
+    console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",)
+    var instrucaoSql = `SELECT * FROM empresa WHERE idEmpresa = ${idEmpresa};`; 
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function confirmarEdicaoEmpresa(idEmpresa, nomeEmpresa, cepEmpresa, cnpjEmpresa, emailEmpresa, telEmpresa) {
+    var instrucaoSql = `
+        UPDATE empresa SET nomeEmpresa = '${nomeEmpresa}', cep =  '${cepEmpresa}', cnpj = '${cnpjEmpresa}', emailCorporativo = '${emailEmpresa}', telEmpresa = '${telEmpresa}'  WHERE idEmpresa = '${idEmpresa}';
+    `;
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     autenticar,
@@ -67,6 +133,12 @@ module.exports = {
     cadastrarUsuario,
     identificarEmpresa,
     listarUsuarios,
-    editarUsuario,
-    deletarUsuario
+    confirmarEdicao,
+    deletarUsuario,
+    identificarUsuario,
+    listarEmpresas,
+    identificarEmpresas,
+    confirmarEdicaoEmpresa,
+    desativarEmpresa,
+    ativarEmpresa
 };

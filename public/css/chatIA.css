@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.chat{
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.baloon {
+    position: relative;
+    background-color: #3f3f3f; 
+    color: #FFF; 
+    padding: 15px 20px;
+    border-radius: 15px;
+    width: 200px;
+    height: 100px;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.4s, border 0.4s;
+    overflow: hidden;
+    user-select: none;
+}
+
+.baloon:hover {
+    transform: scale(1.15); 
+    border: #333 1px solid;
+}
+
+.baloon-quests {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.ia-answer{
+    padding-top: 30px;
+}
+
+.ia-response {
+    width: 500px;
+    height: 100px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    background-color: #3f3f3f; 
+    color: #fff;
+    font-size: 16px;
+    resize: none;
+    box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
+    outline: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default; 
+}
+
+.ia-response:hover {
+    box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
+}
+
+.ia-response:focus {
+    border: 1px solid #333; 
+    transform: scale(1.02); 
+    box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
+}
+
+textarea::placeholder {
+    color: #FFF;
+    font-style: italic;
+}
+

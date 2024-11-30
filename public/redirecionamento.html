@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionamento</title>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="assets/Logo - TechGuard 1.png">
+    <script src="./js/redirecionamento.js"></script>
+
+</head>
+
+<style>
+    body {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: #151D26;
+    }
+
+    .container{
+        width: 100%;
+        height: 100vh;
+        /* border: 2px solid blue; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .cards {
+        display: flex;
+        width: 80%;
+        height: 400px;
+        /* border: red solid 3px; */
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        background-color: #151D26;
+        border: solid rgb(45, 144, 142) 2px;
+        width: 25%;
+        height: 55%;
+        justify-content: center;
+        border-radius: 20px;
+        transition: 0.4s;
+    }
+
+    .card:hover{
+        transition: 0.4s;
+        background-color: #313840;
+        cursor: alias;
+    }
+
+    .card span {
+        display: flex;
+        font-size: 50px;
+        color: #4ADC7C;
+        /* border: white solid 1px; */
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .cards-text{
+        color: azure;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .cards-text h2{
+        margin-left: 350px;
+        margin-bottom: 80px;
+    }
+
+    .subtexts{
+        display: flex;
+        flex-direction: row;
+        color: azure;
+        gap: 300px;
+        font-size: 24px;
+    }
+</style>
+
+<body onload="redirecionamentoErro()">
+
+    <div class="container">
+
+        <div class="cards-text">
+            <h2>Qual tela deseja ir?</h2>
+            <div class="subtexts">
+                <p>Usuários</p>
+                <p>Empresas</p>
+                <p>Chamados</p>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card" onclick="redFunc()">
+                <span class="material-symbols-outlined">supervisor_account</span>
+            </div>
+            <div class="card" onclick="redEmp()">
+                <span class="material-symbols-outlined">enterprise</span>
+            </div>
+            <div class="card" onclick="redChm()">
+                <span class="material-symbols-outlined">chat</span>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
+
+<script>
+    function redFunc() {
+        window.location.href = 'administracaoUsuario.html';
+    }
+
+    function redEmp() {
+        window.location.href = 'administracaoEmpresa.html';
+    }
+
+    function redChm(){
+        window.location.href = 'administracaoChamados.html'
+    }
+
+</script>

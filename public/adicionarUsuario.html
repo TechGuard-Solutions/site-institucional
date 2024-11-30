@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/adicionarUsuario.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Usuário</title>
+    <link rel="icon" href="assets/Logo - TechGuard 1.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="./js/redirecionamento.js"></script>
+</head>
+<body onload="redirecionamentoErro()">
+    
+    <span class="material-symbols-outlined" style="font-size: 48px;" onclick="window.location.href='administracaoUsuario.html'">arrow_circle_left</span>
+    <section class="section-initial-texts">
+        <h1>TECHGUARD</h1>
+        <p>SOLUTIONS</p>    
+    </section>
+    <section class="section-cadastro">
+        <div class="cadastro">
+            <p class="p_cadastro" id="texto-cadastro">Adicionar</p>
+            <!-- Campos de cadastro padrão -->
+            <div class="cadastro-fields" id="cadastro-teste">
+                <div class="field-group">
+                    <p id="labelNome">Nome:</p>
+                    <input type="text" id="nomeUsuario" required autocomplete="off">
+                </div>
+                <div class="field-group">
+                    <p id="labelEmail">Email:</p>
+                    <input type="email" id="emailUsuario" required autocomplete="off">
+                </div>
+                <div class="field-group">
+                    <p id="labelCpf">CPF:</p>
+                    <input type="text" id="cpfUsuario" required autocomplete="off">
+                </div>
+                <div class="field-group">
+                    <p id="labelTelUsuario">Tel:</p>
+                    <input type="tel" id="telUsuario" required autocomplete="off">
+                </div>
+                <div class="field-group">
+                    <p id="labelSenha">Senha:</p>
+                    <input type="password" id="senhaUsuario" required autocomplete="off">
+                </div>
+                <div class="field-group">
+                    <p class="passwd-confirm">Confirme a Senha:</p>
+                    <input type="password" id="confirmarSenhaUsuario" required autocomplete="off">
+                </div>
+                <div class="buttons-field">
+                    <button onclick="adicionarUsuario()" id="botao_registro">Adicionar</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="assets/circulo.png" alt="Circulo pulsante" class="circulo">
+        </div>  
+    </section>
+</body>
+</html>
+    <script src="./js/adicionarUsuario.js"></script>
+    <!-- Máscaras de Inputs -->
+     <script>
+        $('#cep').mask('00000-000');
+        $('#cpfUsuario').mask('000.000.000-00', {reverse: false});
+        $('#telUsuario').mask('(00)00000-0000');
+     </script>

@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.container-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.738); 
+    z-index: 1000;
+    color: white;
+    font-family: 'Goldman';
+}
+
+.container-modal h3 {
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#0f161f; 
+    border: #117701 solid 1px;
+    border-radius: 3px;
+    width: 300px;
+    height: 600px;
+    z-index: 1001;
+}
+
+body.modal-open {
+    overflow: hidden; 
+}
+
+.center {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputModal {
+    width: 200px;
+    background: none;
+    border: none;
+    border-bottom: #4ADC7C solid;
+    color: #AAF8AD;
+    margin-top: 10px;
+
+}
+
+.selectModal {
+    width: 200px;
+    background: none;
+    border-style: none;
+    border-bottom: #4ADC7C solid;
+    color: #AAF8AD;
+    margin-top: 10px;
+}
+
+.selectModal option{
+    width: 200px;
+    background: #151D26;
+    border-style: none;
+    border-bottom: #4ADC7C solid;
+    color: #AAF8AD;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.btn {
+    background-color: #151D26;
+    border: 2px solid #4ADC7C;
+    color: #4ADC7C;
+    border-radius: 5px;
+    height: 40px;
+    cursor: pointer;
+    font-family: "Goldman";
+    margin-bottom: 10px;
+    transition: 0.4s;
+}
+
+.btn:hover{
+    background-color: #AAF8AD;
+    transition: 0.4s;
+    color: #151D26;
+}

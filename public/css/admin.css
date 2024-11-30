@@ -2,14 +2,17 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow: hidden;
+    background-color: #1f2a3c;
 }
 
 .container{
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 100vh;
     justify-self: center;
     align-items: center;
+    justify-content: center;
 }
 
 .hello{
@@ -18,6 +21,12 @@ body {
     width: 100%;
     justify-self: center;
     align-items: center;
+    color: #fff;
+}
+
+h2{
+    color: #4ADC7C;
+    font-size: 26px;
 }
 
 .icons-admin{
@@ -44,7 +53,7 @@ body {
 }
 
 .material-symbols-outlined {
-    font-size: 40px; /* Tamanho do ícone */
+    font-size: 50px; /* Tamanho do ícone */
 }
 
 .tooltip {
