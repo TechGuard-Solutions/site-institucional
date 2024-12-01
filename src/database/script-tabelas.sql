@@ -8,8 +8,7 @@ CREATE TABLE empresa (
 	cep CHAR(9),
 	cnpj CHAR(18),
 	emailCorporativo VARCHAR(45),
-	telEmpresa CHAR(9),
-	ativo BOOLEAN
+	telEmpresa CHAR(9)
 );
 
 CREATE TABLE tipoUsuario (
@@ -31,17 +30,18 @@ CREATE TABLE usuario (
 	CONSTRAINT fkTipoUsuario FOREIGN KEY (fkTipoUsuario) REFERENCES tipoUsuario (idTipoUsuario)
 );
 
-CREATE TABLE contato (
-	idContato INT PRIMARY KEY AUTO_INCREMENT,
-	nomeContato VARCHAR(45),
-	emailContato VARCHAR(45),
-	mensagem VARCHAR(300),
-    fkUsuario INT NOT NULL,
-    fkEmpresa INT NOT NULL,
-	statusChamado VARCHAR(15),
-    CONSTRAINT fkContatoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
-    CONSTRAINT fkContatoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES usuario (fkEmpresa)
-    );
+CREATE TABLE chamados (
+  id VARCHAR(6) PRIMARY KEY,
+  nomeUsuario varchar(50),
+  emailUsuario varchar(100),
+  descricao TEXT NOT NULL,
+  prioridade VARCHAR(50) NOT NULL,
+  fk_usuario INT NOT NULL,
+  statusChamado VARCHAR(15),
+  tema VARCHAR(255) NOT NULL,
+  data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
+);
 
 CREATE TABLE registros (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -69,8 +69,8 @@ INSERT INTO tipoUsuario (tipo) VALUES
 	('Padrao'),
 	('Admin');
 
-INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa, ativo) VALUES
-	('TechGuard Solutions', '01414-001', "40.028.922/0001-00", 'techguardsolutions.suporte@gmail.com', "4002-8922", true);
+INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa) VALUES
+	('TechGuard Solutions', '01414-001', "40.028.922/0001-00", 'techguardsolutions.suporte@gmail.com', "4002-8922");
 
 INSERT INTO usuario (nomeUsuario, senhaUsuario, cpf, emailUsuario, telUsuario, fkEmpresa, fkTipoUsuario, ativo) VALUES
 	('Admin', '2FD15005E2D51CB1BE7B2C1A75A91AF79C10350B184271A4F9CC9800B93BAFC9', '464.646.422-33', 'admin@techguard.com', '(11)94002-8922', 1, 2, true);
