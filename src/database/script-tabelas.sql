@@ -43,18 +43,6 @@ CREATE TABLE chamados (
   FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
 );
 
-CREATE TABLE contato (
-	idContato INT PRIMARY KEY AUTO_INCREMENT,
-	nomeContato VARCHAR(45),
-	emailContato VARCHAR(45),
-	mensagem VARCHAR(300),
-    fkUsuario INT NOT NULL,
-    fkEmpresa INT NOT NULL,
-	statusChamado VARCHAR(15),
-    CONSTRAINT fkContatoUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
-    CONSTRAINT fkContatoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES usuario (fkEmpresa)
-    );
-
 CREATE TABLE registros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
