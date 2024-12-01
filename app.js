@@ -31,6 +31,9 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/dashboard", dashboardRouter);
+app.use("/ia", iaRouter);
+app.use("/resposta", respostaRouter);
+app.use("/chamados", chamadoRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
