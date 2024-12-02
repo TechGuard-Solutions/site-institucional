@@ -11,7 +11,7 @@ router.get("/listar", function (req, res){
     chamadoController.listarChamados(req, res);
 });
 
-router.post("/deletar", function (req, res){
+router.delete("/deletar", function (req, res){
     chamadoController.deletarChamado(req, res);
 });
 

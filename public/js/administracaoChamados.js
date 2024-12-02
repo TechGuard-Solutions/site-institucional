@@ -29,7 +29,6 @@ async function listarChamados() {
 
 async function listarChamadosNaTela() {
   const chamados = await listarChamados();
-  nomeEmpresa.innerHTML = sessionStorage.nomeEmpresa
 
   const listContainer = document.getElementById("chamado-list");
   listContainer.innerHTML = "";
@@ -53,48 +52,60 @@ async function listarChamadosNaTela() {
 }
 
 async function deletarChamado(id) {
-  const response = await fetch("/chamados/deletar", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id })
-  });
+  try {
+    const response = await fetch("/chamados/deletar", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ idServer: id })
+    });
 
-  const data = await response.json();
-  if (response.ok) {
-    // alert("Chamado deletado com sucesso!");
-    Swal.fire({
-      title: "Chamado deletado com sucesso!",
-      color: "#4ADC7C",
-      background: "#10161c",
-      confirmButtonColor: "#10161c",
-      customClass: {
+    if (response.ok) {
+      Swal.fire({
+        title: "Chamado deletado com sucesso!",
+        color: "#4ADC7C",
+        background: "#10161c",
+        confirmButtonColor: "#10161c",
+        customClass: {
           confirmButton: 'meu-botao',
           popup: 'meu-alerta',
           icon: 'meu-icone'
-      }
-  });
-    window.reload();
-    listarChamadosNaTela();
-  } else {
-    // alert("Erro ao deletar chamado: " + data.error);
+        }
+      });
+      window.location.reload();
+    } else {
+      const data = await response.json();
+      Swal.fire({
+        title: `Erro ao deletar chamado! ${data.error || ''}`,
+        icon: "error",
+        color: "#f4796b",
+        background: "#10161c",
+        confirmButtonColor: "#10161c",
+        customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+        }
+      });
+    }
+  } catch (error) {
     Swal.fire({
       title: "Erro ao deletar chamado!",
+      text: error.message || "Ocorreu um erro inesperado.",
       icon: "error",
       color: "#f4796b",
       background: "#10161c",
       confirmButtonColor: "#10161c",
       customClass: {
-          confirmButton: 'meu-botao',
-          popup: 'meu-alerta',
-          icon: 'meu-icone'
+        confirmButton: 'meu-botao',
+        popup: 'meu-alerta',
+        icon: 'meu-icone'
       }
-  });
+    });
   }
 }
 
-async function criarChamado(tema, prioridade, descricao, fk_usuario, nome_usuario, email_usuario) {
-  nomeEmpresa.innerHTML = sessionStorage.nomeEmpresa
 
+async function criarChamado(tema, prioridade, descricao, fk_usuario, nome_usuario, email_usuario) {
   try {
       const response = await fetch("http://localhost:3333/chamados/criar", {
           method: "POST",
