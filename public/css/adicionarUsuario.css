@@ -101,7 +101,6 @@ body {
 
 .cadastro-fields {
     width: 100%;
-    /* height: 100%; */
     margin-bottom: 20px;
     position: relative;
 }
@@ -109,8 +108,6 @@ body {
 .cadastro-fields p {
     display: flex;
     align-items: start;
-    /* width: 100%; */
-    /* height: 100%; */
     margin-bottom: 20px;
     position: relative;
 }
