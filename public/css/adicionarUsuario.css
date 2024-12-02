@@ -26,8 +26,8 @@ body {
   }
 
   .meu-icone {
-    color: #ff0000 !important;  /* Altere a cor do ícone */
-    font-size: 15px;  /* Ajusta o tamanho do ícone (opcional) */
+    color: #ff0000 !important;  
+    font-size: 15px;  
   }
 .material-symbols-outlined {
     background: none;

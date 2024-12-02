@@ -32,6 +32,12 @@ body {
     font-family: "Goldman";
 }
 
+input::placeholder,
+textarea::placeholder {
+    color: black;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
 .labels {
     display: flex;
     flex-direction: row;
@@ -42,9 +48,9 @@ body {
     padding: 20px;
 }
 
-.first-label select {
+.first-label input {
     width: 260px;
-    height: 50px;
+    height: 30px;
     border-radius: 15px;
     background-color: #D9D9D9;
     color: black;
@@ -57,8 +63,8 @@ body {
 }
 
 .second-label select {
-    width: 260px;
-    height: 50px;
+    width: 280px;
+    height: 54px;
     border-radius: 15px;
     background-color: #D9D9D9;
     color: black;
@@ -67,20 +73,29 @@ body {
 }
 
 .suporte textarea {
-    width: 600px;
+    width: 665px;
     height: 250px;
     border-radius: 15px;
     background-color: #D9D9D9;
     color: black;
     font-size: 15px;
     resize: none;
+    text-align: start;
+    padding: 10px;
 }
 
-button {
+.botao {
+    margin-left: 36%;
+    display: flex;
     width: 200px;
     height: 50px;
     border-radius: 15px;
     background-color: #4ADC7C;
     color: #131820;
     font-size: 20px;
+    margin-top: 2%;
 }
+
+.botao:hover {
+    background-color: #189704; 
+  }

@@ -103,6 +103,31 @@ async function identificarUsuario(idUsuario) {
   }
 }
 
+function confirmarDelete() {
+  var idUsuario = sessionStorage.idDoUsuarioIdentificado;
+
+  console.log(idUsuario);
+  Swal.fire({
+    title: "Você quer deletar esse usuário?",
+    showDenyButton: true,
+    confirmButtonText: "Deletar",
+    denyButtonText: `Cancelar`,
+    color: "#4ADC7C",
+    background: "#10161c",
+    confirmButtonColor: "#10161c",
+    denyButtonColor: "#10161c",
+    customClass: {
+      confirmButton: "meu-botao",
+      denyButton: "meu-botao",
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      deletarUsuario(idUsuario);
+      modal.style.display = "none";
+    }
+  });
+}
+
 async function deletarUsuario(idUsuario) {
   if (idUsuario === undefined || idUsuario === null) {
     console.error("ID de usuário inválido");
@@ -120,12 +145,39 @@ async function deletarUsuario(idUsuario) {
   if (res.ok) {
     console.log("teste");
     console.log(`Usuário com ID ${idUsuario} deletado com sucesso!`);
+    Swal.fire({
+      title: "Usuário deletado com sucesso!",
+      color: "#4ADC7C",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
     window.location.reload();
     return await res.json();
   } else {
     console.log("Houve um erro ao deletar o usuário.");
+    Swal.fire({
+      title: "Erro ao deletar usuário!",
+      icon: "error",
+      color: "#f4796b",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
     throw new Error("Houve um erro ao deletar o usuário.");
   }
+}
+
+function cancelar() {
+  modal.style.display = "none";
 }
 
 async function editarUsuario(idUsuario) {
@@ -182,10 +234,33 @@ async function confirmarEdicao(idUsuario, emailUsuario, cargo) {
   });
   if (res.ok) {
     console.log(`Usuário com ID ${idUsuario} modificado com sucesso!`);
+    Swal.fire({
+      title: "Usuário modificado com sucesso!",
+      color: "#4ADC7C",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
     listarUsuariosNaTela();
     return await res.json();
   } else {
     console.log("Houve um erro ao modificar o usuário.");
+    Swal.fire({
+      title: "Erro ao modificar chamado!",
+      icon: "error",
+      color: "#f4796b",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
     throw new Error("Houve um erro ao modificar o usuário.");
   }
 }

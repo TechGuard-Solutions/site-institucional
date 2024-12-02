@@ -16,7 +16,7 @@ h2 {
 
 .titulo, .employee-item {
   display: grid;
-  grid-template-columns: 1fr 3fr 3fr 2fr; /* Ajuste proporcional: ID, Nome, Cargo, Ações */
+  grid-template-columns: 1fr 3fr 3fr 2fr; 
   padding: 10px 20px;
   align-items: center;
   text-align: center;
@@ -144,8 +144,6 @@ h2 {
 
 .div-usuario {
     display: flex; 
-    /* align-items: flex-start;
-    justify-content: flex-start; */
     gap: 25px; 
     width: 100%;
   }

@@ -29,6 +29,7 @@ async function listarChamados() {
 
 async function listarChamadosNaTela() {
   const chamados = await listarChamados();
+  nomeEmpresa.innerHTML = sessionStorage.nomeEmpresa
 
   const listContainer = document.getElementById("chamado-list");
   listContainer.innerHTML = "";
@@ -60,15 +61,39 @@ async function deletarChamado(id) {
 
   const data = await response.json();
   if (response.ok) {
-    alert("Chamado deletado com sucesso!");
+    // alert("Chamado deletado com sucesso!");
+    Swal.fire({
+      title: "Chamado deletado com sucesso!",
+      color: "#4ADC7C",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
     window.reload();
     listarChamadosNaTela();
   } else {
-    alert("Erro ao deletar chamado: " + data.error);
+    // alert("Erro ao deletar chamado: " + data.error);
+    Swal.fire({
+      title: "Erro ao deletar chamado!",
+      icon: "error",
+      color: "#f4796b",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
   }
 }
 
 async function criarChamado(tema, prioridade, descricao, fk_usuario, nome_usuario, email_usuario) {
+  nomeEmpresa.innerHTML = sessionStorage.nomeEmpresa
 
   try {
       const response = await fetch("http://localhost:3333/chamados/criar", {
@@ -86,10 +111,34 @@ async function criarChamado(tema, prioridade, descricao, fk_usuario, nome_usuari
       if (!response.ok) {
         throw new Error("Erro ao criar chamado no banco.");
       }
-      alert("Chamado criado com sucesso no banco e enviado!");
+      // alert("Chamado criado com sucesso no banco e enviado!");
+      Swal.fire({
+        title: "Chamado criado com sucesso!",
+        color: "#4ADC7C",
+        background: "#10161c",
+        confirmButtonColor: "#10161c",
+        customClass: {
+            confirmButton: 'meu-botao',
+            popup: 'meu-alerta',
+            icon: 'meu-icone'
+        }
+    });
+      
   } catch (error) {
       console.error("Erro:", error);
-      alert("Erro ao criar o chamado no banco de dados.");
+      Swal.fire({
+        title: "Erro ao criar o chamado!",
+        icon: "error",
+        color: "#f4796b",
+        background: "#10161c",
+        confirmButtonColor: "#10161c",
+        customClass: {
+            confirmButton: 'meu-botao',
+            popup: 'meu-alerta',
+            icon: 'meu-icone'
+        }
+    });
+      // alert("Erro ao criar o chamado no banco de dados.");
   }
 }
 

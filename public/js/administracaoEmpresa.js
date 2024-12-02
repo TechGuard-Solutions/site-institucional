@@ -41,9 +41,6 @@ async function listarEmpresasNaTela() {
     };
     const usuarioDiv = `
         <div class="employee-item" id="employee-${empresa.idEmpresa}">
-          <div class="id-empresa"> 
-          <span>${empresa.idEmpresa}</span>
-          </div>
           <div class="nome-empresa"> 
           <span>${empresa.nomeEmpresa}</span>
           </div>
@@ -59,12 +56,19 @@ async function listarEmpresasNaTela() {
           <div class="telefone-empresa"> 
           <span>${empresa.telEmpresa}</span>
           </div>
+          <div class="status"> 
           <span>${isActive}</span>
+          </div>
           <div class="acoes">
           <button onclick="editarEmpresa(${empresa.idEmpresa})">
-          <img src="./assets/pontos.png" alt="Editar" width="20px"</button>
-          <button onclick="ativarEmpresa(${empresa.idEmpresa})">Ativar</button>
-          <button onclick="desativarEmpresa(${empresa.idEmpresa})">Desativar</button>
+          <img src="./assets/pontos.png" alt="Editar" width="20px"
+          </button>
+          <button onclick="ativarEmpresa(${empresa.idEmpresa})">
+          <img src="./assets/desativa.png" alt="Editar" width="20px"
+          </button>
+          <button onclick="desativarEmpresa(${empresa.idEmpresa})">
+          <img src="./assets/ativa.png" alt="Editar" width="20px"
+          </button>
           </div>
         </div>
       `;
@@ -87,11 +91,35 @@ async function desativarEmpresa(idEmpresa) {
   });
   if (res.ok) {
     console.log(`Empresa com ID ${idEmpresa} desativado com sucesso!`);
+    Swal.fire({
+      title: "Empresa desativada com sucesso!",
+      color: "#4ADC7C",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
     listarEmpresasNaTela();
     return await res.json();
   } else {
     console.log("Houve um erro ao desativar a empresa.");
+    Swal.fire({
+      title: "Erro ao desativar a empresa!",
+      icon: "error",
+      color: "#f4796b",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
     throw new Error("Houve um erro ao desativar a empresa.");
+
   }
 }
 async function ativarEmpresa(idEmpresa) {
@@ -110,10 +138,33 @@ async function ativarEmpresa(idEmpresa) {
   });
   if (res.ok) {
     console.log(`Empresa com ID ${idEmpresa} ativada com sucesso!`);
+    Swal.fire({
+      title: "Empresa ativada com sucesso!",
+      color: "#4ADC7C",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
     listarEmpresasNaTela();
     return await res.json();
   } else {
     console.log("Houve um erro ao ativar a empresa.");
+    Swal.fire({
+      title: "Erro ao ativar a empresa!",
+      icon: "error",
+      color: "#f4796b",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
     throw new Error("Houve um erro ao ativar a empresa.");
   }
 }
@@ -208,11 +259,34 @@ async function confirmarEdicao(idEmpresa, nomeEmpresa, cepEmpresa, cnpjEmpresa, 
   });
   if (res.ok) {
     console.log(`Empresa com ID ${idEmpresa} modificado com sucesso!`);
+    Swal.fire({
+      title: "Empresa editada com sucesso!",
+      color: "#4ADC7C",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
     listarEmpresasNaTela();
     return await res.json();
   } else {
-    console.log("Houve um erro ao modificar o usuário.");
-    throw new Error("Houve um erro ao modificar o usuário.");
+    console.log("Houve um erro ao modificar a empresa.");
+    Swal.fire({
+      title: "Erro ao editar a empresa!",
+      icon: "error",
+      color: "#f4796b",
+      background: "#10161c",
+      confirmButtonColor: "#10161c",
+      customClass: {
+          confirmButton: 'meu-botao',
+          popup: 'meu-alerta',
+          icon: 'meu-icone'
+      }
+  });
+    throw new Error("Houve um erro ao modificar a empresa.");
   }
 }
 function cancelar() {
