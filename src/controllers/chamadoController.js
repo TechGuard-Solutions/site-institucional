@@ -30,18 +30,19 @@ function listarChamados(req, res) {
 };
 
 
-const deletarChamado = (req, res) => {
-  const { id } = req.body; 
-
-  chamadoModel.deletarChamado(id, (err, result) => {
-    if (err) {
-      return res.status(500).json({ error: "Erro ao deletar chamado." });
-    }
-    if (result.affectedRows === 0) {
-      return res.status(404).json({ error: "Chamado não encontrado." });
-    }
-    res.status(200).json({ message: "Chamado deletado com sucesso." });
-  });
-};
+function deletarChamado(req, res) {
+  var id = req.body.idServer;
+  if (!id) {
+    return res.status(400).json({ message: "ID do chamado é necessário." });
+}
+chamadoModel.deletarChamado(id)
+    .then(function () {
+        res.status(200).json({ message: "Chamado deletado com sucesso!" }); // Envia um JSON
+    })
+    .catch(function (erro) {
+        console.error("Erro ao deletar chamado:", erro);
+        res.status(500).json({ message: erro.sqlMessage || "Erro interno ao deletar o chamado." });
+    });
+}
 
 module.exports = { criarChamado, listarChamados, deletarChamado };
