@@ -15,46 +15,41 @@
 </head>
 
 <body>
-
-    <section class="suporte">
+    <section class="main">
         <div class="container">
             <sidebar-menu></sidebar-menu>
             <section class="suporte">
+                <div class="infos-nome">
+                    <a id="nomeEmpresa">NOME DA EMPRESA</a>
+                </div>
+                <img src="./assets/foto-perfil.png" alt="" width="160px">
                 <form id="formChamado" action="https://api.staticforms.xyz/submit" method="post">
                     <input type="text" name="$name" id="name" hidden>
                     <input type="text" name="$email" id="email" hidden>
 
-
-                    <div class="texts">
-                        <h1>Alguma reclamação ou problema?</h1>
-                        <h1>Informe aqui:</h1>
+                <div class="labels">
+                    <div class="first-label">
+                    <input type="text" name="subject" placeholder="Tema do Chamado" id="tema" required>
                     </div>
-
-
-                    <div class="firsts-holders">
-                        <input type="text" class="infos-nome" name="subject" placeholder="Tema do Chamado" id="tema"
-                            required>
-
-                        <div class="labels first-label">
-                            <select name="$prioridade" id="prioridade" required>
-                                <option value="" selected disabled>Selecione a Prioridade</option>
-                                <option value="Baixa">Baixa</option>
-                                <option value="Média">Média</option>
-                                <option value="Alta">Alta</option>
-                                <option value="Extrema">Extrema</option>
-                            </select>
-                        </div>
+                    <div class="second-label">    
+                    <select name="$prioridade" id="prioridade" required>
+                        <option value="" selected disabled>Selecione a Prioridade</option>
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Extrema">Extrema</option>
+                    </select>
                     </div>
-
-
-                    <div class="labels second-label">
-                        <textarea name="$mensagem" class="descricao" placeholder="Descrição do Chamado"
-                            required></textarea>
-                            <button class="form-button" type="submit">Enviar</button>
-                    </div>
-
+                </div>
+                <div class="description">
+                    <textarea name="$mensagem" class="descricao" placeholder="Descrição do Chamado" required></textarea>
+                </div>
+                    <!-- Campos ocultos para Static Forms -->
                     <input type="hidden" name="accessKey" value="982d06b1-f682-4a60-b757-75b3c052bfdb">
                     <input type="hidden" name="emailTo" value="techguardsolutions.suporte@gmail.com">
+
+                    <input class="botao" type="submit" value="ENVIAR"/>
+                </form>
 
                 </form>
             </section>

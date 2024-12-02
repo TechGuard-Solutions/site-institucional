@@ -17,3 +17,9 @@ function redirecionamentoErroParaEmpresas() {
         window.location.href = 'erro.html';
     } 
 }
+
+function estarLogado() {
+    if (sessionStorage.idUsuario == null || sessionStorage.idUsuario == undefined) {
+        window.location.href = 'erro.html';
+    }
+}

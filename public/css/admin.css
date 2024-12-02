@@ -47,19 +47,19 @@ h2{
 }
 
 .menu-item {
-    position: relative; /* Para o tooltip */
-    margin: 10px 0; /* Espaço entre os itens */
-    cursor: pointer; /* Indica que é interativo */
+    position: relative; 
+    margin: 10px 0; 
+    cursor: pointer; 
 }
 
 .material-symbols-outlined {
-    font-size: 50px; /* Tamanho do ícone */
+    font-size: 50px; 
 }
 
 .tooltip {
-    display: none; /* Esconde o tooltip inicialmente */
+    display: none; 
     position: absolute;
-    top: 100%; /* Posiciona abaixo do elemento */
+    top: 100%; 
     left: 50%;
     transform: translateX(-50%);
     padding: 8px;
@@ -75,6 +75,6 @@ h2{
 }
 
 .menu-item:hover .tooltip {
-    display: block; /* Exibe o tooltip no hover */
+    display: block; 
     opacity: 1;
 }
