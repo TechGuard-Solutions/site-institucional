@@ -103,31 +103,6 @@ async function identificarUsuario(idUsuario) {
   }
 }
 
-function confirmarDelete() {
-  var idUsuario = sessionStorage.idDoUsuarioIdentificado;
-
-  console.log(idUsuario);
-  Swal.fire({
-    title: "Você quer deletar esse usuário?",
-    showDenyButton: true,
-    confirmButtonText: "Deletar",
-    denyButtonText: `Cancelar`,
-    color: "#4ADC7C",
-    background: "#10161c",
-    confirmButtonColor: "#10161c",
-    denyButtonColor: "#10161c",
-    customClass: {
-      confirmButton: "meu-botao",
-      denyButton: "meu-botao",
-    },
-  }).then((result) => {
-    if (result.isConfirmed) {
-      deletarUsuario(idUsuario);
-      modal.style.display = "none";
-    }
-  });
-}
-
 async function deletarUsuario(idUsuario) {
   if (idUsuario === undefined || idUsuario === null) {
     console.error("ID de usuário inválido");
