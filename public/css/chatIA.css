@@ -58,7 +58,7 @@
     background-color: #3f3f3f; 
     color: #fff;
     font-size: 15px;
-    resize: none; /* Remove o redimensionamento */
+    resize: none; 
     box-shadow: 0 2px 4px rgba(24, 151, 4, 1); 
     outline: none;
     transition: transform 0.3s, box-shadow 0.3s;

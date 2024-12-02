@@ -3,36 +3,61 @@ body {
     background-color: #1f2a3c;
     color: #1f2a3c;
     margin: 0;
+    overflow: hidden;
 }
 
-.titulo {
-    width: 300px;
-    height: 50px;
+.titulo h3{
+    width: 40%;
+    height: 10%;
     position: absolute;
-    left: 42%;
-    top: 2px;
+    left: 33%;
+    top: 1%;
+    color: #4ADC7C;
 }
 
 .chamado {
-    max-width: 800px;
+    max-width: 1000px;
     width: 80%;
-    position: absolute;  
+    position: absolute;
     margin-top: 1%;
-    top: 70px;       
-    left: 25%;           
+    top: 70px;
+    left: 52%;
+    transform: translateX(-50%);
     padding: 20px;
     border-radius: 8px;
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 550px;
+}
+
+.chamado::-webkit-scrollbar {
+    width: 12px; 
+}
+
+.chamado::-webkit-scrollbar-thumb {
+    background-color: #20d55f;
+    border-radius: 5px; 
+    border: 3px solid #000; 
+}
+
+.chamado::-webkit-scrollbar-track {
+    background-color: #f6f6f6; 
+    border-radius: 2px;
+}
+
+.chamado::-webkit-scrollbar-thumb:hover {
+    background-color: #189704;
 }
 
 .chamado-item { 
+    word-wrap: break-word;
     padding-left: 50%;
-    border: 1px solid #000000;
+    border: 1px solid #000;
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 15px;
-    background-color: #f9f9f9;
+    background-color: #f6f6f6;
 }
 
 .chamado-item p {
