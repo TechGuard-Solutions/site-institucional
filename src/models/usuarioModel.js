@@ -3,7 +3,7 @@ function cadastrarEmpresa(nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa) 
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)", nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa);
     
     var instrucaoSql = `
-        INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa) VALUES ('${nomeEmpresa}', '${cep}', '${cnpj}', '${emailCorporativo}', '${telEmpresa}');
+        INSERT INTO empresa (nomeEmpresa, cep, cnpj, emailCorporativo, telEmpresa, ativo) VALUES ('${nomeEmpresa}', '${cep}', '${cnpj}', '${emailCorporativo}', '${telEmpresa}', true);
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
