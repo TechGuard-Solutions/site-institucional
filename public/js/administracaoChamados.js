@@ -107,7 +107,7 @@ async function deletarChamado(id) {
 
 async function criarChamado(tema, prioridade, descricao, fk_usuario, nome_usuario, email_usuario) {
   try {
-      const response = await fetch("http://localhost:3333/chamados/criar", {
+      const response = await fetch("/chamados/criar", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
