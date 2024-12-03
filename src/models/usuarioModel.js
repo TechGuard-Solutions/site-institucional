@@ -67,7 +67,7 @@ function identificarEmpresa(cnpj) {
 
 function listarUsuarios(fkEmpresa) {
     console.log("USUÁRIO MODEL: Se der ECONREFUSED, verificar credenciais de acesso ao banco, caso contrário confirme os valores:/n/n)",)
-    var instrucaoSql = `SELECT u.idUsuario, u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM Usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario WHERE fkEmpresa = ${fkEmpresa}`; 
+    var instrucaoSql = `SELECT u.idUsuario, u.nomeUsuario AS NomeUsuario, t.tipo AS Cargo FROM usuario u JOIN tipoUsuario t ON u.fkTipoUsuario = t.idTipoUsuario WHERE fkEmpresa = ${fkEmpresa}`; 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
