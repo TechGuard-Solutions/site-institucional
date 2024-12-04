@@ -83,7 +83,7 @@ function confirmarEdicao(idUsuario, emailUsuario, cargo) {
 function deletarUsuario(idUsuario) {
     console.log("ID do usuário para exclusão:", idUsuario);
     
-    var instrucaoSql = `DELETE FROM Usuario WHERE idUsuario = ${idUsuario}`;  
+    var instrucaoSql = `DELETE FROM usuario WHERE idUsuario = ${idUsuario}`;  
     return database.executar(instrucaoSql, [idUsuario]);
 }
 
